@@ -15,11 +15,11 @@ class UserController extends  Controller{
                 session("userName",$data['name']);
                 redirect(session('urlRefer'));
             }else{
-                $this-error("密码错误！");
+                $this->error("密码错误！");
             }
 
         }else{
-            $this-error("账号不存在！");
+            $this->error("账号不存在！");
         }
 
     }
