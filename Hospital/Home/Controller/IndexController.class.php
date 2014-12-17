@@ -6,7 +6,7 @@ class IndexController extends Controller {
         $this->display('Hospital:index');
     }
     public  function test(){
-        
+
     }
 
 }
