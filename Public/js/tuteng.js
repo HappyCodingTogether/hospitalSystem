@@ -40,4 +40,14 @@ $(document).ready(function() {
         $(".keshi li.items li.active").removeClass("active");
         $(this).addClass("active");
     });
+    // 验证码生成
+    var captcha_img = $('#auth_code');
+    var verifyimg = captcha_img.attr("src");
+    captcha_img.click(function(){
+        if( verifyimg.indexOf('?')>0){
+            $(this).attr("src", verifyimg+'&random='+Math.random());
+        }else{
+            $(this).attr("src", verifyimg.replace(/\?.*$/,'')+'?'+Math.random());
+        }
+    });
 });

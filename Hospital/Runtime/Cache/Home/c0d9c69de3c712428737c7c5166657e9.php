@@ -3,8 +3,8 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>图腾医院统一挂号平台</title>
-		<link rel="stylesheet" type="text/css" href="/hospital/Public/css/bootstrap.css" />
-		<link rel="stylesheet" type="text/css" href="/hospital/Public/css/tuteng.css" />
+		<link rel="stylesheet" type="text/css" href="/hospitalSystem/trunk/Public/css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="/hospitalSystem/trunk/Public/css/tuteng.css" />
 	</head>
 	<body>
 		<header>
@@ -13,7 +13,7 @@
 					<div class="header_main">
 						<div class="col-md-6">
 							<div class="logo">
-								<img src="/hospital/Public/images/logo.png">
+								<img src="/hospitalSystem/trunk/Public/images/logo.png">
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -40,7 +40,7 @@
 							<div class="r_l-box">
 								<ul>
 									<li><a href="javascript:void(0)" id="login_a">登录</a></li>
-									<li><a href="/hospital/index.php/Home/Hospital/register">注册</a></li>
+									<li><a href="/hospitalSystem/trunk/index.php/Home/Hospital/register">注册</a></li>
 								</ul>	
 							</div>
 						</div>
@@ -50,7 +50,7 @@
                                 <div class="r_l-box">
                                 <ul>
                                     <li><label ><?php echo $_SESSION['userName']?></label></li>
-                                    <li><a href="/hospital/index.php/Home/User/logout">注销</a></li>
+                                    <li><a href="/hospitalSystem/trunk/index.php/Home/User/logout">注销</a></li>
                                 </ul>
                                 </div>
                             </div>
@@ -62,18 +62,18 @@
 					<div class="menu-list">
 						<div class="col-md-offset-1">
 							<ul>
-                                <li><a href="/hospital/index.php/Home/Hospital">首页</a></li>
-                                <li><a href="/hospital/index.php/Home/Hospital/hospitals">按医院预约</a></li>
-								<li><a href="/hospital/index.php/Home/Hospital/keshi">按科室预约</a></li>
-								<li><a href="/hospital/index.php/Home/Hospital/gonggao">最新公告</a></li>
-								<li><a href="/hospital/index.php/Home/Hospital/personCenter">个人中心</a></li>
+                                <li><a href="/hospitalSystem/trunk/index.php/Home/Hospital">首页</a></li>
+                                <li><a href="/hospitalSystem/trunk/index.php/Home/Hospital/hospitals">按医院预约</a></li>
+								<li><a href="/hospitalSystem/trunk/index.php/Home/Hospital/keshi">按科室预约</a></li>
+								<li><a href="/hospitalSystem/trunk/index.php/Home/Hospital/gonggao">最新公告</a></li>
+								<li><a href="/hospitalSystem/trunk/index.php/Home/Hospital/personCenter">个人中心</a></li>
 							</ul>
 						</div>
 					</div>
 				</div>
 
 				<div id="login-box" class="login-box">
-					<form method="post" action="/hospital/index.php/Home/User/login">
+					<form method="post" action="/hospitalSystem/trunk/index.php/Home/User/login">
 						<div class="form-group">
 							<input type="text" id="userName" name="userName" class="form-control" placeholder="用户名"/>
 						</div>
@@ -106,7 +106,7 @@
                     </ul>
                 </div>
                 <div class="box-body">
-                    <img src="/hospital/Public/images/slider1.gif" height="320px"/>
+                    <img src="/hospitalSystem/trunk/Public/images/slider1.gif" height="320px"/>
                     <div class="quick-yuyue row">
                         <div class="col-md-6">
                             <div class="total-message">
@@ -186,19 +186,19 @@
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner" role="listbox">
                             <div class="item active">
-                                <img src="/hospital/Public/images/slider1.jpg"/>
+                                <img src="/hospitalSystem/trunk/Public/images/slider1.jpg"/>
                                 <div class="carousel-caption">
                                     <h1>中国海监船</h1>
                                 </div>
                             </div>
                             <div class="item">
-                                <img src="/hospital/Public/images/slider2.jpg"/>
+                                <img src="/hospitalSystem/trunk/Public/images/slider2.jpg"/>
                                 <div class="carousel-caption">
                                     fff
                                 </div>
                             </div>
                             <div class="item">
-                                <img src="/hospital/Public/images/slider2.jpg"/>
+                                <img src="/hospitalSystem/trunk/Public/images/slider2.jpg"/>
                                 <div class="carousel-caption">
                                     fff
                                 </div>
@@ -221,22 +221,13 @@
                 <div class="box-header">
                     <ul>
                         <li class="active">最新公告</li>
-                        <span><a href="">&gt;&gt;更多</a></span>
+                        <span><a href="/hospitalSystem/trunk/index.php/Home/Hospital/gonggao">&gt;&gt;更多</a></span>
                     </ul>
                 </div>
                 <div class="box-body">
                     <div class="gonggao-items">
                         <ul>
-                            <li><a href="">北京市垂杨柳医院暂停预约通知</a></li>
-                            <li><a href="">航天中心医院(原721医院)暂停预约通知</a></li>
-                            <li><a href="">北京康复医院(北京工人疗养院)暂停预约通知</a></li>
-                            <li><a href="">中国中医科学院广安门医院科室调整通知</a></li>
-                            <li><a href="">北京肿瘤医院部分科室医生门诊挂号费调整通知</a></li>
-                            <li><a href="">清华大学医院暂停预约挂号通知</a></li>
-                            <li><a href="">部分医院停止预约11月13日号源的通知</a></li>
-                            <li><a href="">北京燕化医院暂停预约通知</a></li>
-                            <li><a href="">北京复兴医院暂停预约通知</a></li>
-                            <li><a href="">北京安定医院暂停预约通知</a></li>
+                            <?php if(is_array($gonggao)): $i = 0; $__LIST__ = $gonggao;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$arr): $mod = ($i % 2 );++$i;?><li><a href="/hospitalSystem/trunk/index.php/Home/Hospital/gonggaoc?gonggaoid=<?php echo ($arr["id"]); ?>"><?php echo ($arr["title"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
                         </ul>
                     </div>
 
@@ -254,7 +245,7 @@
                 <div class="box-body">
                     <div id="hot-hospital-body">
                         <div class="hot-item">
-                            <img src="/hospital/Public/images/slider1.jpg"/>
+                            <img src="/hospitalSystem/trunk/Public/images/slider1.jpg"/>
                             <p>
                                 <strong><a href="">首都医科大学宣武医院 [三级甲等]</a></strong><br>
                                 电话：<abbr>010-83198370</abbr><br>
@@ -263,7 +254,7 @@
                             </p>
                         </div>
                         <div class="hot-item">
-                            <img src="/hospital/Public/images/slider1.jpg"/>
+                            <img src="/hospitalSystem/trunk/Public/images/slider1.jpg"/>
                             <p>
                                 <strong><a href="">首都医科大学宣武医院 [三级甲等]</a></strong><br>
                                 电话：<abbr>010-83198370</abbr><br>
@@ -272,7 +263,7 @@
                             </p>
                         </div>
                         <div class="hot-item">
-                            <img src="/hospital/Public/images/slider1.jpg"/>
+                            <img src="/hospitalSystem/trunk/Public/images/slider1.jpg"/>
                             <p>
                                 <strong><a href="">首都医科大学宣武医院 [三级甲等]</a></strong><br>
                                 电话：<abbr>010-83198370</abbr><br>
@@ -281,7 +272,7 @@
                             </p>
                         </div>
                         <div class="hot-item">
-                            <img src="/hospital/Public/images/slider1.jpg"/>
+                            <img src="/hospitalSystem/trunk/Public/images/slider1.jpg"/>
                             <p>
                                 <strong><a href="">首都医科大学宣武医院 [三级甲等]</a></strong><br>
                                 电话：<abbr>010-83198370</abbr><br>
@@ -290,7 +281,7 @@
                             </p>
                         </div>
                         <div class="hot-item">
-                            <img src="/hospital/Public/images/slider1.jpg"/>
+                            <img src="/hospitalSystem/trunk/Public/images/slider1.jpg"/>
                             <p>
                                 <strong><a href="">首都医科大学宣武医院 [三级甲等]</a></strong><br>
                                 电话：<abbr>010-83198370</abbr><br>
@@ -299,7 +290,7 @@
                             </p>
                         </div>
                         <div class="hot-item">
-                            <img src="/hospital/Public/images/slider1.jpg"/>
+                            <img src="/hospitalSystem/trunk/Public/images/slider1.jpg"/>
                             <p>
                                 <strong><a href="">首都医科大学宣武医院 [三级甲等]</a></strong><br>
                                 电话：<abbr>010-83198370</abbr><br>
@@ -310,7 +301,7 @@
                     </div>
                     <div id="hot-keshi-body" class="hide">
                         <div class="hot-item">
-                            <img src="/hospital/Public/images/slider2.jpg"/>
+                            <img src="/hospitalSystem/trunk/Public/images/slider2.jpg"/>
                             <p>
                                 <strong><a href="">北京大学第三医院皮肤科门诊</a></strong><br>
                                 电话：<abbr>010-82266699</abbr><br>
@@ -319,7 +310,7 @@
                             </p>
                         </div>
                         <div class="hot-item">
-                            <img src="/hospital/Public/images/slider2.jpg"/>
+                            <img src="/hospitalSystem/trunk/Public/images/slider2.jpg"/>
                             <p>
                                 <strong><a href="">北京大学第三医院皮肤科门诊</a></strong><br>
                                 电话：<abbr>010-82266699</abbr><br>
@@ -328,7 +319,7 @@
                             </p>
                         </div>
                         <div class="hot-item">
-                            <img src="/hospital/Public/images/slider2.jpg"/>
+                            <img src="/hospitalSystem/trunk/Public/images/slider2.jpg"/>
                             <p>
                                 <strong><a href="">北京大学第三医院皮肤科门诊</a></strong><br>
                                 电话：<abbr>010-82266699</abbr><br>
@@ -337,7 +328,7 @@
                             </p>
                         </div>
                         <div class="hot-item">
-                            <img src="/hospital/Public/images/slider2.jpg"/>
+                            <img src="/hospitalSystem/trunk/Public/images/slider2.jpg"/>
                             <p>
                                 <strong><a href="">北京大学第三医院皮肤科门诊</a></strong><br>
                                 电话：<abbr>010-82266699</abbr><br>
@@ -346,7 +337,7 @@
                             </p>
                         </div>
                         <div class="hot-item">
-                            <img src="/hospital/Public/images/slider2.jpg"/>
+                            <img src="/hospitalSystem/trunk/Public/images/slider2.jpg"/>
                             <p>
                                 <strong><a href="">北京大学第三医院皮肤科门诊</a></strong><br>
                                 电话：<abbr>010-82266699</abbr><br>
@@ -355,7 +346,7 @@
                             </p>
                         </div>
                         <div class="hot-item">
-                            <img src="/hospital/Public/images/slider2.jpg"/>
+                            <img src="/hospitalSystem/trunk/Public/images/slider2.jpg"/>
                             <p>
                                 <strong><a href="">北京大学第三医院皮肤科门诊</a></strong><br>
                                 电话：<abbr>010-82266699</abbr><br>
@@ -373,7 +364,7 @@
 <footer>
 			<div id="footer" class="footer">
 				<div class="col-md-offset-5 col-md-2">
-					<img src="/hospital/Public/images/guahao.png"/>
+					<img src="/hospitalSystem/trunk/Public/images/guahao.png"/>
 				</div>
 				<div class="col-md-12">
 					<ul>
@@ -383,8 +374,8 @@
 				</div>
 			</div>
 		</footer>
-		<script type="text/javascript" src="/hospital/Public/js/jquery-2.1.1.min.js"></script>
-		<script type="text/javascript" src="/hospital/Public/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="/hospital/Public/js/tuteng.js"></script>
+		<script type="text/javascript" src="/hospitalSystem/trunk/Public/js/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="/hospitalSystem/trunk/Public/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/hospitalSystem/trunk/Public/js/tuteng.js"></script>
 	</body>
 </html>

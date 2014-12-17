@@ -1526,3 +1526,648 @@ INFO: [ app_init ] --START--
 INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000086s ]
 INFO: [ app_init ] --END-- [ RunTime:0.000998s ]
 
+[ 2014-12-17T18:48:46+08:00 ] 127.0.0.1 /hospitalSystem/trunk/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000059s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000895s ]
+
+[ 2014-12-17T18:48:52+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000116s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002106s ]
+
+[ 2014-12-17T18:49:04+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000091s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001435s ]
+
+[ 2014-12-17T18:49:09+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000034s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000438s ]
+
+[ 2014-12-17T18:50:28+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000052s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000691s ]
+
+[ 2014-12-17T18:50:30+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000069s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000853s ]
+
+[ 2014-12-17T18:51:17+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000055s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000758s ]
+
+[ 2014-12-17T18:51:19+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000059s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000764s ]
+
+[ 2014-12-17T18:52:03+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000042s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000581s ]
+
+[ 2014-12-17T18:52:04+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000062s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000794s ]
+
+[ 2014-12-17T18:52:18+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000084s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001239s ]
+
+[ 2014-12-17T18:52:19+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000086s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001200s ]
+
+[ 2014-12-17T18:52:20+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000054s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000781s ]
+
+[ 2014-12-17T18:52:21+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000081s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+
+[ 2014-12-17T18:52:23+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000105s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001348s ]
+
+[ 2014-12-17T18:52:24+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000038s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000489s ]
+
+[ 2014-12-17T18:57:02+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000038s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000549s ]
+
+[ 2014-12-17T18:57:03+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000043s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000640s ]
+
+[ 2014-12-17T18:57:41+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000085s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001218s ]
+
+[ 2014-12-17T18:57:43+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000039s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000604s ]
+
+[ 2014-12-17T18:57:55+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000143s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002264s ]
+
+[ 2014-12-17T18:57:56+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000037s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000503s ]
+
+[ 2014-12-17T18:59:03+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000037s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000507s ]
+
+[ 2014-12-17T18:59:04+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000037s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000594s ]
+
+[ 2014-12-17T19:01:11+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000050s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000730s ]
+
+[ 2014-12-17T19:01:13+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000040s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000602s ]
+
+[ 2014-12-17T19:01:32+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000053s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000766s ]
+
+[ 2014-12-17T19:01:33+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000053s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000490s ]
+
+[ 2014-12-17T19:02:19+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000042s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000608s ]
+
+[ 2014-12-17T19:02:21+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000054s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000765s ]
+
+[ 2014-12-17T19:02:43+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000158s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002086s ]
+
+[ 2014-12-17T19:02:44+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000061s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000553s ]
+
+[ 2014-12-17T19:04:24+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000189s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001220s ]
+
+[ 2014-12-17T19:04:26+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000036s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000524s ]
+
+[ 2014-12-17T19:08:42+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000058s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000868s ]
+
+[ 2014-12-17T19:08:44+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000041s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000690s ]
+
+[ 2014-12-17T19:10:44+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000045s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000629s ]
+
+[ 2014-12-17T19:10:45+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000057s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000557s ]
+
+[ 2014-12-17T19:10:55+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify?0.09764206479303539
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000088s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001342s ]
+
+[ 2014-12-17T19:11:11+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000054s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000751s ]
+
+[ 2014-12-17T19:11:12+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000036s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000500s ]
+
+[ 2014-12-17T19:11:16+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify?0.9381742768455297
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000059s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000942s ]
+
+[ 2014-12-17T19:11:18+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify?0.3975130571052432
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000076s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001011s ]
+
+[ 2014-12-17T19:11:22+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify?0.9017716436646879
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000047s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000655s ]
+
+[ 2014-12-17T19:11:25+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify?0.04287392599508166
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000038s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000703s ]
+
+[ 2014-12-17T19:11:27+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify?0.4676460288465023
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000084s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001222s ]
+
+[ 2014-12-17T19:11:35+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify?0.12656720797531307
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000088s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001401s ]
+
+[ 2014-12-17T19:11:38+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify?0.6954261953942478
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000043s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000582s ]
+
+[ 2014-12-17T19:11:40+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify?0.43236762285232544
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000036s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000503s ]
+
+[ 2014-12-17T19:13:31+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000107s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001237s ]
+
+[ 2014-12-17T19:13:32+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000035s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000496s ]
+
+[ 2014-12-17T19:14:33+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000100s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001618s ]
+
+[ 2014-12-17T19:14:34+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000097s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000663s ]
+
+[ 2014-12-17T19:14:37+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify?0.07243898045271635
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000085s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001231s ]
+
+[ 2014-12-17T19:14:39+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify?0.6437195036560297
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000045s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000705s ]
+
+[ 2014-12-17T19:14:42+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify?0.4832435571588576
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000057s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000821s ]
+
+[ 2014-12-17T19:14:45+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify?0.25206454563885927
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000096s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001249s ]
+
+[ 2014-12-17T19:14:47+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify?0.02596200513653457
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000110s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001222s ]
+
+[ 2014-12-17T19:15:19+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify?0.3496579681523144
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000085s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001250s ]
+
+[ 2014-12-17T19:15:23+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify?0.2558251901064068
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000047s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000669s ]
+
+[ 2014-12-17T19:15:30+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify?0.5793904236052185
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000055s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000764s ]
+
+[ 2014-12-17T19:15:44+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000044s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000619s ]
+
+[ 2014-12-17T19:15:45+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000062s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000776s ]
+
+[ 2014-12-17T19:16:04+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify?0.22583785303868353
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000086s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001205s ]
+
+[ 2014-12-17T19:17:11+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Index/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000037s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000615s ]
+
+[ 2014-12-17T19:17:16+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Index/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000069s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000745s ]
+
+[ 2014-12-17T19:17:19+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Index/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000071s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000742s ]
+
+[ 2014-12-17T19:17:25+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000038s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000516s ]
+
+[ 2014-12-17T19:17:33+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify?0.5186605164781213
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000093s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001071s ]
+
+[ 2014-12-17T19:19:06+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register?q=user/vifycode
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000084s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001231s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001900s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002393s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000180s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000440s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016570s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016871s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000719s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000912s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001027s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001243s ]
+
+[ 2014-12-17T19:19:18+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify?0.2868446430657059
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000086s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001200s ]
+
+[ 2014-12-17T19:19:22+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register?q=user/vifycode
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000085s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001227s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000935s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001191s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000117s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000259s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010529s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010725s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000491s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000635s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000682s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000842s ]
+
+[ 2014-12-17T19:19:47+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register?q=user/vifycode
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000085s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001195s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002061s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002489s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000209s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000469s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015748s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016028s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000733s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000945s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001128s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001326s ]
+
+[ 2014-12-17T19:22:13+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000046s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000688s ]
+
+[ 2014-12-17T19:22:15+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000034s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000542s ]
+
+[ 2014-12-17T19:22:37+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register?q=user/vifycode
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000043s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000612s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000883s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001116s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000134s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000289s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010996s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011184s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000504s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000639s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000741s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000895s ]
+
+[ 2014-12-17T19:22:51+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register?q=user/checkaccount
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000041s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000579s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000789s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000957s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000152s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000327s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011814s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012014s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000568s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000722s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001119s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001326s ]
+
+[ 2014-12-17T19:22:54+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register?q=user/checkaccount
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000093s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001197s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001205s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001466s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000219s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000462s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016278s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016614s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001172s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001543s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001295s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001524s ]
+
+[ 2014-12-17T19:22:57+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register?q=user/checkaccount
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000105s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001199s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001838s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002203s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000179s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000441s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014493s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014776s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000697s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000903s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001068s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001268s ]
+
+[ 2014-12-17T19:23:00+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register?q=user/checkaccount
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000043s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000592s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000817s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000990s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000148s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000347s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012297s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012497s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000585s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000749s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000890s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001059s ]
+
+[ 2014-12-17T19:23:03+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register?q=user/checkaccount
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000085s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001263s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001711s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002057s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000127s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000285s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010862s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011020s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000518s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000648s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000705s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000843s ]
+
+[ 2014-12-17T19:23:07+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register?q=user/checkaccount
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000067s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000613s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001019s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001237s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000149s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000342s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011517s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011711s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000587s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000748s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000841s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001007s ]
+
+[ 2014-12-17T19:23:10+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register?q=user/checkaccount
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000084s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001245s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001873s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002237s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000182s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000377s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013667s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013941s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000650s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000834s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000930s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001112s ]
+
+[ 2014-12-17T19:23:17+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register?q=user/vifycode
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000068s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000821s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001119s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001412s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000208s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000468s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011857s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012066s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000570s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000746s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000967s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001203s ]
+
+[ 2014-12-17T19:24:02+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register?q=user/vifycode
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000043s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000682s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000875s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001095s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000204s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000492s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019044s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019262s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000891s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001178s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002007s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002318s ]
+
+[ 2014-12-17T19:24:04+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000143s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002172s ]
+
+[ 2014-12-17T19:24:05+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000034s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000521s ]
+
+[ 2014-12-17T19:24:34+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000058s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000848s ]
+
+[ 2014-12-17T19:24:36+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000049s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000517s ]
+
+[ 2014-12-17T19:25:09+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify?0.9005543258972466
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000088s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001253s ]
+
