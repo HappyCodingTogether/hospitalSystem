@@ -3,8 +3,8 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>图腾医院统一挂号平台</title>
-		<link rel="stylesheet" type="text/css" href="/hospital/Public/css/bootstrap.css" />
-		<link rel="stylesheet" type="text/css" href="/hospital/Public/css/tuteng.css" />
+		<link rel="stylesheet" type="text/css" href="/hospitalSystem/trunk/Public/css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="/hospitalSystem/trunk/Public/css/tuteng.css" />
 	</head>
 	<body>
 		<header>
@@ -13,7 +13,7 @@
 					<div class="header_main">
 						<div class="col-md-6">
 							<div class="logo">
-								<img src="/hospital/Public/images/logo.png">
+								<img src="/hospitalSystem/trunk/Public/images/logo.png">
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -34,36 +34,51 @@
 								</div>
 							</div>
 						</div>
+                        <?php
+ if(!isset($_SESSION['userName'])){ ?>
 						<div id="r_l">
 							<div class="r_l-box">
 								<ul>
 									<li><a href="javascript:void(0)" id="login_a">登录</a></li>
-									<li><a href="#">注册</a></li>
+									<li><a href="/hospitalSystem/trunk/index.php/Home/Hospital/register">注册</a></li>
 								</ul>	
 							</div>
 						</div>
+                        <?php
+ } else{ ?>
+                            <div id="r_l2">
+                                <div class="r_l-box">
+                                <ul>
+                                    <li><label ><?php echo $_SESSION['userName']?></label></li>
+                                    <li><a href="/hospitalSystem/trunk/index.php/Home/User/logout">注销</a></li>
+                                </ul>
+                                </div>
+                            </div>
+                        <?php
+ } ?>
 					</div>
 				</div>
 				<div id="header_menu">
 					<div class="menu-list">
 						<div class="col-md-offset-1">
 							<ul>
-                                <li><a href="/hospital/index.php/Home/Hospital/index">首页</a></li>
-                                <li><a href="/hospital/index.php/Home/Hospital/hospitals">按医院预约</a></li>
-								<li><a href="/hospital/index.php/Home/Hospital/keshi">按科室预约</a></li>
-								<li><a href="/hospital/index.php/Home/Hospital/gonggao">最新公告</a></li>
-								<li><a href="/hospital/index.php/Home/Hospital/personCenter">个人中心</a></li>
+                                <li><a href="/hospitalSystem/trunk/index.php/Home/Hospital">首页</a></li>
+                                <li><a href="/hospitalSystem/trunk/index.php/Home/Hospital/hospitals">按医院预约</a></li>
+								<li><a href="/hospitalSystem/trunk/index.php/Home/Hospital/keshi">按科室预约</a></li>
+								<li><a href="/hospitalSystem/trunk/index.php/Home/Hospital/gonggao">最新公告</a></li>
+								<li><a href="/hospitalSystem/trunk/index.php/Home/Hospital/personCenter">个人中心</a></li>
 							</ul>
 						</div>
 					</div>
 				</div>
+
 				<div id="login-box" class="login-box">
-					<form>
+					<form method="post" action="/hospitalSystem/trunk/index.php/Home/User/login">
 						<div class="form-group">
-							<input type="text" id="userName" class="form-control" placeholder="用户名"/> 
+							<input type="text" id="userName" name="userName" class="form-control" placeholder="用户名"/>
 						</div>
 						<div class="form-group">
-							<input type="password" id="pwd" class="form-control" placeholder="密码"/> 
+							<input type="password" id="pwd" name="pwd" class="form-control" placeholder="密码"/>
 						</div>
 						<div class="checkbox">
 							<label>
@@ -73,9 +88,10 @@
 						    	<a href="">忘记密码</a>
 						    </span>
 					  	</div>
-					  	<a href="" class="btn btn-primary pull-right">登录</a>
+					  	<input type="submit" class="btn btn-primary pull-right" value="登录">
 					</form>
 				</div>
+
 			</div>
 		</header>
 <div class="main-body">
@@ -89,34 +105,10 @@
             </div>
             <div class="box-body">
                 <div class="gonggao">
-                    <dl>
-                        <dt><a href="/hospital/index.php/Home/Hospital/gonggaoc">北京丰台医院新增专家号源</a></dt>
-                        <dd>2014年12月12日</dd>
-                    </dl>
-                    <dl>
-                        <dt><a href="">北京丰台医院新增专家号源</a></dt>
-                        <dd>2014年12月12日</dd>
-                    </dl>
-                    <dl>
-                        <dt><a href="">北京丰台医院新增专家号源</a></dt>
-                        <dd>2014年12月12日</dd>
-                    </dl>
-                    <dl>
-                        <dt><a href="">北京丰台医院新增专家号源</a></dt>
-                        <dd>2014年12月12日</dd>
-                    </dl>
-                    <dl>
-                        <dt><a href="">北京丰台医院新增专家号源</a></dt>
-                        <dd>2014年12月12日</dd>
-                    </dl>
-                    <dl>
-                        <dt><a href="">北京丰台医院新增专家号源</a></dt>
-                        <dd>2014年12月12日</dd>
-                    </dl>
-                    <dl>
-                        <dt><a href="">北京丰台医院新增专家号源</a></dt>
-                        <dd>2014年12月12日</dd>
-                    </dl>
+                    <?php if(is_array($gonggao)): $i = 0; $__LIST__ = $gonggao;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$arr): $mod = ($i % 2 );++$i;?><dl>
+                            <dt><a href="/hospitalSystem/trunk/index.php/Home/Hospital/gonggaoc?gonggaoid=<?php echo ($arr["id"]); ?>"><?php echo ($arr["title"]); ?></a></dt>
+                            <dd><?php echo ($arr["dateTimes"]); ?></dd>
+                        </dl><?php endforeach; endif; else: echo "" ;endif; ?>
                 </div>
             </div>
         </div>
@@ -126,7 +118,7 @@
 <footer>
 			<div id="footer" class="footer">
 				<div class="col-md-offset-5 col-md-2">
-					<img src="/hospital/Public/images/guahao.png"/>
+					<img src="/hospitalSystem/trunk/Public/images/guahao.png"/>
 				</div>
 				<div class="col-md-12">
 					<ul>
@@ -136,8 +128,8 @@
 				</div>
 			</div>
 		</footer>
-		<script type="text/javascript" src="/hospital/Public/js/jquery-2.1.1.min.js"></script>
-		<script type="text/javascript" src="/hospital/Public/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="/hospital/Public/js/tuteng.js"></script>
+		<script type="text/javascript" src="/hospitalSystem/trunk/Public/js/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="/hospitalSystem/trunk/Public/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/hospitalSystem/trunk/Public/js/tuteng.js"></script>
 	</body>
 </html>

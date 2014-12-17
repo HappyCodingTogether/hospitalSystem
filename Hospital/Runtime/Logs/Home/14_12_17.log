@@ -2171,3 +2171,268 @@ INFO: [ app_init ] --START--
 INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000088s ]
 INFO: [ app_init ] --END-- [ RunTime:0.001253s ]
 
+[ 2014-12-17T19:56:44+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/index/verify?0.6370941400527954
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000070s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000858s ]
+
+[ 2014-12-17T20:02:16+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000049s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000734s ]
+
+[ 2014-12-17T20:02:18+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/User/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000073s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001028s ]
+
+[ 2014-12-17T20:02:20+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/User/verify?0.5555718895047903
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000055s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000745s ]
+
+[ 2014-12-17T20:06:21+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000101s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001545s ]
+
+[ 2014-12-17T20:06:22+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/User/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000046s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000699s ]
+
+[ 2014-12-17T20:06:27+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/User/verify?0.8344084499403834
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000164s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001479s ]
+
+[ 2014-12-17T20:06:41+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000097s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001296s ]
+
+[ 2014-12-17T20:06:42+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/User/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000066s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000900s ]
+
+[ 2014-12-17T20:07:11+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000087s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001066s ]
+
+[ 2014-12-17T20:07:12+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/User/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000050s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000707s ]
+
+[ 2014-12-17T20:07:15+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/User/verify?0.19896039948798716
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000035s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000460s ]
+
+[ 2014-12-17T20:07:18+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/User/verify?0.7446643596049398
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000062s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000616s ]
+
+[ 2014-12-17T20:07:21+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/User/verify?0.2171240346506238
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000087s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001143s ]
+
+[ 2014-12-17T20:07:24+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/User/verify?0.5922349491156638
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000088s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001231s ]
+
+[ 2014-12-17T20:10:31+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000104s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001315s ]
+
+[ 2014-12-17T20:10:33+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/User/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000052s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000574s ]
+
+[ 2014-12-17T20:10:34+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/User/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000122s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001573s ]
+
+[ 2014-12-17T20:10:36+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000055s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000494s ]
+
+[ 2014-12-17T20:10:37+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/User/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000070s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000799s ]
+
+[ 2014-12-17T20:11:40+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000067s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000706s ]
+
+[ 2014-12-17T20:11:48+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/User/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000073s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000817s ]
+
+[ 2014-12-17T20:11:50+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000063s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000772s ]
+
+[ 2014-12-17T20:11:51+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/User/logout
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000036s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000602s ]
+
+[ 2014-12-17T20:11:54+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000060s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000897s ]
+
+[ 2014-12-17T20:12:01+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/User/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000105s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001131s ]
+
+[ 2014-12-17T20:12:04+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000040s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000507s ]
+
+[ 2014-12-17T20:12:22+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/gonggao
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000100s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001282s ]
+
+[ 2014-12-17T20:12:33+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/gonggao
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000132s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001863s ]
+
+[ 2014-12-17T20:12:35+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/personCenter
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000053s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000651s ]
+
+[ 2014-12-17T20:12:43+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/gonggao
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000103s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001471s ]
+
+[ 2014-12-17T20:12:47+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/hospitals
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000190s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001563s ]
+
+[ 2014-12-17T20:12:50+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000062s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001048s ]
+
+[ 2014-12-17T20:15:00+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/User/logout
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000041s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000585s ]
+
+[ 2014-12-17T20:15:02+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000040s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000671s ]
+
+[ 2014-12-17T20:15:08+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/User/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000052s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001049s ]
+
+[ 2014-12-17T20:15:10+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000042s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000536s ]
+
+[ 2014-12-17T20:15:36+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000037s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000522s ]
+
+[ 2014-12-17T20:15:41+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/User/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000045s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000580s ]
+
+[ 2014-12-17T20:15:43+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000044s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000574s ]
+
+[ 2014-12-17T20:15:52+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/User/logout
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000066s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000985s ]
+
+[ 2014-12-17T20:15:54+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000054s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000761s ]
+
+[ 2014-12-17T20:16:10+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/User/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000044s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000476s ]
+
+[ 2014-12-17T20:16:12+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000035s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000490s ]
+
+[ 2014-12-17T20:18:25+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/User/logout
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000059s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000808s ]
+
+[ 2014-12-17T20:18:27+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000036s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000504s ]
+
+[ 2014-12-17T20:18:38+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/User/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000095s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000928s ]
+
+[ 2014-12-17T20:21:15+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/User/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000092s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001348s ]
+
+[ 2014-12-17T20:21:32+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/User/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000039s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000537s ]
+
+[ 2014-12-17T20:21:53+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000054s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000879s ]
+
+[ 2014-12-17T20:22:04+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/User/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000120s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001078s ]
+
+[ 2014-12-17T20:26:05+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/Hospital/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000057s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000814s ]
+
+[ 2014-12-17T20:26:06+08:00 ] 127.0.0.1 /hospitalSystem/trunk/index.php/Home/User/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000059s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000880s ]
+
