@@ -1,0 +1,712 @@
+/*-- Public --*/
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.h-container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+.h-panel {
+    padding: 10px 10px 2px 10px;
+    border: 1px solid #777777;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 1px 1px #777777;
+    margin-bottom: 20px;
+}
+
+.box{
+    padding: 10px 10px 2px 10px;
+    border-radius: 4px;
+    border: 1px solid #777777;
+    margin-bottom: 30px;
+    background: #FFFFFF;
+    box-shadow: 1px 1px #777777;
+}
+
+.box-header {
+    padding: 0 10px;
+    border-bottom: 1px solid #24501E;
+}
+
+.box-header span {
+    display: inline-block;
+    float: right;
+    line-height: 25px;
+}
+
+.box-body {
+    padding: 10px 2px 5px 2px;
+}
+
+.box-body img {
+    width: 100%;
+}
+
+.box-header ul {
+    padding: 0;
+    margin: 0;
+}
+
+.box-header li {
+    list-style: none;
+    display: inline-block;
+    cursor: pointer;
+    padding: 5px 8px 0 8px;
+    color: rgb(11, 53, 3);
+    font-size: 14px;
+    font-weight: 800;
+    border-radius: 4px 4px 0 0;
+}
+
+.box-header li.active {
+    background: #1472CF;
+    color: white;
+}
+
+/*-- End Public --*/
+
+/*-- Bootstrap --*/
+
+.carousel-indicators {
+    position: absolute;
+    bottom: -5px;
+    left: 80%;
+    z-index: 15;
+    width: 60%;
+    padding-left: 0;
+    margin-left: -30%;
+    text-align: center;
+    list-style: none;
+}
+.carousel-indicators li {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    margin: 1px;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: #000;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid #fff;
+    border-radius: 10px;
+}
+.carousel-indicators .active {
+    width: 6px;
+    height: 6px;
+    margin: 0;
+    background-color: #1472CF;
+}
+
+/*-- End bootstrap --*/
+
+/*-- header --*/
+
+.header_main {
+	text-align: center;
+	min-height: 134px;
+	background: url("../images/head.jpg") no-repeat;
+	background-size: 100%;
+}
+
+.logo {
+	padding: 42px 0;
+}
+
+.search-box {
+	margin: 50px 130px;
+	border: 2px solid #81cbce;
+	border-radius: 8px;
+}
+
+.search-box .btn-type {
+	background: #5cb3ec;
+}
+
+.search-box .btn-type:hover,
+.search-box .btn-type:focus,
+.search-box .btn-type:active,
+.search-box .btn-type.active,
+.open > .dropdown-toggle.btn-default{
+	background-color: rgb(160, 175, 86);
+}
+
+.search-box ul {
+	margin-top: 0;
+	border-radius: 0;
+	min-width: 0;
+	width: 67px;
+	padding: 0 0;
+	text-align: center;
+	cursor: pointer;
+}
+
+.search-box li {
+	font-size: 15px;
+	padding: 5px;
+    color: rgb(11, 53, 3);
+}
+
+.search-box li:hover {
+    background: #1472CF;
+    color: white;
+}
+
+.search-box input[type="submit"] {
+	background-color: transparent;
+	position: absolute;
+	width: 34px;
+	height: 34px;
+	bottom: 0px;
+	right: 0px;
+	border: 0;
+	content: '';
+	color: transparent;
+	background: url(../images/search.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	z-index: 2;
+}
+
+.r_l-box { /* 登录注册 */
+	position: absolute;
+	top: 20px;
+	right: 30px;
+}
+
+.r_l-box li {
+	display: inline-block;
+	list-style: none;
+	padding: 5px 10px;
+}
+
+.r_l-box a {
+	color: #FFFFFF;
+	font-weight: 800;
+}
+
+.r_l-box a:hover {
+	color: #1472CF;
+	font-weight: 800;
+}
+
+
+.menu-list {
+	text-align: left;
+	min-height: 35px;
+	background: url("../images/menu-list.png") repeat;
+}
+
+.menu-list ul {
+    margin-bottom: 0;
+}
+
+.menu-list li {
+	display: inline-block;
+	list-style: none;
+	padding: 6px 30px;
+	margin: -3px 0 0 -5px;
+}
+
+.menu-list li:hover,
+.menu-list li.active{
+	background: url("../images/menu-list-active.png") repeat;
+	color: #FA4A00;
+}
+
+.menu-list a {
+	color: #1472CF;
+    font-weight: 500;
+}
+
+.menu-list a:hover,
+.menu-list a:focus,
+.menu-list a:active,
+.menu-list a.active {
+	color: #FA4A00;
+}
+
+.login-box {
+	top: 50px;
+	position: absolute;
+	right: 30px;
+	width: 250px;
+	padding: 30px 30px 10px 30px;
+	z-index: 3;
+	display:none;
+	background: url("../images/login-box.png");
+}
+
+
+.forget-pwd {
+	float: right;
+}
+
+/*-- End header --*/
+
+/*-- footer --*/
+
+.footer {
+	min-height: 134px;
+    background: #E9F9FA;
+	text-align: center;
+}
+
+.footer img {
+	padding: 15px 10px;
+}
+
+.footer ul {
+	padding: 0;
+}
+
+.footer li {
+	list-style: none;
+	display: inline-block;
+	padding: 5px 40px;
+}
+
+.footer a {
+	font-size: 18px;
+}
+
+/*-- End footer --*/
+
+/*-- Body --*/
+
+.main-body {
+	padding-top: 50px;
+	padding-bottom: 30px;
+	min-height: 500px;
+    background: #E9F9FA;
+}
+
+/*-- End body --*/
+
+/*-- index --*/
+
+.gonggao-items li {
+    list-style-position: outside;
+    line-height: 25px;
+}
+
+.gonggao-items li:hover {
+    background: #1472CF;
+}
+
+.gonggao-items li a {
+    color: #141d29;
+    font-weight: 500;
+}
+
+.hot-item {
+    display: inline-block;
+    width: 49%;
+    height: 134px;
+    padding: 10px 2px;
+}
+
+.hot-item img {
+    display: inline-block;
+    width: 146px;
+    height: 114px;
+    padding: 2px;
+    float: left;
+    border: 1px #CCCCCC solid;
+}
+
+.hot-item p {
+    display: inline-block;
+    padding: 2px 5px;
+}
+
+.hot-item a:hover {
+    color: #1472CF;
+}
+
+.quick-yuyue {
+    margin-top: 20px;
+}
+
+.total-message {
+    padding: 45px 40px;
+    background: url("../images/total.jpg") no-repeat;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.total-message li {
+    color: #141d29;
+    font-weight: 800;
+    line-height: 50px;
+    list-style-image: url("../images/total-message-icon.png");
+}
+
+.total-message li strong {
+    color: #ce181d;
+}
+
+.quick-content {
+    padding: 50px 10px 10px 0;
+}
+
+.quick-content button {
+    margin-left: 40%;
+}
+
+.select-item {
+    line-height: 20px;
+    margin-bottom: 20px;
+}
+
+.select-item label {
+    margin-bottom: 0;
+    padding: 5px 0;
+    width: 40%;
+}
+
+.select-box {
+    position: absolute;
+    display: inline-block;
+    width: 58%;
+    padding-right: 10px;
+}
+
+.select-header {
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    color: #4a80cf;
+    padding: 3px 5px;
+    border-radius: 5px;
+    border: 2px solid #60aac6;
+}
+
+.select-header span.caret {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.select-header:hover,
+.select-header.active {
+    color: #1472CF;
+    border-color: #1472CF;
+}
+
+.select-header.active {
+    border-bottom: none;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.select-box ul {
+    margin-bottom: 0;
+    padding: 3px 2px;
+    position: relative;
+    width: 100%;
+    border: 2px solid #1472CF;
+    border-top: none;
+    background: #FFFFFF;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    z-index: 2;
+}
+
+.select-box li {
+    list-style: none;
+    padding: 3px 3px;
+    cursor: pointer;
+    color: #4a80cf;
+    border-radius: 3px;
+}
+
+.select-box li:hover {
+    background: #1472CF;
+    color: #f3f3f3;
+    font-weight: 700;
+}
+
+/*-- End index --*/
+
+/*-- PersonCenter --*/
+
+.data-table {
+    width: 100%;
+    margin-bottom: 2px;
+}
+
+.data-table td {
+    color: #777777;
+    padding: 6px 5px;
+}
+
+.data-table tr td:first-child {
+    color: #000000;
+    text-align: right;
+}
+
+.form-pwd-xiugai {
+    padding: 10px 30px 0 30px;
+}
+
+.form-item {
+    line-height: 20px;
+    margin-bottom: 5px;
+}
+
+.form-item span {
+    display: inline-block;
+    text-align: right;
+    padding: 2px 0;
+    width: 30%;
+}
+
+.form-pwd {
+    display: inline-block;
+    padding: 2px 10px;
+    width: 68%;
+}
+
+.form-pwd input {
+    width: 100%;
+    border-radius: 4px;
+}
+
+.form-pwd-xiugai button {
+    margin-left: 35%;
+    line-height: 14px;
+}
+
+.yuyue-body {
+    height: 500px;
+}
+
+.yuyue-body table {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.yuyue-body tr:first-child {
+    height: 25px;
+    font-weight: 700;
+}
+
+.yuyue-body tr {
+    height: 50px;
+}
+
+.yuyue-body td {
+    border: 1px solid #514e53;
+    line-height: 20px;
+}
+
+.yuyue-hospital,.yuyue-doctor,.yuyue-keshi {
+    display: block;
+}
+
+.yuyue-hospital {
+    width: 25%;
+}
+
+.yuyue-keshi {
+    width: 15%;
+}
+
+.yuyue-doctor {
+    width: 15%;
+}
+
+.yuyue-body a {
+    color: #ff131d;
+}
+
+/*-- End personcenter --*/
+
+/*-- Hospitals --*/
+
+.condition-item {
+    padding: 10px 30px;
+    line-height: 25px;
+}
+
+.condition-item .attribute {
+    display: inline-block;
+    width: 10%;
+    font-weight: 700;
+    text-align: right;
+    float: left;
+}
+
+.condition-item .condition {
+    display: inline-block;
+    width: 89%;
+}
+
+.condition-item ul {
+    padding-left: 20px;
+    margin-bottom: 0;
+}
+
+.condition-item li {
+    list-style: none;
+    display: inline-block;
+    padding-right: 15px;
+    text-align: center;
+}
+
+.condition-item a {
+    color: #585858;
+    cursor: pointer;
+}
+
+.condition-item a:hover,
+.condition-item a.active {
+    background: #d58512;
+    color: white;
+}
+
+.hospital-item {
+    display: inline-block;
+    height: 134px;
+    padding: 10px 2px;
+    width: 100%;
+}
+
+.hospital-item img {
+    display: inline-block;
+    width: 146px;
+    height: 114px;
+    padding: 2px;
+    float: left;
+    border: 1px #CCCCCC solid;
+}
+
+.hospital-item p {
+    display: inline-block;
+    padding: 2px 5px;
+}
+
+.hospital-item a:hover {
+    color: #1472CF;
+}
+
+.hospital-item button {
+    float: right;
+    margin-top: 25px;
+    margin-right: 25px;
+    line-height: 10px;
+}
+
+/*-- End hospitals --*/
+
+/*-- Keshi --*/
+
+.keshi ul {
+    padding-left: 20px;
+}
+
+.keshi li.type {
+    list-style-image: url("../images/li.png");
+    line-height: 25px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.keshi li.items {
+    display: none;
+    list-style: none;
+}
+
+.keshi li.items li {
+    list-style: none;
+    line-height: 20px;
+    color: #777777;
+    cursor: pointer;
+    width: 100px;
+}
+
+.keshi li.items li:hover,
+.keshi li.items li.active {
+    color:#d58512;
+    font-weight: 700;
+}
+
+/*-- End keshi --/
+
+/*-- Gonggao --*/
+
+.gonggao {
+    padding: 20px 30px;
+}
+
+.gonggao dl {
+    padding: 2px 30px;
+    height: 25px;
+    border-bottom: 1px solid #D0E3EC;
+}
+
+.gonggao dt {
+    background: url("../images/gonggao_icon.gif")left center no-repeat;
+    padding-left: 5px;
+    display: inline-block;
+    float: left;
+}
+
+.gonggao dd {
+    display: inline-block;
+    float:right;
+}
+
+.gonggao a {
+    color: #141d29;
+    font-weight: 500;
+}
+
+.gonggao a:hover {
+    color: #1472CF;
+    font-weight: 600;
+}
+
+.gonggao-content {
+    padding: 20px 60px;
+}
+
+.gonggao-content h1{
+    font-weight: 800;
+    color: #154046;
+    font-family: 微软雅黑;
+    text-align: center;
+}
+
+.gonggao-content h4{
+    color: #777777;
+    font-size: 15px;
+    text-align: right;
+    margin-right: 25px;
+    font-family: Menlo;
+}
+
+.gonggao-content pre {
+    background: #FFFFFF;
+    margin-top: 30px;
+    min-height: 400px;
+    font-size: 14px;
+    border: 0;
+    color: #575A54;
+    line-height: 30px;
+}
+
+/*-- End gonggao --*/
