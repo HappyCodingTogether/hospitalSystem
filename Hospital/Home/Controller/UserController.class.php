@@ -12,12 +12,14 @@ class UserController extends  Controller{
         $data = $User->where("email='$username' OR IDcard='$username'")->find();
         if($data!=null){
             if(md5($pwd)==$data['password']){
-                var_dump("22");
                 session("userName",$data['name']);
                 redirect(session('urlRefer'));
+            }else{
+                $this-error("密码错误！");
             }
+
         }else{
-            redirect(session('urlRefer'));
+            $this-error("账号不存在！");
         }
 
     }
