@@ -1,0 +1,148 @@
+<extend name="Public/base"/>
+<block name="main">
+    <div class="container">
+        <div id="person-data">
+            <div class="col-md-4">
+                <div class="box">
+                    <div class="box-header">
+                        <ul>
+                            <li id="person" class="active">个人资料</li>
+                            <li id="pwd-xiugai">修改密码</li>
+                        </ul>
+                    </div>
+                    <div class="box-body">
+                        <div id="person-body">
+                            <table class="data-table">
+                                <tr>
+                                    <td>姓名：</td>
+                                    <td>陈汉川</td>
+                                </tr>
+                                <tr>
+                                    <td>证件：</td>
+                                    <td>350322199309264318</td>
+                                </tr>
+                                <tr>
+                                    <td>邮箱：</td>
+                                    <td>1320396800@qq.com</td>
+                                </tr>
+                                <tr>
+                                    <td>联系方式：</td>
+                                    <td>13141492304</td>
+                                </tr>
+                                <tr>
+                                    <td>是否认证：</td>
+                                    <td>
+                                        <a href="">点击进入认证</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="pwd-xiugai-body" class="hide">
+                            <form class="form-pwd-xiugai">
+                                <div class="form-item">
+                                    <span>原密码：</span>
+                                    <div class="form-pwd">
+                                        <input type="password"/>
+                                    </div>
+                                </div>
+                                <div class="form-item">
+                                    <span>新密码：</span>
+                                    <div class="form-pwd">
+                                        <input type="password"/>
+                                    </div>
+                                </div>
+                                <div class="form-item">
+                                    <span>确认密码：</span>
+                                    <div class="form-pwd">
+                                        <input type="password"/>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary">确认修改</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="box">
+                    <div class="box-header">
+                        <ul>
+                            <li id="now-yuyue" class="active">当前预约</li>
+                            <li id="prev-yuyue">历史预约</li>
+                        </ul>
+                    </div>
+                    <div class="box-body yuyue-body">
+                        <div id="now-yuyue-body">
+                            <table>
+                                <tr>
+                                    <td>医院</td>
+                                    <td>科室</td>
+                                    <td>医生</td>
+                                    <td>就诊日期</td>
+                                    <td>预约日期</td>
+                                    <td>取消预约</td>
+                                </tr>
+                                <tr>
+                                    <td class="yuyue-hospital">北京大医院</td>
+                                    <td class="yuyue-keshi">内科</td>
+                                    <td class="yuyue-doctor">陈医生</td>
+                                    <td>2014-2-21</td>
+                                    <td>2014-8-9</td>
+                                    <td><a href="">取消</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="yuyue-hospital">北京大医院sddddddddsdssssfdddddd</td>
+                                    <td class="yuyue-keshi">内科</td>
+                                    <td class="yuyue-doctor">陈医生</td>
+                                    <td>2014-2-21</td>
+                                    <td>2014-8-9</td>
+                                    <td><a href="">取消</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="yuyue-hospital">北京大医院</td>
+                                    <td class="yuyue-keshi">内科</td>
+                                    <td class="yuyue-doctor">陈医生</td>
+                                    <td>2014-2-21</td>
+                                    <td>2014-8-9</td>
+                                    <td><a href="">取消</a></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="prev-yuyue-body" class="hide">
+                            <table>
+                                <tr>
+                                    <td>医院</td>
+                                    <td>科室</td>
+                                    <td>医生</td>
+                                    <td>就诊日期</td>
+                                    <td>预约日期</td>
+                                </tr>
+                                <tr>
+                                    <td class="yuyue-hospital">北京大医院</td>
+                                    <td class="yuyue-keshi">内科</td>
+                                    <td class="yuyue-doctor">陈医生</td>
+                                    <td>2014-2-21</td>
+                                    <td>2014-8-9</td>
+                                </tr>
+                                <tr>
+                                    <td class="yuyue-hospital">北京大医院sddddddddsdssssfdddddd</td>
+                                    <td class="yuyue-keshi">内科</td>
+                                    <td class="yuyue-doctor">陈医生</td>
+                                    <td>2014-2-21</td>
+                                    <td>2014-8-9</td>
+                                </tr>
+                                <tr>
+                                    <td class="yuyue-hospital">北京大医院</td>
+                                    <td class="yuyue-keshi">内科</td>
+                                    <td class="yuyue-doctor">陈医生</td>
+                                    <td>2014-2-21</td>
+                                    <td>2014-8-9</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>
