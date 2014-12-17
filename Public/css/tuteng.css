@@ -25,6 +25,7 @@ a:hover {
 }
 
 .box{
+    position: relative;
     padding: 10px 10px 2px 10px;
     border-radius: 4px;
     border: 1px solid #777777;
@@ -308,8 +309,13 @@ a:hover {
     font-weight: 500;
 }
 
+.hot-body {
+    min-height: 400px;
+}
+
 .hot-item {
     display: inline-block;
+    float: left;
     width: 49%;
     height: 134px;
     padding: 10px 2px;
@@ -325,6 +331,7 @@ a:hover {
 }
 
 .hot-item p {
+    width: 350px;
     display: inline-block;
     padding: 2px 5px;
 }
@@ -513,10 +520,6 @@ a:hover {
     line-height: 20px;
 }
 
-.yuyue-hospital,.yuyue-doctor,.yuyue-keshi {
-    display: block;
-}
-
 .yuyue-hospital {
     width: 25%;
 }
@@ -595,6 +598,7 @@ a:hover {
 }
 
 .hospital-item p {
+    width: 65%;
     display: inline-block;
     padding: 2px 5px;
 }
@@ -605,7 +609,7 @@ a:hover {
 
 .hospital-item button {
     float: right;
-    margin-top: 25px;
+    margin-top: 45px;
     margin-right: 25px;
     line-height: 10px;
 }
@@ -707,6 +711,74 @@ a:hover {
     border: 0;
     color: #575A54;
     line-height: 30px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 /*-- End gonggao --*/
+
+/*-- Hospitalm --*/
+
+.h-m-header {
+    height: 42px;
+    padding: 0 20px;
+}
+
+.h-m-header p {
+    font-size: 30px;
+    font-weight: 800;
+    color: #1472CF;
+    float: left;
+    line-height: 42px;
+    margin-bottom: 0;
+}
+
+.h-m-header label {
+    float: right;
+    line-height: 42px;
+    margin-bottom: 0;
+}
+
+.h-m-header strong {
+    margin-left: 10px;
+    color: #1472CF;
+}
+
+.h-m-body {
+    display: inline-block;
+    height: 200px;
+    padding: 10px 20px;
+    width: 100%;
+}
+
+.h-m-body img {
+    display: inline-block;
+    width: 256px;
+    height: 180px;
+    padding: 2px;
+    float: left;
+    border: 1px #CCCCCC solid;
+}
+
+.h-m-body p {
+    font-size: 15px;
+    line-height: 25px;
+    width: 75%;
+    display: inline-block;
+    padding: 20px 20px;
+}
+
+.h-m-body p abbr {
+    color: #777777;
+}
+
+.xuzhi pre {
+    background: #ffffff;
+    border: 0;
+    font-size: 14px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin-bottom: 0;
+}
+
+
