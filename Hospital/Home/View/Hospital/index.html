@@ -125,22 +125,15 @@
                 <div class="box-header">
                     <ul>
                         <li class="active">最新公告</li>
-                        <span><a href="">&gt;&gt;更多</a></span>
+                        <span><a href="__APP__/Home/Hospital/gonggao">&gt;&gt;更多</a></span>
                     </ul>
                 </div>
                 <div class="box-body">
                     <div class="gonggao-items">
                         <ul>
-                            <li><a href="">北京市垂杨柳医院暂停预约通知</a></li>
-                            <li><a href="">航天中心医院(原721医院)暂停预约通知</a></li>
-                            <li><a href="">北京康复医院(北京工人疗养院)暂停预约通知</a></li>
-                            <li><a href="">中国中医科学院广安门医院科室调整通知</a></li>
-                            <li><a href="">北京肿瘤医院部分科室医生门诊挂号费调整通知</a></li>
-                            <li><a href="">清华大学医院暂停预约挂号通知</a></li>
-                            <li><a href="">部分医院停止预约11月13日号源的通知</a></li>
-                            <li><a href="">北京燕化医院暂停预约通知</a></li>
-                            <li><a href="">北京复兴医院暂停预约通知</a></li>
-                            <li><a href="">北京安定医院暂停预约通知</a></li>
+                            <volist name="gonggao" id="arr">
+                                <li><a href="__APP__/Home/Hospital/gonggaoc?gonggaoid={$arr.id}">{$arr.title}</a></li>
+                            </volist>
                         </ul>
                     </div>
 

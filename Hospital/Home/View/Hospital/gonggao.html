@@ -9,34 +9,12 @@
             </div>
             <div class="box-body">
                 <div class="gonggao">
-                    <dl>
-                        <dt><a href="__APP__/Home/Hospital/gonggaoc">北京丰台医院新增专家号源</a></dt>
-                        <dd>2014年12月12日</dd>
-                    </dl>
-                    <dl>
-                        <dt><a href="">北京丰台医院新增专家号源</a></dt>
-                        <dd>2014年12月12日</dd>
-                    </dl>
-                    <dl>
-                        <dt><a href="">北京丰台医院新增专家号源</a></dt>
-                        <dd>2014年12月12日</dd>
-                    </dl>
-                    <dl>
-                        <dt><a href="">北京丰台医院新增专家号源</a></dt>
-                        <dd>2014年12月12日</dd>
-                    </dl>
-                    <dl>
-                        <dt><a href="">北京丰台医院新增专家号源</a></dt>
-                        <dd>2014年12月12日</dd>
-                    </dl>
-                    <dl>
-                        <dt><a href="">北京丰台医院新增专家号源</a></dt>
-                        <dd>2014年12月12日</dd>
-                    </dl>
-                    <dl>
-                        <dt><a href="">北京丰台医院新增专家号源</a></dt>
-                        <dd>2014年12月12日</dd>
-                    </dl>
+                    <volist name="gonggao" id="arr">
+                        <dl>
+                            <dt><a href="__APP__/Home/Hospital/gonggaoc?gonggaoid={$arr.id}">{$arr.title}</a></dt>
+                            <dd>{$arr.dateTimes}</dd>
+                        </dl>
+                    </volist>
                 </div>
             </div>
         </div>

@@ -3,14 +3,12 @@
     <div class="container">
         <div class="h-panel">
             <div class="gonggao-content">
-                <h1>北京丰台医院新增专家号源</h1>
-                <h4>2014-12-12</h4>
-                <pre>
-    丰台医院聘请北大医院胸外科主任李简教授，副主任林刚博士，北京肿瘤医院胸外科主任张力建教授3位专家到我院出专家门诊。周一下午：林刚；周三下午：李简；周四上午：张力建。
+                <volist name="gonggao" id="arr">
+                    <h1>{$arr.title}</h1>
+                    <h4>{$arr.dateTimes}</h4>
+                    <pre>{$arr.contents}</pre>
+                </volist>
 
-　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　北京丰台医院
-　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　2014-12-12
-                </pre>
             </div>
         </div>
     </div>
