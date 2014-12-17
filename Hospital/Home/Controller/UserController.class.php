@@ -29,13 +29,27 @@ class UserController extends  Controller{
         session('[destroy]'); // 销毁session
         redirect($urlRefer);
     }
-    public  function  checkemail($email){
+    public  function  checkemail(){
+        $email=I('post.user_email');
         $User=M('User');
         $data = $User->where("email='$email'")->find();
         if($data!=null){
-            return 1;
+            return false;
         }
-        else return 0;
+        else {
+            return true;
+        }
+    }
+    public function checkIDcard(){
+        $idcard=I('post.user_idcard');
+        $User=M('User');
+        $data = $User->where("IDcard='$idcard'")->find();
+        if($data!=null){
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 
     /***
@@ -49,12 +63,32 @@ class UserController extends  Controller{
     /**
      * 验证码检查
      */
-    function check_verify($code, $id = ""){
+    public function check_verify(){
+        $id = "";
+        $code=I('post.vercode');
         $verify = new \Think\Verify();
         return $verify->check($code, $id);
+
     }
     public function register(){
-        $this->success();
+        $data['IDcard'] = I('post.user_idcard');
+        $data['email'] = I('post.user_email');
+        $data['password'] = md5(I('post.pwd'));
+        $data['name'] = I('post.user_name');
+
+        if($this->checkemail()&&$this->checkIDcard()&&$this->check_verify()){
+            $User = M("User"); // 实例化User对象
+            // 根据表单提交的POST数据创建数据对象
+                $result = $User->field('IDcard,email,,password,name')->data($data)->add(); // 写入数据到数据库
+               if($result){        // 如果主键是自动增长型 成功后返回值就是最新插入的值
+                   session("userName",$data['name']);
+                   $this->redirect('Hospital/Index',null, 0);
+
+               }
+        }
+        else{
+           $this->error();
+        }
 
     }
 
