@@ -56,6 +56,7 @@ class UserController extends  Controller{
      * 生成验证码
      */
     public  function  verify(){
+
         $Verify = new \Think\Verify();
         $Verify->length=4;
         $Verify->entry();
@@ -82,8 +83,8 @@ class UserController extends  Controller{
                 $result = $User->field('IDcard,email,,password,name')->data($data)->add(); // 写入数据到数据库
                if($result){        // 如果主键是自动增长型 成功后返回值就是最新插入的值
                    session("userName",$data['name']);
+                   //sendMail("kingpengcheng@163.com","test","test");
                    $this->redirect('Hospital/Index',null, 0);
-
                }
         }
         else{
