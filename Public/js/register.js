@@ -131,7 +131,7 @@ function y_vercode() { //验证验证码
         dataType: 'json',
         data: "type="+"y_vercode"+"&vercode="+$(this).val(),
         success:function(data) {
-            if(data!= true) { //邮箱已使用
+            if(data!=true) { //邮箱已使用
                 errorstr(this, "验证码不对");
                 $("#y_submit").children().eq(5).text(0);
             }
