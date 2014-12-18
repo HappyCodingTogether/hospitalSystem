@@ -36,6 +36,8 @@ class UserController extends  Controller{
             echo $this->checkIDcard();
         }elseif($type=="y_userEmail"){
             echo $this->checkemail();
+        }elseif($type=="y_vercode"){
+            echo $this->checkverify();
         }
     }
     public  function  checkemail(){
