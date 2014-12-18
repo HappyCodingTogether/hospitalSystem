@@ -13,6 +13,7 @@ class UserController extends  Controller{
         if($data!=null){
             if(md5($pwd)==$data['password']){
                 session("userName",$data['name']);
+                session("loginName",$username);
                 redirect(session('urlRefer'));
             }else{
                 $this->error("密码错误！");
@@ -69,7 +70,6 @@ class UserController extends  Controller{
         $code=I('post.vercode');
         $verify = new \Think\Verify();
         return $verify->check($code, $id);
-
     }
     public function register(){
         $data['IDcard'] = I('post.user_idcard');
@@ -91,6 +91,24 @@ class UserController extends  Controller{
            $this->error();
         }
 
+    }
+    public function findpwd(){
+        $username=I('post.username');
+        $newpwd=rand(100000,999999);
+        $data['password']=md5($newpwd);
+        $User=M('User');
+        $result = $User->where("email='$username' OR IDcard='$username'")->find();
+        $email=$result['email'];
+        $text="你的密码已经初始化为: ".$newpwd.",请及时登录并修改密码！";
+        $User->where("email='$username' OR IDcard='$username'")->save($data);
+        sendMail("$email","密码找回结果","$text");
+    }
+    public function changepwd(){
+        $newpwd=I('post.newpwd');
+        $username=session('loginName');
+        $data['password']=$newpwd;
+        $User=M('User');
+        $User->where("email='$username' OR IDcard='$username'")->save($data);
     }
 
 }
