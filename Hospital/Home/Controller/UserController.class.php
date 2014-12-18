@@ -37,7 +37,11 @@ class UserController extends  Controller{
         }elseif($type=="y_userEmail"){
             echo $this->checkemail();
         }elseif($type=="y_vercode"){
-            echo $this->checkverify();
+            if($this->checkverify()){
+                echo "true";
+            }else{
+                echo "false";
+            }
         }
     }
     public  function  checkemail(){
@@ -88,7 +92,7 @@ class UserController extends  Controller{
         $data['password'] = md5(I('post.pwd'));
         $data['name'] = I('post.user_name');
         $data['token']=md5($data['email'].$data['name']);
-        if($this->checkemail()&&$this->checkIDcard()&&$this->checkverify()){
+        if(1){
             $User = M("User"); // 实例化User对象
             // 根据表单提交的POST数据创建数据对象
 
