@@ -124,6 +124,7 @@ function y_pwd2() { //验证再次密码
 }
 
 function y_vercode() { //验证验证码
+    var doc=$(this);
     $.ajax({
         url: '../User/checkregister',
         type: 'POST',
@@ -132,11 +133,11 @@ function y_vercode() { //验证验证码
         data: "type="+"y_vercode"+"&vercode="+$(this).val(),
         success:function(data) {
             if(data!=true) { //邮箱已使用
-                errorstr(this, "验证码不对");
+                errorstr(doc, "验证码不对");
                 $("#y_submit").children().eq(5).text(0);
             }
             else {
-                correctstr(this, "验证码正确");
+                correctstr(doc, "验证码正确");
                 $("#y_submit").children().eq(5).text(1);
             }
         }
@@ -151,31 +152,13 @@ function y_register() {
     var y4 = $("#y_submit").children().eq(4).text();
     var y5 = $("#y_submit").children().eq(5).text();
     if(y0&y1&y2&y3&y4&y5) {
-        register();
+        $("#registerform").submit();
     }
     else {
         alert("信息有误");
     }
 }
 
-function register() { //提交表单
-    var username = $("#user_name").val();
-    var userid = $("#user_id").val();
-    var useremail = $("#user_email").val();
-    var pwd = $("#pwd").val();
-    $.ajax({
-        url: '../User/checkregister',
-        type: 'POST',
-        async:false,
-        dataType: 'json',
-        data: "type="+"register"+"&username="+username+"&userid="+userid+"&useremail="+useremail+"&pwd="+pwd,
-        success:function(data) {
-            if(data == true) {
-                //注册成功方法
-            }
-        }
-    });
-}
 
 function errorstr(doc,str) {
     $(doc).nextAll("span").eq(0).text(str);
