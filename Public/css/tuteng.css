@@ -781,4 +781,58 @@ a:hover {
     margin-bottom: 0;
 }
 
+.y-k-body {
+    overflow: hidden;
+    padding-top: 5px;
+}
 
+.y-k-item {
+    float: left;
+    width: 100%;
+    background: #E9F9FA;
+    margin-bottom: 10px;
+    line-height: 30px;
+    border: 1px solid #777777;
+}
+
+.y-k-type {
+    float: left;
+    font-size: 18px;
+    font-weight: 800;
+    margin-top: 5px;
+    font-family: 微软雅黑;
+    color: #126acc;
+    text-align: center;
+    width: 25%;
+}
+
+.y-k-type-s {
+    width: 74%;
+    float: right;
+    min-height: 50px;
+    border-left: 1px solid #777777;
+    background: #ffffff;
+    padding: 5px 10px;
+}
+
+.y-k-type-s ul {
+    padding: 0;
+    margin: 0;
+}
+
+.y-k-type-s li {
+    list-style: none;
+    width: 23%;
+    text-align: left;
+    float: left;
+    font-size: 13px;
+}
+
+.y-k-type-s li a {
+    color: #777777;
+}
+
+.y-k-type-s li a:hover {
+    color: #1472CF;
+    text-decoration: underline;
+}
