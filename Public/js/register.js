@@ -39,13 +39,13 @@ function id_ishefa(doc, userID) { //验证身份证格式
 
 function y_id_isuse(doc, userID) { //验证身份证是否使用
     $.ajax({
-        url: '__APP__/Home/User/checkXX',
+        url: '../User/checkregister',
         type: 'POST',
-        async:false,
+        async:true,
         dataType: 'json',
-        data: "type="+"y_userID"+"&userID="+userID,
-        success:function() {
-            if(data == true) { //身份证未使用
+        data: "type="+"y_userID"+"&user_idcard="+userID,
+        success:function(data) {
+            if(data != true) { //身份证已使用
                 errorstr(doc, "身份证已被使用");
             }
             else {
@@ -73,13 +73,13 @@ function email_ishefa(doc, userEmail) { //验证邮箱格式
 
 function y_email_isuse(doc, userEmail) { //验证邮箱是否使用
     $.ajax({
-        url: '__APP__/Home/User/checkXX',
+        url: '../User/checkregister',
         type: 'POST',
-        async:false,
+        async:true,
         dataType: 'json',
-        data: "type="+"y_userEmail"+"&userEmail="+userEmail,
-        success:function() {
-            if(data == true) { //身份证未使用
+        data: "type="+"y_userEmail"+"&user_email="+userEmail,
+        success:function(data) {
+            if(data!= true) { //邮箱已使用
                 errorstr(doc, "邮箱已被使用");
             }
             else {
