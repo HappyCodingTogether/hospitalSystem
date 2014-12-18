@@ -7,7 +7,8 @@ $(document).ready(function() {
     $("#user_email").blur(y_useremail);//验证邮箱
     $("#pwd").blur(y_pwd);//验证密码
     $("#pwd2").blur(y_pwd2);//验证再次密码
-
+    $("#vercode").blur(y_vercode);//验证验证码
+    $("#regBtn").click(y_register);//验证提交注册表
 });
 
 function y_username() { //姓名汉字验证
@@ -18,6 +19,7 @@ function y_username() { //姓名汉字验证
     }
     else {
         correctstr(this,"可以使用");
+        $("#y_submit").children().eq(0).text(1);
     }
 }
 
@@ -32,6 +34,7 @@ function id_ishefa(doc, userID) { //验证身份证格式
     var reg = /(^\d{15}$)|(^\d{17}([0-9]|X)$)/;
     if(!(reg.test(userID))) { //身份证格式不对处理
         errorstr(doc,"身份证格式不对");
+        $("#y_submit").children().eq(1).text(0);
         return false;
     }
     return true;
@@ -47,9 +50,11 @@ function y_id_isuse(doc, userID) { //验证身份证是否使用
         success:function(data) {
             if(data != true) { //身份证已使用
                 errorstr(doc, "身份证已被使用");
+                $("#y_submit").children().eq(1).text(0);
             }
             else {
                 correctstr(doc, "可以使用");
+                $("#y_submit").children().eq(1).text(1);
             }
         }
     });
@@ -66,6 +71,7 @@ function email_ishefa(doc, userEmail) { //验证邮箱格式
     var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
     if(!(reg.test(userEmail))) { //邮箱格式不对处理
         errorstr(doc, "邮箱格式不对");
+        $("#y_submit").children().eq(2).text(0);
         return false;
     }
     return true;
@@ -81,9 +87,11 @@ function y_email_isuse(doc, userEmail) { //验证邮箱是否使用
         success:function(data) {
             if(data!= true) { //邮箱已使用
                 errorstr(doc, "邮箱已被使用");
+                $("#y_submit").children().eq(2).text(0);
             }
             else {
                 correctstr(doc, "可以使用");
+                $("#y_submit").children().eq(2).text(1);
             }
         }
     });
@@ -94,9 +102,11 @@ function y_pwd() { //验证密码
     var reg = /[a-zA-Z0-9]{6,16}/;
     if(!(reg.test(pwd))) { //密码格式不对处理
         errorstr(this,"密码不满足要求");
+        $("#y_submit").children().eq(3).text(0);
     }
     else {
         correctstr(this,"可以使用");
+        $("#y_submit").children().eq(3).text(1);
     }
 }
 
@@ -105,18 +115,74 @@ function y_pwd2() { //验证再次密码
     var pwd = $("#pwd").val();
     if(pwd2 != pwd) { //再次密码不等处理
         errorstr(this,"两次密码不同");
+        $("#y_submit").children().eq(4).text(0);
     }
     else {
         correctstr(this,"输入相同");
+        $("#y_submit").children().eq(4).text(1);
     }
 }
 
+function y_vercode() { //验证验证码
+    $.ajax({
+        url: '../User/checkregister',
+        type: 'POST',
+        async:false,
+        dataType: 'json',
+        data: "type="+"y_vercode"+"&vercode="+$(this).val(),
+        success:function(data) {
+            if(data!= true) { //邮箱已使用
+                errorstr(this, "验证码不对");
+                $("#y_submit").children().eq(5).text(0);
+            }
+            else {
+                correctstr(this, "验证码正确");
+                $("#y_submit").children().eq(5).text(1);
+            }
+        }
+    });
+}
+
+function y_register() {
+    var y0 = $("#y_submit").children().eq(0).text();
+    var y1 = $("#y_submit").children().eq(1).text();
+    var y2 = $("#y_submit").children().eq(2).text();
+    var y3 = $("#y_submit").children().eq(3).text();
+    var y4 = $("#y_submit").children().eq(4).text();
+    var y5 = $("#y_submit").children().eq(5).text();
+    if(y0&y1&y2&y3&y4&y5) {
+        register();
+    }
+    else {
+        alert("信息有误");
+    }
+}
+
+function register() { //提交表单
+    var username = $("#user_name").val();
+    var userid = $("#user_id").val();
+    var useremail = $("#user_email").val();
+    var pwd = $("#pwd").val();
+    $.ajax({
+        url: '../User/checkregister',
+        type: 'POST',
+        async:false,
+        dataType: 'json',
+        data: "type="+"register"+"&username="+username+"&userid="+userid+"&useremail="+useremail+"&pwd="+pwd,
+        success:function(data) {
+            if(data == true) {
+                //注册成功方法
+            }
+        }
+    });
+}
+
 function errorstr(doc,str) {
-    $(doc).next().text(str);
-    $(doc).next().css("color","red");
+    $(doc).nextAll("span").eq(0).text(str);
+    $(doc).nextAll("span").eq(0).css("color","red");
 }
 
 function correctstr(doc,str) {
-    $(doc).next().text(str);
-    $(doc).next().css("color","green");
+    $(doc).nextAll("span").eq(0).text(str);
+    $(doc).nextAll("span").eq(0).css("color","green");
 }
