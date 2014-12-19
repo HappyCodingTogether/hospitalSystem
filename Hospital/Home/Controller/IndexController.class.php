@@ -6,7 +6,7 @@ use Think\Verify;
 class IndexController extends Controller {
     public function index(){
         session('urlRefer',__ACTION__);
-        $this->display('Hospital:index');
+        $this->redirect('./Home/Hospital');
     }
 
 }
