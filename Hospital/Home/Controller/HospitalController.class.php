@@ -8,7 +8,8 @@ class HospitalController extends Controller {
 	session('urlRefer',__ACTION__);
         //显示系统公告
         $gonggao=M('Gonggao');
-        $this->assign('gonggao',$gonggao->field('id,title,dateTimes')->order('dateTimes DESC')->limit(10)->select());
+        $map['hospitalID']=0;
+        $this->assign('gonggao',$gonggao->field('id,title,dateTimes')->where($map)->order('dateTimes DESC')->limit(10)->select());
 
         //查询热门医院
         $hospital=M('Hospital');
@@ -48,6 +49,24 @@ class HospitalController extends Controller {
         $gonggao=M('Gonggao');
         $map['id']=$gonggaoid;
         $this->assign('gonggao',$gonggao->field('title,contents,dateTimes')->where($map)->select());
+        $this->display();
+    }
+    //进入医院页面
+    public function hospitalm(){
+        session('urlRefer',__ACTION__);
+
+        //显示医院基本信息
+        $hospital=M('Hospital');
+        $map['hospital_hospital.id']=$_GET['hospitalID'];
+        $this->assign('hospital',$hospital->field('hospital_hospital.name,hospital_hospital.phone,hospital_hospital.xiangxiAddress,hospital_hospital.dengji,hospital_hospital.fenlei,hospital_qu.name AS quName')
+            ->where($map)->join('__QU__ ON __HOSPITAL__.quID=__QU__.id','LEFT')->select());
+
+
+        //显示医院公告
+        $gonggao=M('Gonggao');
+        $map=array();
+        $map['hospitalID']=$_GET['hospitalID'];
+        $this->assign('gonggao',$gonggao->field('id,title,dateTimes')->where($map)->order('datetimes DESC')->limit(10)->select());
         $this->display();
     }
 }
