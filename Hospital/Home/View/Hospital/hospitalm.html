@@ -4,22 +4,40 @@
         <div class="col-md-12">
             <div class="h-panel">
                 <div class="h-message">
-                    <div class="h-m-header">
-                        <p>阜外心血管病医院</p>
-                        <label>
-                            <strong>等级：</strong>三级甲等
-                            <strong>区域：</strong>西城区
-                            <strong>分类：</strong>中国医科院所属医院
-                        </label>
-                    </div>
-                    <div class="h-m-body">
-                        <img src="__PUBLIC__/images/slider1.jpg"/>
-                        <p>
-                            电话：<abbr>东院咨询台:010-69155564;西院咨询台:010-69158010</abbr><br>
-                            地址：<abbr>[东院]北京市东城区帅府园一号 [西院]北京市西城区大木仓胡同41号 </abbr><br>
-                            交通指南：<abbr>乘坐公交13、19、21、42、44、37、56、61、101、102、103、运通106、121、335、336、387、409、423、456、490、603、604、618、650、685、691、714、743、746、800、814、823、849、850、939路即可到达</abbr><br>
-                        </p>
-                    </div>
+                    <volist name="hospital" id="arr">
+                        <div class="h-m-header">
+                            <p>{$arr.name}</p>
+                            <label>
+                                <strong>等级：</strong><switch name="arr.dengji">
+                                <case value="1">一级</case>
+                                <case value="2">二级</case>
+                                <case value="3">三级</case>
+                                <default/>其他
+                                </switch>
+                                <strong>区域：</strong>{$arr.quName}
+                                <strong>分类：</strong><switch name="arr.fenlei">
+                                <case value="1">卫生部直属医院</case>
+                                <case value="2">北京市卫生区直属医院</case>
+                                <case value="3">中国医科院所属医院</case>
+                                <case value="4">中国中医科学院</case>
+                                <case value="5">北京中医药大学</case>
+                                <case value="6">北京大学附属医院</case>
+                                <case value="7">驻京部队医院</case>
+                                <case value="8">驻京武警医院</case>
+                                <case value="9">部属厂矿高校医院</case>
+                                <case value="10">北京区县属医院</case>
+                                <default/>其它
+                                </switch>
+                            </label>
+                        </div>
+                        <div class="h-m-body">
+                            <img src="__PUBLIC__/images/slider1.jpg"/>
+                            <p>
+                                电话：<abbr>{$arr.phone}</abbr><br>
+                                地址：<abbr>{$arr.xiangxiAddress}</abbr><br>
+                            </p>
+                        </div>
+                    </volist>
                 </div>
             </div>
         </div>
@@ -112,12 +130,37 @@
                             <div class="y-k-type-s">
                                 <ul>
                                     <li><a href="">心血管科门诊</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="y-k-item">
+                            <div class="y-k-type">
+                                内科门诊
+                            </div>
+                            <div class="y-k-type-s">
+                                <ul>
+                                    <li><a href="">心血管科门诊</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="y-k-item">
+                            <div class="y-k-type">
+                                内科门诊
+                            </div>
+                            <div class="y-k-type-s">
+                                <ul>
+                                    <li><a href="">心血管科门诊</a></li>
                                     <li><a href="">肿瘤放疗门诊</a></li>
                                     <li><a href="">心血管科门诊-房颤门诊</a></li>
                                     <li><a href="">心血管科门诊-高血压门诊</a></li>
                                     <li><a href="">心血管科门诊-冠心病介入随访门诊</a></li>
                                     <li><a href="">心血管科门诊-起搏器随访门诊</a></li>
                                     <li><a href="">心血管科门诊-心力衰竭门诊</a></li>
+                                    <li><a href="">呼吸门诊-肺癌排查门诊</a></li>
+                                    <li><a href="">呼吸门诊-肺癌排查门诊</a></li>
+                                    <li><a href="">呼吸门诊-肺癌排查门诊</a></li>
+                                    <li><a href="">呼吸门诊-肺癌排查门诊</a></li>
+                                    <li><a href="">呼吸门诊-肺癌排查门诊</a></li>
                                     <li><a href="">呼吸门诊-肺癌排查门诊</a></li>
                                 </ul>
                             </div>
@@ -136,16 +179,9 @@
                 <div class="box-body">
                     <div class="gonggao-items">
                         <ul>
-                            <li><a href="">北京市垂杨柳医院暂停预约通知</a></li>
-                            <li><a href="">航天中心医院(原721医院)暂停预约通知</a></li>
-                            <li><a href="">北京康复医院(北京工人疗养院)暂停预约通知</a></li>
-                            <li><a href="">中国中医科学院广安门医院科室调整通知</a></li>
-                            <li><a href="">北京肿瘤医院部分科室医生门诊挂号费调整通知</a></li>
-                            <li><a href="">清华大学医院暂停预约挂号通知</a></li>
-                            <li><a href="">部分医院停止预约11月13日号源的通知</a></li>
-                            <li><a href="">北京燕化医院暂停预约通知</a></li>
-                            <li><a href="">北京复兴医院暂停预约通知</a></li>
-                            <li><a href="">北京安定医院暂停预约通知</a></li>
+                        <volist name="gonggao" id="arr">
+                            <li><a href="__APP__/Home/Hospital/gonggaoc?gonggaoid={$arr.id}">{$arr.title}</a></li>
+                        </volist>
                         </ul>
                     </div>
                 </div>
