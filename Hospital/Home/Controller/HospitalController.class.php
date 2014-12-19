@@ -67,6 +67,41 @@ class HospitalController extends Controller {
         $map=array();
         $map['hospitalID']=$_GET['hospitalID'];
         $this->assign('gonggao',$gonggao->field('id,title,dateTimes')->where($map)->order('datetimes DESC')->limit(10)->select());
+
+        //显示科室列表
+        $keshi=M('Keshi');
+        $map=array();
+        $map['hospitalID']=$_GET['hospitalID'];
+        $data=$keshi->field('id,name,fenlei')->where($map)->select();
+        $keshim=array();
+        $keshim[0]['name']=$data[0]['fenlei'];
+        $keshim[0]['num']=0;
+        $i=$temp=0;
+        $count=count($data);
+        while($temp<$count){
+            $countf=count($keshim);
+            $a=0;
+            $check=0;
+            while($a<$countf){
+                if($keshim[$a]['name']==$data[$temp]['fenlei']){
+                    $keshim[$a]['keshi'][$keshim[$a]['num']]=$data[$temp];
+                    $keshim[$a]['num']++;
+                    $check=1;
+                    break;
+                }
+                $a++;
+            }
+            if($check==0){
+                $i++;
+                $keshim[$i]['name']=$data[$temp]['fenlei'];
+                $keshim[$i]['keshi'][0]=$data[$temp];
+                $keshim[$i]['num']=1;
+            }
+            $temp++;
+        }
+        $this->assign('keshim',$keshim);
+
         $this->display();
+
     }
 }
