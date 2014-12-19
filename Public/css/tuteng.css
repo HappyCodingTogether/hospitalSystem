@@ -928,4 +928,8 @@ table.days tr:first-child td {
     color: #e99f33;
 }
 
+.month-day {
+    font-size: large;
+}
+
 /*-- End keshim --*/
