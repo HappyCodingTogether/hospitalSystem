@@ -3,7 +3,7 @@ namespace Home\Controller;
 use Think\Controller;
 class UserController extends  Controller{
     public function index(){
-
+        $this->redirect('Hospital/Index',null, 0);
     }
     public  function login(){
         $username=I('post.userName');
