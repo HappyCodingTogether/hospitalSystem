@@ -60,6 +60,14 @@ function setdays() { //设置某月份日期显示
         else
             tdDay.eq(i).children("span").text("");
     }
+    if(day1At+days > length-7) {
+        $("#month-add").removeClass("hide");
+        $("#day-add").removeClass("hide");
+    }
+    else {
+        $("#month-add").addClass("hide");
+        $("#day-add").addClass("hide");
+    }
 }
 
 function prevMonth() { //上一月
