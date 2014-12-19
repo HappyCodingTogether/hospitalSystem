@@ -871,10 +871,14 @@ a:hover {
     padding: 0 20px;
 }
 
+.biao-header {
+    background: #E7F7FA;
+}
+
 table.biao-header td {
     width: 125px;
     height: 36px;
-    border: 1px solid #0088cc;
+    border: 2px solid #A8CCDF;
     text-align: center;
     font-weight: 800;
 }
@@ -887,15 +891,19 @@ table.biao-header td:first-child {
     background: url("../images/month&week.gif");
 }
 
+table.biao-month {
+    background: #E7F7FA;
+}
+
 table.biao-month td {
     width: 131px;
     height: 79px;
     text-align: center;
-    border-left: 1px solid #0088cc;
+    border-left: 2px solid #A8CCDF;
 }
 
 table.biao-month tr:last-child td{
-    border-bottom: 1px solid #0088cc;
+    border-bottom: 2px solid #A8CCDF;
 }
 
 table.days td {
@@ -903,13 +911,20 @@ table.days td {
     color: #777777;
     width: 125px;
     height: 79px;
-    border: 1px solid #0088cc;
-    vertical-align: text-top;
+    border: 1px solid #A8CCDF;
     cursor: not-allowed;
+    vertical-align: top;
+    background: rgba(162, 184, 183, 0.24);
 }
 
 table.days tr:first-child td {
     border-top: 0;
+}
+
+table.days td strong {
+    float: right;
+    margin-top: 35px;
+    color: #B85D0D;
 }
 
 .biao-month button {
@@ -919,17 +934,34 @@ table.days tr:first-child td {
 }
 
 .change-month-icon {
-    zoom: 2;
+    zoom: 2 !important;
     color: #126acc;
 }
 
 .change-month-icon:hover {
-    zoom: 2.5;
+    zoom: 2.5 !important;
     color: #e99f33;
 }
 
 .month-day {
     font-size: large;
+}
+
+td.ke-yuyue {
+    background: rgba(98, 245, 77, 0.84) !important;
+    cursor: pointer !important;
+}
+
+td.ke-yuyue:hover {
+    background: rgb(40, 180, 22) !important;
+}
+
+td.yueman {
+    background: rgba(243, 118, 102, 0.82) !important;
+}
+
+td.buke-yuyue {
+    background: rgba(162, 184, 183, 0.24) !important;
 }
 
 /*-- End keshim --*/
