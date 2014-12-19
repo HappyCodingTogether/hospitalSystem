@@ -55,10 +55,15 @@ function setdays() { //设置某月份日期显示
     var tdDay = $(".days td");
     var length = tdDay.length;
     for(i = 0; i < length; i++) {
-        if(i >= day1At && i< day1At+days)
+        if(i >= day1At && i< day1At+days) {
             tdDay.eq(i).children("span").text(i+1-day1At);
-        else
+            tdDay.eq(i).addClass("month-day");
+        }
+        else {
             tdDay.eq(i).children("span").text("");
+            tdDay.eq(i).removeClass("month-day");
+        }
+
     }
     if(day1At+days > length-7) {
         $("#month-add").removeClass("hide");
@@ -100,5 +105,6 @@ function changeMonth(a) { //更改月份设置当月日期
     $("#yuyue-year").text(year);
     $("#yuyue-month").text(month);
     setdays();
+    alert($(".month-day span").length);
 }
 
