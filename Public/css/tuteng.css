@@ -167,8 +167,8 @@ a:hover {
 	position: absolute;
 	width: 34px;
 	height: 34px;
-	bottom: 0px;
-	right: 0px;
+	bottom: 0;
+	right: 0;
 	border: 0;
 	content: '';
 	color: transparent;
@@ -294,6 +294,11 @@ a:hover {
 /*-- End body --*/
 
 /*-- index --*/
+
+.gonggao-items {
+    height: 285px;
+    overflow: hidden;
+}
 
 .gonggao-items li {
     list-style-position: outside;
@@ -721,11 +726,12 @@ a:hover {
 
 .h-m-header {
     height: 42px;
+    background: #C3F3E2;
     padding: 0 20px;
 }
 
 .h-m-header p {
-    font-size: 30px;
+    font-size: 23px;
     font-weight: 800;
     color: #1472CF;
     float: left;
@@ -836,3 +842,90 @@ a:hover {
     color: #1472CF;
     text-decoration: underline;
 }
+
+/*-- End hospitalm --*/
+
+/*-- Keshim --*/
+
+.tishi {
+    padding: 10px 30px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.tishi img {
+    float: left;
+}
+
+.tishi-c {
+    margin-left: 50px;
+    float: left;
+    width: 80%;
+}
+
+.tishi-c strong {
+    color: #ff2215;
+}
+
+.yuyue-table {
+    padding: 0 20px;
+}
+
+table.biao-header td {
+    width: 125px;
+    height: 36px;
+    border: 1px solid #0088cc;
+    text-align: center;
+    font-weight: 800;
+}
+
+table.biao-header td:first-child {
+    width: 131px;
+}
+
+table.biao-header td:first-child {
+    background: url("../images/month&week.gif");
+}
+
+table.biao-month td {
+    width: 131px;
+    height: 79px;
+    text-align: center;
+    border-left: 1px solid #0088cc;
+}
+
+table.biao-month tr:last-child td{
+    border-bottom: 1px solid #0088cc;
+}
+
+table.days td {
+    padding: 10px 10px;
+    color: #777777;
+    width: 125px;
+    height: 79px;
+    border: 1px solid #0088cc;
+    vertical-align: text-top;
+    cursor: not-allowed;
+}
+
+table.days tr:first-child td {
+    border-top: 0;
+}
+
+.biao-month button {
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.change-month-icon {
+    zoom: 2;
+    color: #126acc;
+}
+
+.change-month-icon:hover {
+    zoom: 2.5;
+    color: #e99f33;
+}
+
+/*-- End keshim --*/
