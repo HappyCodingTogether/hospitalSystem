@@ -28,9 +28,11 @@
                                     <div class="select-box">
                                         <div class="select-header">
                                             <span>请选择</span>
+                                            <span class="hide">0</span>
                                             <span class="caret"></span>
                                         </div>
                                         <ul class="hide">
+                                            <li>不限</li>
                                             <li>卫生部直属医院</li>
                                             <li>北京市卫生局直属医院</li>
                                             <li>中国医科院所属医院</li>
@@ -42,7 +44,6 @@
                                             <li>部属厂矿高校医院</li>
                                             <li>北京区县属医院</li>
                                             <li>其它</li>
-
                                         </ul>
                                     </div>
                                 </div>
@@ -51,9 +52,11 @@
                                     <div class="select-box">
                                         <div class="select-header">
                                             <span>请选择</span>
+                                            <span class="hide">0</span>
                                             <span class="caret"></span>
                                         </div>
                                         <ul class="hide">
+                                            <li>不限</li>
                                             <li>三级医院</li>
                                             <li>二级医院</li>
                                             <li>一级医院</li>
@@ -65,9 +68,11 @@
                                     <div class="select-box">
                                         <div class="select-header">
                                             <span>请选择</span>
+                                            <span class="hide">0</span>
                                             <span class="caret"></span>
                                         </div>
                                         <ul class="hide">
+                                            <li>不限</li>
                                             <li>海淀区</li>
                                             <li>朝阳区</li>
                                             <li>西城区</li>
@@ -87,7 +92,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <button class="btn btn-primary">进入预约</button>
+                                <button id="to-hospital" class="btn btn-primary">进入预约</button>
                             </div>
                         </div>
                     </div>
@@ -202,4 +207,16 @@
             </div>
         </div>
     </div>
+</block>
+<block name="js">
+    <script type="text/javascript">
+        $("#header_menu li").eq(0).addClass("active");
+        $("#to-hospital").click(function() {
+            var t1 = $(".select-header").eq(0).children("span").eq(1).text();
+            var t2 = $(".select-header").eq(1).children("span").eq(1).text();
+            var t3 = $(".select-header").eq(2).children("span").eq(1).text();
+            location.href = "__APP__/Home/Hospital/hospitals"+"?"+t1+"-"+t2+"-"+t3;
+        });
+
+    </script>
 </block>
