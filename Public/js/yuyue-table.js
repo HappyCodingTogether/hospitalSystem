@@ -2,27 +2,28 @@
  * Created by tsukaima on 2014/12/19.
  */
 $(document).ready(function () {
+    $("#header_menu li").eq(2).addClass("active");
     loadPage();
     $(".prev-month").click(prevMonth);
     $(".next-month").click(nextMonth);
     $(".days td").click(yuyue);
 })
-
-function loadPage() { //加载页面
+//加载页面
+function loadPage() {
     setMonth();
     setDays();
     setYuyue();
 }
-
-function setMonth() { //设置当前月份显示
+//设置当前月份显示
+function setMonth() {
     var nowDate = new Date();
     var year = nowDate.getFullYear();
     var month = nowDate.getMonth()+1;
     $("#yuyue-year").text(year);
     $("#yuyue-month").text(month);
 }
-
-function getMaxday(year,month) { //获取月份最大天数
+//获取月份最大天数
+function getMaxday(year,month) {
     switch(month) {
         case 0:
         case 2:
@@ -44,12 +45,12 @@ function getMaxday(year,month) { //获取月份最大天数
                 return 28;
     }
 }
-
-function isLeapYear(year) { //判断是否闰年
+//判断是否闰年
+function isLeapYear(year) {
     return (0==year%4&&((year%100!=0)||(year%400==0)));
 }
-
-function setDays() { //设置某月份日期显示
+//设置某月份日期显示
+function setDays() {
     var year = $("#yuyue-year").text();
     var month = $("#yuyue-month").text()-1;
     var days = getMaxday(year,month);
@@ -76,16 +77,16 @@ function setDays() { //设置某月份日期显示
         $("#day-add").addClass("hide");
     }
 }
-
-function prevMonth() { //上一月
+//上一月
+function prevMonth() {
     changeMonth(1);
 }
-
-function nextMonth() { //下一月
+//下一月
+function nextMonth() {
     changeMonth(2);
 }
-
-function changeMonth(a) { //更改月份设置当月日期
+//更改月份设置当月日期
+function changeMonth(a) {
     var year = $("#yuyue-year").text();
     var month = $("#yuyue-month").text();
     if(a == 1) {
@@ -109,8 +110,8 @@ function changeMonth(a) { //更改月份设置当月日期
     setDays();
     setYuyue();
 }
-
-function setYuyue() { //设置格子预约情况
+//设置格子预约情况
+function setYuyue() {
     var keshiID = $("#keshiID").text();
     var yuyueDay = $("#yuyueDay").text();
     var year = $("#yuyue-year").text();
@@ -146,8 +147,8 @@ function setYuyue() { //设置格子预约情况
     //    }
     //});
 }
-
-function keYuyue(doc) { //设置可预约格子
+//设置可预约格子
+function keYuyue(doc) {
     doc.children("strong").remove();
     var html = "<strong>预约</strong>";
     doc.append(html);
@@ -156,8 +157,8 @@ function keYuyue(doc) { //设置可预约格子
     doc.attr("data-toggle","modal");
     doc.attr("data-target","#yuyue-modal");
 }
-
-function yueman(doc) { //设置约满格子
+//设置约满格子
+function yueman(doc) {
     doc.children("strong").remove();
     var html = "<strong>约满</strong>";
     doc.append(html);
@@ -166,16 +167,16 @@ function yueman(doc) { //设置约满格子
     doc.removeAttr("data-target");
     doc.removeAttr("data-toggle");
 }
-
-function bukeYuyue(doc) { //设置不可预约格子
+//设置不可预约格子
+function bukeYuyue(doc) {
     doc.children("strong").remove();
     doc.addClass("buke-yuyue");
     doc.removeClass("ke-yuyue yueman");
     doc.removeAttr("data-target");
     doc.removeAttr("data-toggle");
 }
-
-function yuyue() { //设置每天的预约医生表
+//设置每天的预约医生表
+function yuyue() {
     if($(this).hasClass("ke-yuyue")) {
         var modal = $("#yuyue-modal .yuyue-do tbody");
         var year = $("#yuyue-year").text();
@@ -200,13 +201,23 @@ function yuyue() { //设置每天的预约医生表
                         '<td>'+data[i].doctorName+'</td>'+
                         '<td>'+data[i].expense+'</td>'+
                         '<td>'+data[i].keguaHao+'</td>'+
-                        '<td>'+data[i].shengyuHao+'</td>'+
-                        '<td><a href=""></a></td>'+
-                    '</tr>';
+                        '<td>'+data[i].shengyuHao+'</td>';
+                    if(data[i].shengyuHao > 0) {
+                        html += '<td><a href="javascript:void(0)">预约</a></td>';
+                    }
+                    else {
+                        html += '<td>约满</td>';
+                    }
+                    html += '</tr>';
+                    modal.html(modal.html()+html);
                 }
             }
         });
     }
+}
+//触发预约事件
+function yuyue_a() {
+
 }
 
 

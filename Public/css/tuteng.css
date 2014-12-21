@@ -16,6 +16,7 @@ a:hover {
 }
 
 .h-panel {
+    position: relative;
     padding: 10px 10px 2px 10px;
     border: 1px solid #777777;
     background: white;
@@ -131,6 +132,8 @@ a:hover {
 
 .search-box .btn-type {
 	background: #5cb3ec;
+    color: #a44207;
+    font-weight: 800;
 }
 
 .search-box .btn-type:hover,
@@ -162,7 +165,7 @@ a:hover {
     color: white;
 }
 
-.search-box input[type="submit"] {
+.search-box button.submit {
 	background-color: transparent;
 	position: absolute;
 	width: 34px;
@@ -172,6 +175,7 @@ a:hover {
 	border: 0;
 	content: '';
 	color: transparent;
+    outline: none;
 	background: url(../images/search.png);
 	background-position: center;
 	background-repeat: no-repeat;
@@ -454,6 +458,52 @@ a:hover {
 
 /*-- PersonCenter --*/
 
+.person-menu {
+    padding: 0px 100px;
+    text-align: center;
+}
+
+.person-menu ul {
+    padding: 0;
+    border: 2px solid #8FCEEE;
+    border-radius: 4px;
+}
+
+.person-menu li {
+    list-style: none;
+}
+
+.person-menu li.bigt {
+    font-size: 20px;
+    line-height: 40px;
+    font-weight: 900;
+    font-family: 宋体;
+    background: #8FCEEE;
+    color: #CF5714;
+}
+
+.person-menu li.smallt {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 40px;
+    cursor: pointer;
+    background: #ffffff;
+    color: #777777;
+}
+
+.person-menu li.smallt:hover {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1472CF;
+}
+
+/**-**/
+
+.person-data {
+    padding: 80px 20px 20px 20px;
+    height: 380px;
+}
+
 .data-table {
     width: 100%;
     margin-bottom: 2px;
@@ -462,11 +512,18 @@ a:hover {
 .data-table td {
     color: #777777;
     padding: 6px 5px;
+    line-height: 30px;
 }
 
 .data-table tr td:first-child {
+    width: 50%;
     color: #000000;
     text-align: right;
+}
+
+.pwd-xiugai {
+    padding: 80px 20px 20px 20px;
+    height: 380px;
 }
 
 .form-pwd-xiugai {
@@ -474,8 +531,8 @@ a:hover {
 }
 
 .form-item {
-    line-height: 20px;
-    margin-bottom: 5px;
+    line-height: 30px;
+    margin-bottom: 15px;
 }
 
 .form-item span {
@@ -488,7 +545,7 @@ a:hover {
 .form-pwd {
     display: inline-block;
     padding: 2px 10px;
-    width: 68%;
+    width: 38%;
 }
 
 .form-pwd input {
@@ -497,8 +554,14 @@ a:hover {
 }
 
 .form-pwd-xiugai button {
-    margin-left: 35%;
+    margin-left: 54%;
     line-height: 14px;
+}
+
+.y-pwd {
+    width: 30%;
+    display: inline-block;
+    text-align: left !important;
 }
 
 .yuyue-body {
@@ -540,6 +603,9 @@ a:hover {
 .yuyue-body a {
     color: #ff131d;
 }
+
+
+/**-**/
 
 /*-- End personcenter --*/
 
