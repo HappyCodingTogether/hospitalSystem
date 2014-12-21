@@ -2,8 +2,11 @@
 namespace Home\Controller;
 
 use Think\Controller;
+use Think\Page;
 
 class HospitalController extends Controller {
+
+
     public function index() {
 	session('urlRefer',__ACTION__);
         //显示系统公告
@@ -27,6 +30,46 @@ class HospitalController extends Controller {
     }
     public function hospitals() {
 	session('urlRefer',__ACTION__);
+
+        $leixing=array('不限','卫生部直属医院','北京市卫生局直属医院','中国医科院所属医院','中国中医科学院','北京中医药大学','北京大学附属医院','驻京部队医院','驻京武警医院','部属厂矿高校医院','北京区县属医院','其它');
+        $diqu=array('不限','海淀区','朝阳区','西城区','东城区','丰台区','石景山区','通州区','顺义区','房山区','大兴区','昌平区','怀柔区','平谷区','门头沟区','密云县','延庆县');
+        $type=I('get.t','0-0-0');
+        list($t1,$t2,$t3)=split('-',$type);
+        $this->assign('t1',$t1);
+        $this->assign('t2',$t2);
+        $this->assign('t3',$t3);
+        $hospital=M('Hospital');
+        $map=array();
+        if($t1>0&&$t1<11){
+            $map['fenlei']=$leixing[$t1];
+        }
+        if($t1==11){
+            $map['fenlei']=array('not between',array('卫生部直属医院','北京市卫生局直属医院','中国医科院所属医院','中国中医科学院','北京中医药大学','北京大学附属医院','驻京部队医院','驻京武警医院','部属厂矿高校医院','北京区县属医院'));
+        }
+        if($t2>0&&$t2<4){
+            $map['dengji']=$t2;
+        }
+        if($t3>0&&$t3<17){
+            $map1['name']=$diqu[$t3];
+            $qu=M('Qu');
+            $data=$qu->field('id')->where($map1)->find();
+            $map['quID']=$data['id'];
+        }
+        $count=$hospital->field('hospital_hospital.id,hospital_hospital.name,hospital_hospital.xiangxiAddress,hospital_hospital.phone,hospital_Qu.name AS quName')
+            ->where($map)->join('__QU__ ON __HOSPITAL__.quID=__QU__.id','LEFT')->count();
+        $page=new Page($count,10);
+        $page->setConfig('first' , ' 首页' );
+        $page->setConfig('prev' , ' 上一页' );
+        $page->setConfig('next' , ' 下一页' );
+        $page->setConfig('last' , ' 末页' );
+        $page->setConfig('theme' , ' 共 %TOTAL_ROW% %HEADER% 共%TOTAL_PAGE%页
+%FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END%' );
+        $show=$page->show();
+        $list=$hospital->field('hospital_hospital.id,hospital_hospital.name,hospital_hospital.xiangxiAddress,hospital_hospital.phone,hospital_Qu.name AS quName')
+            ->where($map)->join('__QU__ ON __HOSPITAL__.quID=__QU__.id','LEFT')->limit($page->firstRow.','.$page->listRows)->select();
+        $this->assign('list',$list);
+        $this->assign('page',$show);
+
         $this->display();
     }
     public function keshi() {
