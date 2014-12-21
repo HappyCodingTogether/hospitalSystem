@@ -2,23 +2,25 @@
 <block name="main">
     <div class="container">
         <div id="h-s-condition" class="h-panel">
+            <span class="hide" id="t-val">{$t1}-{$t2}-{$t3}</span>
             <div class="condition-item">
                 <div class="attribute">
                     <span>医院类型：</span>
                 </div>
                 <div class="condition">
                     <ul>
-                        <li><a href="" class="active">卫生部直属医院</a></li>
-                        <li><a href="">北京市卫生局直属医院</a></li>
-                        <li><a href="">中国医科院所属医院</a></li>
-                        <li><a href="">中国中医科学院</a></li>
-                        <li><a href="">北京中医药大学</a></li>
-                        <li><a href="">北京大学附属医院</a></li>
-                        <li><a href="">驻京部队医院</a></li>
-                        <li><a href="">驻京武警医院</a></li>
-                        <li><a href="">部属厂矿高校医院</a></li>
-                        <li><a href="">北京区县属医院</a></li>
-                        <li><a href="">其它</a></li>
+                        <li><a href="?t=0-{$t2}-{$t3}">不限</a></li>
+                        <li><a href="?t=1-{$t2}-{$t3}">卫生部直属医院</a></li>
+                        <li><a href="?t=2-{$t2}-{$t3}">北京市卫生局直属医院</a></li>
+                        <li><a href="?t=3-{$t2}-{$t3}">中国医科院所属医院</a></li>
+                        <li><a href="?t=4-{$t2}-{$t3}">中国中医科学院</a></li>
+                        <li><a href="?t=5-{$t2}-{$t3}">北京中医药大学</a></li>
+                        <li><a href="?t=6-{$t2}-{$t3}">北京大学附属医院</a></li>
+                        <li><a href="?t=7-{$t2}-{$t3}">驻京部队医院</a></li>
+                        <li><a href="?t=8-{$t2}-{$t3}">驻京武警医院</a></li>
+                        <li><a href="?t=9-{$t2}-{$t3}">部属厂矿高校医院</a></li>
+                        <li><a href="?t=10-{$t2}-{$t3}">北京区县属医院</a></li>
+                        <li><a href="?t=11-{$t2}-{$t3}">其它</a></li>
                     </ul>
                 </div>
             </div>
@@ -28,10 +30,10 @@
                 </div>
                 <div class="condition">
                     <ul>
-                        <li><a href="" class="active">不限</a></li>
-                        <li><a href="">三级医院</a></li>
-                        <li><a href="">二级医院</a></li>
-                        <li><a href="">一级医院</a></li>
+                        <li><a href="?t={$t1}-0-{$t3}">不限</a></li>
+                        <li><a href="?t={$t1}-1-{$t3}">三级医院</a></li>
+                        <li><a href="?t={$t1}-2-{$t3}">二级医院</a></li>
+                        <li><a href="?t={$t1}-3-{$t3}">一级医院</a></li>
                     </ul>
                 </div>
             </div>
@@ -41,23 +43,23 @@
                 </div>
                 <div class="condition">
                     <ul>
-                        <li><a href="" class="active">不限</a></li>
-                        <li><a href="">海淀区</a></li>
-                        <li><a href="">朝阳区</a></li>
-                        <li><a href="">西城区</a></li>
-                        <li><a href="">东城区</a></li>
-                        <li><a href="">丰台区</a></li>
-                        <li><a href="">石景山区</a></li>
-                        <li><a href="">通州区</a></li>
-                        <li><a href="">顺义区</a></li>
-                        <li><a href="">房山区</a></li>
-                        <li><a href="">大兴区</a></li>
-                        <li><a href="">昌平区</a></li>
-                        <li><a href="">怀柔区</a></li>
-                        <li><a href="">平谷区</a></li>
-                        <li><a href="">门头沟区</a></li>
-                        <li><a href="">密云县</a></li>
-                        <li><a href="">延庆县</a></li>
+                        <li><a href="?t={$t1}-{$t2}-0">不限</a></li>
+                        <li><a href="?t={$t1}-{$t2}-1">海淀区</a></li>
+                        <li><a href="?t={$t1}-{$t2}-2">朝阳区</a></li>
+                        <li><a href="?t={$t1}-{$t2}-3">西城区</a></li>
+                        <li><a href="?t={$t1}-{$t2}-4">东城区</a></li>
+                        <li><a href="?t={$t1}-{$t2}-5">丰台区</a></li>
+                        <li><a href="?t={$t1}-{$t2}-6">石景山区</a></li>
+                        <li><a href="?t={$t1}-{$t2}-7">通州区</a></li>
+                        <li><a href="?t={$t1}-{$t2}-8">顺义区</a></li>
+                        <li><a href="?t={$t1}-{$t2}-9">房山区</a></li>
+                        <li><a href="?t={$t1}-{$t2}-10">大兴区</a></li>
+                        <li><a href="?t={$t1}-{$t2}-11">昌平区</a></li>
+                        <li><a href="?t={$t1}-{$t2}-12">怀柔区</a></li>
+                        <li><a href="?t={$t1}-{$t2}-13">平谷区</a></li>
+                        <li><a href="?t={$t1}-{$t2}-14">门头沟区</a></li>
+                        <li><a href="?t={$t1}-{$t2}-15">密云县</a></li>
+                        <li><a href="?t={$t1}-{$t2}-16">延庆县</a></li>
                     </ul>
                 </div>
             </div>
@@ -94,4 +96,15 @@
             </div>
         </div>
     </div>
+</block>
+<block name="js">
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#header_menu li").eq(1).addClass("active");
+            var t = $("#t-val").text().split("-");
+            $(".condition-item").eq(0).find("a").eq(t[0]).addClass("active");
+            $(".condition-item").eq(1).find("a").eq(t[1]).addClass("active");
+            $(".condition-item").eq(2).find("a").eq(t[2]).addClass("active");
+        });
+    </script>
 </block>
