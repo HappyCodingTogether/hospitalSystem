@@ -1,17 +1,28 @@
 <extend name="Public/base"/>
 <block name="main">
     <div class="container">
-        <div id="person-data">
+        <div class="row">
             <div class="col-md-4">
-                <div class="box">
+                <div class="person-menu">
+                    <ul>
+                        <li class="bigt">个人资料</li>
+                        <li class="smallt" id="person">账户资料</li>
+                        <li class="smallt" id="pwd-xiugai">修改密码</li>
+                        <li class="bigt">我的预约</li>
+                        <li class="smallt" id="n-yuyue">当前预约</li>
+                        <li class="smallt" id="p-yuyue">历史预约</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div id="person-body" class="box" >
                     <div class="box-header">
                         <ul>
-                            <li id="person" class="active">个人资料</li>
-                            <li id="pwd-xiugai">修改密码</li>
+                            <li class="active">账户资料</li>
                         </ul>
                     </div>
                     <div class="box-body">
-                        <div id="person-body">
+                        <div class="person-data">
                             <table class="data-table">
                                 <tr>
                                     <td>姓名：</td>
@@ -37,42 +48,51 @@
                                 </tr>
                             </table>
                         </div>
-                        <div id="pwd-xiugai-body" class="hide">
+                    </div>
+                </div>
+                <div id="pwd-xiugai-body" class="box hide">
+                    <div class="box-header">
+                        <ul>
+                            <li class="active">修改密码</li>
+                        </ul>
+                    </div>
+                    <div class="box-body">
+                        <div class="pwd-xiugai">
                             <form class="form-pwd-xiugai">
                                 <div class="form-item">
                                     <span>原密码：</span>
                                     <div class="form-pwd">
                                         <input type="password"/>
                                     </div>
+                                    <span class="y-pwd"></span>
                                 </div>
                                 <div class="form-item">
                                     <span>新密码：</span>
                                     <div class="form-pwd">
                                         <input type="password"/>
                                     </div>
+                                    <span class="y-pwd"></span>
                                 </div>
                                 <div class="form-item">
                                     <span>确认密码：</span>
                                     <div class="form-pwd">
                                         <input type="password"/>
                                     </div>
+                                    <span class="y-pwd"></span>
                                 </div>
                                 <button class="btn btn-primary">确认修改</button>
                             </form>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-8">
-                <div class="box">
+                <div id="n-yuyue-body" class="box hide">
                     <div class="box-header">
                         <ul>
-                            <li id="now-yuyue" class="active">当前预约</li>
-                            <li id="prev-yuyue">历史预约</li>
+                            <li class="active">当前预约</li>
                         </ul>
                     </div>
-                    <div class="box-body yuyue-body">
-                        <div id="now-yuyue-body">
+                    <div class="box-body">
+                        <div class="yuyue-body">
                             <table>
                                 <tr>
                                     <td>医院</td>
@@ -108,40 +128,9 @@
                                 </tr>
                             </table>
                         </div>
-                        <div id="prev-yuyue-body" class="hide">
-                            <table>
-                                <tr>
-                                    <td>医院</td>
-                                    <td>科室</td>
-                                    <td>医生</td>
-                                    <td>就诊日期</td>
-                                    <td>预约日期</td>
-                                </tr>
-                                <tr>
-                                    <td class="yuyue-hospital">北京大医院</td>
-                                    <td class="yuyue-keshi">内科</td>
-                                    <td class="yuyue-doctor">陈医生</td>
-                                    <td>2014-2-21</td>
-                                    <td>2014-8-9</td>
-                                </tr>
-                                <tr>
-                                    <td class="yuyue-hospital">北京大医院sddddddddsdssssfdddddd</td>
-                                    <td class="yuyue-keshi">内科</td>
-                                    <td class="yuyue-doctor">陈医生</td>
-                                    <td>2014-2-21</td>
-                                    <td>2014-8-9</td>
-                                </tr>
-                                <tr>
-                                    <td class="yuyue-hospital">北京大医院</td>
-                                    <td class="yuyue-keshi">内科</td>
-                                    <td class="yuyue-doctor">陈医生</td>
-                                    <td>2014-2-21</td>
-                                    <td>2014-8-9</td>
-                                </tr>
-                            </table>
-                        </div>
                     </div>
                 </div>
+                <div id="p-yuyue-body" class="box hide"></div>
             </div>
         </div>
     </div>
