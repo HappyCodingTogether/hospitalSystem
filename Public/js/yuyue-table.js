@@ -5,6 +5,7 @@ $(document).ready(function () {
     loadPage();
     $(".prev-month").click(prevMonth);
     $(".next-month").click(nextMonth);
+    $(".days td").click(yuyue);
 })
 
 function loadPage() { //加载页面
@@ -115,19 +116,19 @@ function setYuyue() { //设置格子预约情况
     var year = $("#yuyue-year").text();
     var month = $("#yuyue-month").text();
 
-    $.ajax({
-        url: '',//目标地址
-        type: 'POST',
-        async:false,
-        dataType: 'json',
-        data: "type="+"yuyue_table"+"&keshiID="+keshiID+"&year="+year+"&month="+month+"&yuyueDay="+yuyueDay,
-        success:function(data) {
-    //var data = new Array();
-    //data[0] = 1;data[1] = 1;data[2] = 2;data[3] = 1;data[4] = 1;data[5] = 0;data[6] = 2;
-    //data[7] = 2;data[8] = 0;data[9] = 1;data[10] = 2;data[11] = 1;data[12] = 1;data[13] = 0;
-    //data[14] = 1;data[15] = 0;data[16] = 1;data[17] = 1;data[18] = 1;data[19] = 1;data[20] = 1;
-    //data[21] = 0;data[22] = 1;data[23] = 1;data[24] = 2;data[25] = 1;data[26] = 0;data[27] = 1;
-    //data[28] = 1;data[29] = 2;data[30] = 1;
+    //$.ajax({
+        //url: '',//目标地址
+        //type: 'POST',
+        //async:false,
+        //dataType: 'json',
+        //data: "type="+"yuyue_table"+"&keshiID="+keshiID+"&year="+year+"&month="+month+"&yuyueDay="+yuyueDay,
+        //success:function(data) {
+    var data = new Array();
+    data[0] = 1;data[1] = 1;data[2] = 2;data[3] = 1;data[4] = 1;data[5] = 0;data[6] = 2;
+    data[7] = 2;data[8] = 0;data[9] = 1;data[10] = 2;data[11] = 1;data[12] = 1;data[13] = 0;
+    data[14] = 1;data[15] = 0;data[16] = 1;data[17] = 1;data[18] = 1;data[19] = 1;data[20] = 1;
+    data[21] = 0;data[22] = 1;data[23] = 1;data[24] = 2;data[25] = 1;data[26] = 0;data[27] = 1;
+    data[28] = 1;data[29] = 2;data[30] = 1;
             var monthDay = $("td.month-day");
             var length = monthDay.length;
             for(i = 0; i < length; i++) {
@@ -142,8 +143,8 @@ function setYuyue() { //设置格子预约情况
                 }
             }
             bukeYuyue($(".days td").not(".month-day"));
-        }
-    });
+    //    }
+    //});
 }
 
 function keYuyue(doc) { //设置可预约格子
@@ -152,6 +153,8 @@ function keYuyue(doc) { //设置可预约格子
     doc.append(html);
     doc.addClass("ke-yuyue");
     doc.removeClass("yueman buke-yuyue");
+    doc.attr("data-toggle","modal");
+    doc.attr("data-target","#yuyue-modal");
 }
 
 function yueman(doc) { //设置约满格子
@@ -160,12 +163,50 @@ function yueman(doc) { //设置约满格子
     doc.append(html);
     doc.addClass("yueman");
     doc.removeClass("ke-yuyue buke-yuyue");
+    doc.removeAttr("data-target");
+    doc.removeAttr("data-toggle");
 }
 
 function bukeYuyue(doc) { //设置不可预约格子
     doc.children("strong").remove();
     doc.addClass("buke-yuyue");
     doc.removeClass("ke-yuyue yueman");
+    doc.removeAttr("data-target");
+    doc.removeAttr("data-toggle");
+}
+
+function yuyue() { //设置每天的预约医生表
+    if($(this).hasClass("ke-yuyue")) {
+        var modal = $("#yuyue-modal .yuyue-do tbody");
+        var year = $("#yuyue-year").text();
+        var month = $("#yuyue-month").text();
+        var day = $(this).children("span").eq(0).text();
+        var keshiID = $("#keshiID").text();
+        var week = new Date(year,month,day).getDay();
+        $.ajax({
+            url: '',//目标地址
+            type: 'POST',
+            async:false,
+            dataType: 'json',
+            data: "type="+"yuyue_message"+"&keshiID="+keshiID+"&year="+year+"&month="+month+"&day="+day,
+            success:function(data) {
+                modal.html("");
+                var length = data.length;
+                for(i = 0; i < length; i++) {
+                    var html = '<tr>'+
+                        '<td>'+year+'-'+month+'-'+day+'</td>'+
+                        '<td>'+week+'</td>'+
+                        '<td>'+data[i].keshiName+'</td>'+
+                        '<td>'+data[i].doctorName+'</td>'+
+                        '<td>'+data[i].expense+'</td>'+
+                        '<td>'+data[i].keguaHao+'</td>'+
+                        '<td>'+data[i].shengyuHao+'</td>'+
+                        '<td><a href=""></a></td>'+
+                    '</tr>';
+                }
+            }
+        });
+    }
 }
 
 

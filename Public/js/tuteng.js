@@ -23,13 +23,14 @@ $(document).ready(function() {
     $(".select-box li").click(function() {//快速预约下拉框选择
         var drop = $(this).parent();
         drop.prev().children("span:first-child").text($(this).text());
+        drop.prev().children("span").eq(1).text($(this).parent().children("li").index(this));
         drop.addClass("hide");
         drop.prev.removeClass("active");
+
     });
     $(".dropdown-menu li").click(function() { //选择搜索前置条件
         $("#search-type").text($(this).text());
     });
-    //$("#header_menu li").eq(4).addClass("active"); //菜单栏
     $(".keshi li.type").click(function (e) { //按科室预约左侧菜单栏
         var dropDown = $(this).next();
         $(".keshi li.items").not(dropDown).slideUp('500');

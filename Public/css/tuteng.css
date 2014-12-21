@@ -964,4 +964,40 @@ td.buke-yuyue {
     background: rgba(162, 184, 183, 0.24) !important;
 }
 
+.yuyue-do {
+    padding: 20px 20px;
+}
+
+.yuyue-do table {
+    width: 100%;
+}
+
+.yuyue-do thead {
+    background: #95D7F8;
+    border: 1px solid #93D3CC;
+    color: #0E4138;
+    font-family: 微软雅黑;
+}
+
+.yuyue-do td {
+    border: 1px solid #93D3CC;
+}
+
+.yuyue-do th,
+.yuyue-do td {
+    text-align: center;
+}
+
+.yuyue-do td {
+    font-size: 12px;
+    line-height: 30px;
+}
+
+.yuyue-modal {
+    margin-top: 150px;
+}
+
+
+
+
 /*-- End keshim --*/
