@@ -47,7 +47,7 @@ class HospitalController extends Controller {
             $map['fenlei']=array('not between',array('卫生部直属医院','北京市卫生局直属医院','中国医科院所属医院','中国中医科学院','北京中医药大学','北京大学附属医院','驻京部队医院','驻京武警医院','部属厂矿高校医院','北京区县属医院'));
         }
         if($t2>0&&$t2<4){
-            $map['dengji']=$t2;
+            $map['dengji']=4-$t2;
         }
         if($t3>0&&$t3<17){
             $map1['name']=$diqu[$t3];
@@ -55,17 +55,16 @@ class HospitalController extends Controller {
             $data=$qu->field('id')->where($map1)->find();
             $map['quID']=$data['id'];
         }
-        $count=$hospital->field('hospital_hospital.id,hospital_hospital.name,hospital_hospital.xiangxiAddress,hospital_hospital.phone,hospital_Qu.name AS quName')
+        $count=$hospital->field('hospital_hospital.id,hospital_hospital.name,hospital_hospital.xiangxiAddress,hospital_hospital.imgURL,hospital_hospital.phone,hospital_Qu.name AS quName')
             ->where($map)->join('__QU__ ON __HOSPITAL__.quID=__QU__.id','LEFT')->count();
         $page=new Page($count,10);
         $page->setConfig('first' , ' 首页' );
         $page->setConfig('prev' , ' 上一页' );
         $page->setConfig('next' , ' 下一页' );
         $page->setConfig('last' , ' 末页' );
-        $page->setConfig('theme' , ' 共 %TOTAL_ROW% %HEADER% 共%TOTAL_PAGE%页
-%FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END%' );
+        $page->setConfig('theme' , ' 共%TOTAL_ROW%条记录   共%TOTAL_PAGE%页  %FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END%' );
         $show=$page->show();
-        $list=$hospital->field('hospital_hospital.id,hospital_hospital.name,hospital_hospital.xiangxiAddress,hospital_hospital.phone,hospital_Qu.name AS quName')
+        $list=$hospital->field('hospital_hospital.id,hospital_hospital.name,hospital_hospital.xiangxiAddress,hospital_hospital.imgURL,hospital_hospital.phone,hospital_Qu.name AS quName')
             ->where($map)->join('__QU__ ON __HOSPITAL__.quID=__QU__.id','LEFT')->limit($page->firstRow.','.$page->listRows)->select();
         $this->assign('list',$list);
         $this->assign('page',$show);
