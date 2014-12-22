@@ -2,7 +2,7 @@
 <block name="main">
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="person-menu">
                     <ul>
                         <li class="bigt">个人资料</li>
@@ -14,8 +14,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-8">
-                <div id="person-body" class="box" >
+            <div class="col-md-9">
+                <div id="person-body" class="box hide">
                     <div class="box-header">
                         <ul>
                             <li class="active">账户资料</li>
@@ -43,7 +43,7 @@
                                 <tr>
                                     <td>是否认证：</td>
                                     <td>
-                                        <a href="">点击进入认证</a>
+                                        <a href="javascript:void(0)" id="renzheng">点击进入认证</a>
                                     </td>
                                 </tr>
                             </table>
@@ -85,7 +85,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="n-yuyue-body" class="box hide">
+                <div id="n-yuyue-body" class="box">
                     <div class="box-header">
                         <ul>
                             <li class="active">当前预约</li>
@@ -103,34 +103,86 @@
                                     <td>取消预约</td>
                                 </tr>
                                 <tr>
-                                    <td class="yuyue-hospital">北京大医院</td>
-                                    <td class="yuyue-keshi">内科</td>
-                                    <td class="yuyue-doctor">陈医生</td>
+                                    <td>北京大医院</td>
+                                    <td>内科</td>
+                                    <td>陈医生</td>
                                     <td>2014-2-21</td>
                                     <td>2014-8-9</td>
-                                    <td><a href="">取消</a></td>
+                                    <td><a href="" data-id="">取消</a></td>
                                 </tr>
                                 <tr>
-                                    <td class="yuyue-hospital">北京大医院sddddddddsdssssfdddddd</td>
-                                    <td class="yuyue-keshi">内科</td>
-                                    <td class="yuyue-doctor">陈医生</td>
+                                    <td>北京大医院</td>
+                                    <td>内科</td>
+                                    <td>陈医生</td>
                                     <td>2014-2-21</td>
                                     <td>2014-8-9</td>
-                                    <td><a href="">取消</a></td>
+                                    <td><a href=""  data-id="">取消</a></td>
                                 </tr>
                                 <tr>
-                                    <td class="yuyue-hospital">北京大医院</td>
-                                    <td class="yuyue-keshi">内科</td>
-                                    <td class="yuyue-doctor">陈医生</td>
+                                    <td>北京大医院</td>
+                                    <td>内科</td>
+                                    <td>陈医生</td>
                                     <td>2014-2-21</td>
                                     <td>2014-8-9</td>
-                                    <td><a href="">取消</a></td>
+                                    <td><a href=""  data-id="">取消</a></td>
                                 </tr>
                             </table>
                         </div>
                     </div>
                 </div>
-                <div id="p-yuyue-body" class="box hide"></div>
+                <div id="p-yuyue-body" class="box hide">
+                    <div class="box-header">
+                        <ul>
+                            <li class="active">历史预约</li>
+                        </ul>
+                    </div>
+                    <div class="box-body">
+                        <div class="yuyue-body">
+                            <table>
+                                <tr>
+                                    <td>医院</td>
+                                    <td>科室</td>
+                                    <td>医生</td>
+                                    <td>就诊日期</td>
+                                    <td>预约日期</td>
+                                </tr>
+                                <tr>
+                                    <td>北京大医院</td>
+                                    <td>内科</td>
+                                    <td>陈医生</td>
+                                    <td>2014-2-21</td>
+                                    <td>2014-8-9</td>
+                                </tr>
+                                <tr>
+                                    <td>北京大医院</td>
+                                    <td>内科</td>
+                                    <td>陈医生</td>
+                                    <td>2014-2-21</td>
+                                    <td>2014-8-9</td>
+                                </tr>
+                                <tr>
+                                    <td>北京大医院</td>
+                                    <td>内科</td>
+                                    <td>陈医生</td>
+                                    <td>2014-2-21</td>
+                                    <td>2014-8-9</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div id="renzheng-body" class="box hide">
+                    <div class="box-header">
+                        <ul>
+                            <li class="active">认证中心</li>
+                        </ul>
+                    </div>
+                    <div class="box-body">
+                        <div class="renzheng-content">
+                            sfsdfsdf
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -138,5 +190,15 @@
 <block name="js">
     <script type="text/javascript">
         $("#header_menu li").eq(4).addClass("active");
+        $(".yuyue-body a").click(function() {
+            var yuyueID = $(this).attr("data-id");
+            $.ajax({
+                url: '',//取消预约
+                type: 'POST',
+                async:false,
+                dataType: 'json',
+                data: "type="+"quxiao"+"&yuyueID="+yuyueID
+            });
+        });
     </script>
 </block>
