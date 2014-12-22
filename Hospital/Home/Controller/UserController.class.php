@@ -14,6 +14,7 @@ class UserController extends  Controller{
             if(md5($pwd)==$data['password']){
                 session("userName",$data['name']);
                 session("loginName",$username);
+                session("identify",$data['identify']);
                 redirect(session('urlRefer'));
             }else{
                 $this->error("密码错误！");
