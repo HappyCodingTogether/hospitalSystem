@@ -187,10 +187,13 @@ class HospitalController extends Controller {
     }
     public function keshi() {
         session('urlRefer',__ACTION__);
+        //echo $this->unicode_encode('内科');
 
-        $leixing=I('get.k',null);
+        $k=I('get.k','0-0-\u5FC3\u8840\u7BA1\u5185\u79D1');
+        list($i1,$i2,$leixing)=split('-',$k);
         $keshi=M('Keshi');
-        $map['hospital_keshi.fenlei']=$this->unicode_decode($leixing);
+        $fenlei=$this->unicode_decode($leixing);
+        $map['hospital_keshi.fenlei']=$fenlei;
         $count=$keshi->field('id')->where($map)->count();
         $page=new Page($count,10);
         $page->setConfig('first' , ' 首页' );
@@ -203,6 +206,10 @@ class HospitalController extends Controller {
             ->where($map)->join('__HOSPITAL__ ON __KESHI__.hospitalID=__HOSPITAL__.id','LEFT')->limit($page->firstRow.','.$page->listRows)->select();
         $this->assign('list',$list);
         $this->assign('page',$show);
+        $this->assign('i1',$i1);
+        $this->assign('i2',$i2);
+
+
         $this->display();
     }
     public function keshim(){
