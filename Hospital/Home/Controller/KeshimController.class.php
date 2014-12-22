@@ -6,7 +6,9 @@ use Think\Controller;
 class KeshimController extends  Controller{
     public  function index(){
         $jinqiChuzhen=M('Jinqichuzhen');
-        $mindate=$jinqiChuzhen->min('dates');
+        $KeshiID=I('post.keshiID');
+        $mindate=$jinqiChuzhen->where("keshiID=$KeshiID")->min('dates');
+        //var_dump($mindate);
         if($mindate<date("Y-m-d")){
             $this->updateChuZhenTable();
         }
@@ -19,7 +21,7 @@ class KeshimController extends  Controller{
         $Doctor=M('Doctor');
         $doctors=$Doctor->where("keshiID=$KeshiID")->select();
         $jinqiChuzhen=M('Jinqichuzhen');
-        $jinqiChuzhen->where('1')->delete();
+        $jinqiChuzhen->where("keshiID=$KeshiID")->delete();
        foreach($doctors as $value){
             for($i=1;$i<=30;$i++){
                 $data['dates']=date("Y-m-d",strtotime("+$i day",$time));
@@ -98,7 +100,7 @@ class KeshimController extends  Controller{
 
     }
     public  function  getDoctorList(){
-        $KeshiID=I('post.keshiID');
+        $KeshiID=I('get.keshiID');
         $year=I('post.year');
         $month=I('post.month');
         $day=I('post.day');
@@ -116,6 +118,37 @@ class KeshimController extends  Controller{
         }
 
        echo json_encode($result);
+    }
+    public function  confirmOrder(){
+        $data['doctorID']=1;//I('post.doctorID');
+        $data['userID']=1;//I('post.userID');
+        $year=2014;//I('post.year');
+        $month=12;//I('post.month');
+        $day=24;//I('post.day');
+        $data['yuyueDate']=date($year."-".$month."-".$day);
+        $data['dateTimes']=date("Y-m-d");
+        $data['hospitalName']="北京医院";//I('post.hospitalName');
+        $data['keshiName']="内科";//I('post.keshiName');
+        $data['doctorName']="王鹏程";//I('post.keshiName');
+        $User=M('User');
+        $result=$User->where("id=$data[userID]")->find();
+        $data['yuyueName']=$result['name'];
+        $data['phone']=$result['phone'];
+        $jinqichuzhen=M('Jinqichuzhen');
+        $shengyuNum=$jinqichuzhen->where("doctorID=$data[doctorID] AND dates='$data[yuyueDate]'")->getField('shengyuNumber');
+
+        if($shengyuNum>=1){
+            $jinqichuzhen->where("doctorID=$data[doctorID] AND dates='$data[yuyueDate]'")->setDec('shengyuNumber');
+            $YuYueDan=M('Yuyuedan');
+            $res=$YuYueDan->field(`doctorID`,`userID`,`yuyueDate`,`dateTimes`,`hospitalName`,`keshiName`,'doctorName',`yuyueName`,`phone`)->data($data)->add();
+            if($res){
+                $this->success("预约成功！");
+            }else{
+                $this->error("预约失败！");
+            }
+        }else{
+            $this->error("预约量已空！");
+        }
     }
 
 }
