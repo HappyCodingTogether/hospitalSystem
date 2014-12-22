@@ -12,6 +12,7 @@
                             <li class="type">内 科</li>
                             <li class="items">
                                 <ul>
+                                    <li>内科</li>
                                     <li>心血管内科</li>
                                     <li>神经内科</li>
                                     <li>消化内科</li>
@@ -365,7 +366,7 @@
             $(".keshi li.items li").click(function() {
                 var i1 = $(".items ul").index($(this).parent());
                 var i2 = $(this).parent().children("li").index($(this));
-                var k = escape($(this).text()).replace(/%u/gi, '\\u');
+                var k = escape($(this).text()).replace(/%u/gi, 'u');
                 var str = i1+"-"+i2+"-"+k;
                 location.href = APP+"/Home/Hospital/keshi?k="+str;
             });
