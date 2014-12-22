@@ -120,27 +120,20 @@ function setYuyue() {
     var yuyueDay = $("#yuyueDay").text();
     var year = $("#yuyue-year").text();
     var month = $("#yuyue-month").text();
-
-    //$.ajax({
-        //url: '',//目标地址
-        //type: 'POST',
-        //async:false,
-        //dataType: 'json',
-        //data: "type="+"yuyue_table"+"&keshiID="+keshiID+"&year="+year+"&month="+month+"&yuyueDay="+yuyueDay,
-        //success:function(data) {
-    var data = new Array();
-    data[0] = 1;data[1] = 1;data[2] = 2;data[3] = 1;data[4] = 1;data[5] = 0;data[6] = 2;
-    data[7] = 2;data[8] = 0;data[9] = 1;data[10] = 2;data[11] = 1;data[12] = 1;data[13] = 0;
-    data[14] = 1;data[15] = 0;data[16] = 1;data[17] = 1;data[18] = 1;data[19] = 1;data[20] = 1;
-    data[21] = 0;data[22] = 1;data[23] = 1;data[24] = 2;data[25] = 1;data[26] = 0;data[27] = 1;
-    data[28] = 1;data[29] = 2;data[30] = 1;
+    $.ajax({
+        url: APP+'/Home/Keshim',//目标地址
+        type: 'POST',
+        async:false,
+        dataType: 'json',
+        data: "type="+"yuyue_table"+"&keshiID="+1+"&year="+year+"&month="+month+"&yuyueDay="+yuyueDay,
+        success:function(data) {
             var monthDay = $("td.month-day");
             var length = monthDay.length;
             for(i = 0; i < length; i++) {
-                if(data[i] == 0) {
+                if(data[i+1] == null) {
                     bukeYuyue(monthDay.eq(i));
                 }
-                else if(data[i] == 1) {
+                else if(data[i+1] == 1) {
                     keYuyue(monthDay.eq(i));
                 }
                 else {
@@ -148,8 +141,8 @@ function setYuyue() {
                 }
             }
             bukeYuyue($(".days td").not(".month-day"));
-    //    }
-    //});
+        }
+    });
 }
 //设置可预约格子
 function keYuyue(doc) {
@@ -189,39 +182,37 @@ function yuyue() {
         var keshiID = $("#keshiID").text();
         var week = new Date(year,month,day).getDay();
         $.ajax({
-            url: '',//目标地址
+            url: APP+'/Home/Keshim/getDoctorList',//目标地址
             type: 'POST',
             async:false,
             dataType: 'json',
-            data: "type="+"yuyue_message"+"&keshiID="+keshiID+"&year="+year+"&month="+month+"&day="+day,
+            data: "type="+"yuyue_message"+"&keshiID="+1+"&year="+year+"&month="+month+"&day="+day,
             success:function(data) {
                 modal.html("");
                 var length = data.length;
                 for(i = 0; i < length; i++) {
+
                     var html = '<tr>'+
-                        '<td>'+year+'-'+month+'-'+day+'</td>'+
-                        '<td>'+week+'</td>'+
-                        '<td>'+data[i].keshiName+'</td>'+
+                        '<td>'+2015+'-'+1+'-'+1+'</td>'+
+                        '<td>'+5+'</td>'+
+                        '<td>'+"烧伤科"+'</td>'+//从前台获取
                         '<td>'+data[i].doctorName+'</td>'+
                         '<td>'+data[i].expense+'</td>'+
                         '<td>'+data[i].keguaHao+'</td>'+
                         '<td>'+data[i].shengyuHao+'</td>';
                     if(data[i].shengyuHao > 0) {
-                        html += '<td><a href="javascript:void(0)">预约</a></td>';
+                        html += '<td><a href="">预约</a></td>';
                     }
                     else {
                         html += '<td>约满</td>';
                     }
                     html += '</tr>';
+
                     modal.html(modal.html()+html);
                 }
             }
         });
     }
-}
-//触发预约事件
-function yuyue_a() {
-
 }
 
 
