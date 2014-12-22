@@ -125,7 +125,7 @@ function setYuyue() {
         type: 'POST',
         async:false,
         dataType: 'json',
-        data: "type="+"yuyue_table"+"&keshiID="+1+"&year="+year+"&month="+month+"&yuyueDay="+yuyueDay,
+        data: "type="+"yuyue_table"+"&keshiID="+keshiID+"&year="+year+"&month="+month+"&yuyueDay="+yuyueDay,
         success:function(data) {
             var monthDay = $("td.month-day");
             var length = monthDay.length;
