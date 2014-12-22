@@ -85,7 +85,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="n-yuyue-body" class="box">
+                <div id="n-yuyue-body" class="box hide">
                     <div class="box-header">
                         <ul>
                             <li class="active">当前预约</li>
@@ -171,7 +171,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="renzheng-body" class="box hide">
+                <div id="renzheng-body" class="box">
                     <div class="box-header">
                         <ul>
                             <li class="active">认证中心</li>
@@ -179,7 +179,8 @@
                     </div>
                     <div class="box-body">
                         <div class="renzheng-content">
-                            sfsdfsdf
+                            <input type="file" id="renzheng-upload"/>
+                            <img src="" alt="" id="preview"/>
                         </div>
                     </div>
                 </div>
@@ -188,17 +189,5 @@
     </div>
 </block>
 <block name="js">
-    <script type="text/javascript">
-        $("#header_menu li").eq(4).addClass("active");
-        $(".yuyue-body a").click(function() {
-            var yuyueID = $(this).attr("data-id");
-            $.ajax({
-                url: '',//取消预约
-                type: 'POST',
-                async:false,
-                dataType: 'json',
-                data: "type="+"quxiao"+"&yuyueID="+yuyueID
-            });
-        });
-    </script>
+    <load href="__PUBLIC__/js/person.js"/>
 </block>
