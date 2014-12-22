@@ -7,7 +7,7 @@ class KeshimController extends  Controller{
     public  function index(){
         $jinqiChuzhen=M('Jinqichuzhen');
         $mindate=$jinqiChuzhen->min('dates');
-        if($mindate<date("Y-m-d h:i:s")){
+        if($mindate<date("Y-m-d")){
             $this->updateChuZhenTable();
         }
         echo $this->getNummber();
