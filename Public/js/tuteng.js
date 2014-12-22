@@ -37,10 +37,6 @@ $(document).ready(function() {
         dropDown.slideToggle('500');
         e.preventDefault();
     });
-    $(".keshi li.items li").click(function() { //科室左侧菜单
-        $(".keshi li.items li.active").removeClass("active");
-        $(this).addClass("active");
-    });
     // 验证码生成
     var captcha_img = $('#auth_code');
     var verifyimg = captcha_img.attr("src");
