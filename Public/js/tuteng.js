@@ -55,12 +55,6 @@ $(document).ready(function() {
     $("button.submit").click(function() {
         var type = $("#search-type").text();
         var neirong = $("#search-val").text();
-        $.ajax({
-            url: '__APP__/Home/Hospital/sousuo',
-            type: 'POST',
-            async:false,
-            dataType: 'json',
-            data: "type="+type+"&neirong="+neirong
-        });
+        location.href = "Hospital/sousuo?type="+type+"&neirong="+neirong;
     });
 });
