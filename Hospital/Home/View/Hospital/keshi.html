@@ -341,76 +341,18 @@
         </div>
         <div class="col-md-9">
             <div class="h-panel">
-                <div class="hospital-item">
-                    <img src="__PUBLIC__/images/slider1.jpg"/>
-                    <p>
-                        <strong><a href="">北京协和医院</a></strong><br>
-                        电话：<abbr>东院咨询台:010-69155564;西院咨询台:010-69158010</abbr><br>
-                        地址：<abbr>[东院]北京市东城区帅府园一号 [西院]北京市西城区大木仓胡同41号 </abbr><br>
-                        所属地区：<abbr>东城区</abbr><br>
-                    </p>
-                    <button class="btn btn-warning">进入医院</button>
-                </div>
-                <div class="hospital-item">
-                    <img src="__PUBLIC__/images/slider1.jpg"/>
-                    <p>
-                        <strong><a href="">北京协和医院</a></strong><br>
-                        电话：<abbr>东院咨询台:010-69155564;西院咨询台:010-69158010</abbr><br>
-                        地址：<abbr>[东院]北京市东城区帅府园一号 [西院]北京市西城区大木仓胡同41号 </abbr><br>
-                        所属地区：<abbr>东城区</abbr><br>
-                    </p>
-                    <button class="btn btn-warning">进入医院</button>
-                </div>
-                <div class="hospital-item">
-                    <img src="__PUBLIC__/images/slider1.jpg"/>
-                    <p>
-                        <strong><a href="">北京协和医院</a></strong><br>
-                        电话：<abbr>东院咨询台:010-69155564;西院咨询台:010-69158010</abbr><br>
-                        地址：<abbr>[东院]北京市东城区帅府园一号 [西院]北京市西城区大木仓胡同41号 </abbr><br>
-                        所属地区：<abbr>东城区</abbr><br>
-                    </p>
-                    <button class="btn btn-warning">进入医院</button>
-                </div>
-                <div class="hospital-item">
-                    <img src="__PUBLIC__/images/slider1.jpg"/>
-                    <p>
-                        <strong><a href="">北京协和医院</a></strong><br>
-                        电话：<abbr>东院咨询台:010-69155564;西院咨询台:010-69158010</abbr><br>
-                        地址：<abbr>[东院]北京市东城区帅府园一号 [西院]北京市西城区大木仓胡同41号 </abbr><br>
-                        所属地区：<abbr>东城区</abbr><br>
-                    </p>
-                    <button class="btn btn-warning">进入医院</button>
-                </div>
-                <div class="hospital-item">
-                    <img src="__PUBLIC__/images/slider1.jpg"/>
-                    <p>
-                        <strong><a href="">北京协和医院</a></strong><br>
-                        电话：<abbr>东院咨询台:010-69155564;西院咨询台:010-69158010</abbr><br>
-                        地址：<abbr>[东院]北京市东城区帅府园一号 [西院]北京市西城区大木仓胡同41号 </abbr><br>
-                        所属地区：<abbr>东城区</abbr><br>
-                    </p>
-                    <button class="btn btn-warning">进入医院</button>
-                </div>
-                <div class="hospital-item">
-                    <img src="__PUBLIC__/images/slider1.jpg"/>
-                    <p>
-                        <strong><a href="">北京协和医院</a></strong><br>
-                        电话：<abbr>东院咨询台:010-69155564;西院咨询台:010-69158010</abbr><br>
-                        地址：<abbr>[东院]北京市东城区帅府园一号 [西院]北京市西城区大木仓胡同41号 </abbr><br>
-                        所属地区：<abbr>东城区</abbr><br>
-                    </p>
-                    <button class="btn btn-warning">进入医院</button>
-                </div>
-                <div class="hospital-item">
-                    <img src="__PUBLIC__/images/slider1.jpg"/>
-                    <p>
-                        <strong><a href="">北京协和医院</a></strong><br>
-                        电话：<abbr>东院咨询台:010-69155564;西院咨询台:010-69158010</abbr><br>
-                        地址：<abbr>[东院]北京市东城区帅府园一号 [西院]北京市西城区大木仓胡同41号 </abbr><br>
-                        所属地区：<abbr>东城区</abbr><br>
-                    </p>
-                    <button class="btn btn-warning">进入医院</button>
-                </div>
+                <foreach name="list" item="obj">
+                    <div class="hospital-item">
+                        <img src="__PUBLIC__/images/{$obj.imgURL}"/>
+                        <p>
+                            <strong><a href="__APP__/Home/Hospital/keshim?keshiID={$obj.id}">{$obj.hospitalName}&nbsp&nbsp&nbsp&nbsp&nbsp{$obj.name}</a></strong><br>
+                            电话：<abbr>{$obj.phone}</abbr><br>
+                            地址：<abbr>{$obj.xiangxiAddress} </abbr><br>
+                        </p>
+                        <button class="btn btn-warning"><a href="__APP__/Home/Hospital/keshim?keshiID={$obj.id}">进入科室</a></button>
+                    </div>
+                </foreach>
+                <p>{$page}</p>
             </div>
         </div>
     </div>
