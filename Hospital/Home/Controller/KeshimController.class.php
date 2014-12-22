@@ -100,7 +100,7 @@ class KeshimController extends  Controller{
 
     }
     public  function  getDoctorList(){
-        $KeshiID=I('get.keshiID');
+        $KeshiID=I('post.keshiID');
         $year=I('post.year');
         $month=I('post.month');
         $day=I('post.day');
@@ -114,18 +114,15 @@ class KeshimController extends  Controller{
             $shengyuHao=$doctors[$i]['shengyuNumber'];
             $data=$doctor->where("id=$doctorID")->find();
             $doctorName=$data['name'];
-            $result[$i]=array("doctorName"=>"$doctorName","expense"=>"$data[guahaoMoney]","keguaHao"=>"$data[yuyueNum]","shengyuHao"=>"$shengyuHao");
+            $result[$i]=array("doctorName"=>"$doctorName","doctorID"=>"$doctorID","expense"=>"$data[guahaoMoney]","keguaHao"=>"$data[yuyueNum]","shengyuHao"=>"$shengyuHao");
         }
 
        echo json_encode($result);
     }
     public function  confirmOrder(){
-        $data['doctorID']=1;//I('post.doctorID');
-        $data['userID']=1;//I('post.userID');
-        $year=2014;//I('post.year');
-        $month=12;//I('post.month');
-        $day=24;//I('post.day');
-        $data['yuyueDate']=date($year."-".$month."-".$day);
+        $data['doctorID']=I('post.doctorID');
+        $data['userID']=session("userID");
+        $data['yuyueDate']=I('post.date');//date($year."-".$month."-".$day);
         $data['dateTimes']=date("Y-m-d");
         $data['hospitalName']="北京医院";//I('post.hospitalName');
         $data['keshiName']="内科";//I('post.keshiName');
@@ -136,18 +133,19 @@ class KeshimController extends  Controller{
         $data['phone']=$result['phone'];
         $jinqichuzhen=M('Jinqichuzhen');
         $shengyuNum=$jinqichuzhen->where("doctorID=$data[doctorID] AND dates='$data[yuyueDate]'")->getField('shengyuNumber');
-
         if($shengyuNum>=1){
             $jinqichuzhen->where("doctorID=$data[doctorID] AND dates='$data[yuyueDate]'")->setDec('shengyuNumber');
             $YuYueDan=M('Yuyuedan');
             $res=$YuYueDan->field(`doctorID`,`userID`,`yuyueDate`,`dateTimes`,`hospitalName`,`keshiName`,'doctorName',`yuyueName`,`phone`)->data($data)->add();
+            //var_dump($res);
             if($res){
-                $this->success("预约成功！");
+               echo "true";
             }else{
-                $this->error("预约失败！");
+                $jinqichuzhen->where("doctorID=$data[doctorID] AND dates='$data[yuyueDate]'")->setInc('shengyuNumber');
+                echo "false";
             }
         }else{
-            $this->error("预约量已空！");
+            echo "null";
         }
     }
 
