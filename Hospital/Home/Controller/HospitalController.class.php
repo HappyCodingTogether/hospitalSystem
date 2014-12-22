@@ -100,7 +100,7 @@ class HospitalController extends Controller {
         //显示医院基本信息
         $hospital=M('Hospital');
         $map['hospital_hospital.id']=$_GET['hospitalID'];
-        $this->assign('hospital',$hospital->field('hospital_hospital.name,hospital_hospital.phone,hospital_hospital.xiangxiAddress,hospital_hospital.dengji,hospital_hospital.fenlei,hospital_qu.name AS quName')
+        $this->assign('hospital',$hospital->field('hospital_hospital.imgURL,hospital_hospital.name,hospital_hospital.phone,hospital_hospital.xiangxiAddress,hospital_hospital.dengji,hospital_hospital.fenlei,hospital_qu.name AS quName')
             ->where($map)->join('__QU__ ON __HOSPITAL__.quID=__QU__.id','LEFT')->select());
 
 
@@ -145,5 +145,48 @@ class HospitalController extends Controller {
 
         $this->display();
 
+    }
+    public function sousuo(){
+        session('urlRefer',__ACTION__);
+
+        $type=$_GET['type'];
+        $neirong=$_GET['neirong'];
+
+        if($type=='医院'){
+            $this->assign('type',1);
+            $hospital=M('Hospital');
+            $map['hospital_hospital.name']=array('like','%'.$neirong.'%');
+            $count=$hospital->field('id')->where($map)->count();
+            $page=new Page($count,10);
+            $page->setConfig('first' , ' 首页' );
+            $page->setConfig('prev' , ' 上一页' );
+            $page->setConfig('next' , ' 下一页' );
+            $page->setConfig('last' , ' 末页' );
+            $page->setConfig('theme' , ' 共%TOTAL_ROW%条记录   共%TOTAL_PAGE%页  %FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END%' );
+            $show=$page->show();
+            $list=$hospital->field('hospital_hospital.id,hospital_hospital.name,hospital_hospital.phone,hospital_hospital.xiangxiAddress,hospital_hospital.imgURL,hospital_qu.name AS quName')
+                ->where($map)->join('__QU__ ON __HOSPITAL__.quID=__QU__.id','LEFT')->limit($page->firstRow.','.$page->listRows)->select();
+            $this->assign('list',$list);
+            $this->assign('page',$show);
+        }
+        if($type=='科室'){
+            $this->assign('type',2);
+            $keshi=M('Keshi');
+            $map['hospital_keshi.name']=array('like','%'.$neirong.'%');
+            $count=$keshi->field('id')->where($map)->count();
+            $page=new Page($count,10);
+            $page->setConfig('first' , ' 首页' );
+            $page->setConfig('prev' , ' 上一页' );
+            $page->setConfig('next' , ' 下一页' );
+            $page->setConfig('last' , ' 末页' );
+            $page->setConfig('theme' , ' 共%TOTAL_ROW%条记录   共%TOTAL_PAGE%页  %FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END%' );
+            $show=$page->show();
+            $list=$keshi->field('hospital_keshi.id,hospital_keshi.name,hospital_keshi.phone,hospital_hospital.xiangxiAddress,hospital_hospital.imgURL,hospital_hospital.name AS hospitalName')
+                ->where($map)->join('__HOSPITAL__ ON __KESHI__.hospitalID=__HOSPITAL__.id','LEFT')->limit($page->firstRow.','.$page->listRows)
+                ->select();
+            $this->assign('list',$list);
+            $this->assign('page',$show);
+        }
+        $this->display();
     }
 }
