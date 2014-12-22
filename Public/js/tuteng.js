@@ -55,6 +55,6 @@ $(document).ready(function() {
     $("button.submit").click(function() {
         var type = $("#search-type").text();
         var neirong = $("#search-val").val();
-        location.href = "Hospital/sousuo?type="+type+"&neirong="+neirong;
+        location.href = APP+"/Home/Hospital/sousuo?type="+type+"&neirong="+neirong;
     });
 });
