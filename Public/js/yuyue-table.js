@@ -180,28 +180,31 @@ function yuyue() {
         var month = $("#yuyue-month").text();
         var day = $(this).children("span").eq(0).text();
         var keshiID = $("#keshiID").text();
-        var week = new Date(year,month,day).getDay();
+        var week = new Date(year,month-1,day).getDay();
         $.ajax({
             url: APP+'/Home/Keshim/getDoctorList',//目标地址
             type: 'POST',
             async:false,
             dataType: 'json',
-            data: "type="+"yuyue_message"+"&keshiID="+1+"&year="+year+"&month="+month+"&day="+day,
+            data: "type="+"yuyue_message"+"&keshiID="+keshiID+"&year="+year+"&month="+month+"&day="+day,
             success:function(data) {
                 modal.html("");
                 var length = data.length;
+
                 for(i = 0; i < length; i++) {
 
                     var html = '<tr>'+
-                        '<td>'+2015+'-'+1+'-'+1+'</td>'+
-                        '<td>'+5+'</td>'+
+                        '<td>'+year+'-'+month+'-'+day+'</td>'+
+                        '<td>'+week+'</td>'+
                         '<td>'+"烧伤科"+'</td>'+//从前台获取
                         '<td>'+data[i].doctorName+'</td>'+
                         '<td>'+data[i].expense+'</td>'+
                         '<td>'+data[i].keguaHao+'</td>'+
                         '<td>'+data[i].shengyuHao+'</td>';
+
                     if(data[i].shengyuHao > 0) {
-                        html += '<td><a href="">预约</a></td>';
+                        var date = year+'-'+month+'-'+day;
+                        html += '<td><a href="javascript:void(0)" onclick="confirmOrder(this)" data-date="'+date+'" data-id="'+keshiID+'" data-doctorID="'+data[i].doctorID+'">预约</a></td>';
                     }
                     else {
                         html += '<td>约满</td>';
@@ -214,6 +217,33 @@ function yuyue() {
         });
     }
 }
+
+function confirmOrder(doc) {
+    var date = $(doc).attr("data-date");
+    var keshiID = $(doc).attr("data-id");
+    var doctorID = $(doc).attr("data-doctorID");
+    $.ajax({
+        url: APP+'/Home/Keshim/confirmOrder',//目标地址
+        type: 'POST',
+        async:false,
+        dataType: 'json',
+        data: "type="+"confirmOrder"+"&keshiID="+keshiID+"&date="+date+"&doctorID="+doctorID,
+        success:function(data) {
+            if(data == true) {
+                alert("预约成功");
+                location.href = APP+"/Home/Hospital/Keshim?keshiID="+keshiID;
+            }
+            else if(data == false) {
+                alert("预约失败");
+            }
+            else {
+                alert("预约量为空");
+            }
+        }
+    });
+}
+
+
 
 
 
