@@ -71,10 +71,6 @@ class HospitalController extends Controller {
 
         $this->display();
     }
-    public function keshi() {
-	session('urlRefer',__ACTION__);
-        $this->display();
-    }
     public function register() {
         session('urlRefer',__ACTION__);
         $this->display();
@@ -188,5 +184,89 @@ class HospitalController extends Controller {
             $this->assign('page',$show);
         }
         $this->display();
+    }
+    public function keshi() {
+        session('urlRefer',__ACTION__);
+
+        $leixing=I('get.k',null);
+        $keshi=M('Keshi');
+        $map['hospital_keshi.fenlei']=$this->unicode_decode($leixing);
+        $count=$keshi->field('id')->where($map)->count();
+        $page=new Page($count,10);
+        $page->setConfig('first' , ' 首页' );
+        $page->setConfig('prev' , ' 上一页' );
+        $page->setConfig('next' , ' 下一页' );
+        $page->setConfig('last' , ' 末页' );
+        $page->setConfig('theme' , ' 共%TOTAL_ROW%条记录   共%TOTAL_PAGE%页  %FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END%' );
+        $show=$page->show();
+        $list=$keshi->field('hospital_keshi.id,hospital_keshi.name,hospital_keshi.phone,hospital_hospital.name AS hospitalName,hospital_hospital.xiangxiAddress,hospital_hospital.imgURL')
+            ->where($map)->join('__HOSPITAL__ ON __KESHI__.hospitalID=__HOSPITAL__.id','LEFT')->limit($page->firstRow.','.$page->listRows)->select();
+        $this->assign('list',$list);
+        $this->assign('page',$show);
+        $this->display();
+    }
+    public function keshim(){
+        $keshiID=$_GET['keshiID'];
+        $keshi=M('Keshi');
+        $map['hospital_keshi.id']=$keshiID;
+        $data=$keshi->field('hospital_keshi.name,hospital_keshi.weekdays,hospital_hospital.name AS hospitalName,hospital_keshi.hospitalID')
+            ->where($map)->join('__HOSPITAL__ ON __KESHI__.hospitalID=__HOSPITAL__.id','LEFT')->find();
+        $hospitalID=$data['hospitalID'];
+        $gonggao=M('Gonggao');
+        $map=null;
+        $map['hospitalID']=$hospitalID;
+        $map['title']='重要须知';
+        $xuzhi=$gonggao->field('id,contents')->where($map)->find();
+        $this->assign('keshiID',$keshiID);
+        $this->assign('data',$data);
+        $this->assign('xuzhi',$xuzhi);
+        $this->display();
+    }
+
+    private function unicode_encode($name){
+        $name = iconv('UTF-8', 'UCS-2', $name);
+        $len = strlen($name);
+        $str = '';
+        for ($i = 0; $i < $len - 1; $i = $i + 2)
+        {
+            $c = $name[$i];
+            $c2 = $name[$i + 1];
+            if (ord($c) > 0)
+            {    // 两个字节的文字
+                $str .= '\u'.base_convert(ord($c), 10, 16).base_convert(ord($c2), 10, 16);
+            }
+            else
+            {
+                $str .= $c2;
+            }
+        }
+        return $str;
+    }
+    private function unicode_decode($name)
+    {
+        // 转换编码，将Unicode编码转换成可以浏览的utf-8编码
+        $pattern = '/([\w]+)|(\\\u([\w]{4}))/i';
+        preg_match_all($pattern, $name, $matches);
+        if (!empty($matches))
+        {
+            $name = '';
+            for ($j = 0; $j < count($matches[0]); $j++)
+            {
+                $str = $matches[0][$j];
+                if (strpos($str, '\\u') === 0)
+                {
+                    $code = base_convert(substr($str, 2, 2), 16, 10);
+                    $code2 = base_convert(substr($str, 4), 16, 10);
+                    $c = chr($code).chr($code2);
+                    $c = iconv('UCS-2', 'UTF-8', $c);
+                    $name .= $c;
+                }
+                else
+                {
+                    $name .= $str;
+                }
+            }
+        }
+        return $name;
     }
 }
