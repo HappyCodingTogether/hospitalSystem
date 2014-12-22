@@ -189,8 +189,9 @@ class HospitalController extends Controller {
         session('urlRefer',__ACTION__);
         //echo $this->unicode_encode('内科');
 
-        $k=I('get.k','0-0-\u5FC3\u8840\u7BA1\u5185\u79D1');
-        list($i1,$i2,$leixing)=split('-',$k);
+        $k=I('get.k','0-0-u5185u79D1');
+        list($i1,$i2,$i3)=split('-',$k);
+        $leixing=str_replace('u','\u',$i3);
         $keshi=M('Keshi');
         $fenlei=$this->unicode_decode($leixing);
         $map['hospital_keshi.fenlei']=$fenlei;
