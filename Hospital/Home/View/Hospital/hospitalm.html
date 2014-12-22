@@ -15,23 +15,11 @@
                                 <default/>其他
                                 </switch>
                                 <strong>区域：</strong>{$arr.quName}
-                                <strong>分类：</strong><switch name="arr.fenlei">
-                                <case value="1">卫生部直属医院</case>
-                                <case value="2">北京市卫生区直属医院</case>
-                                <case value="3">中国医科院所属医院</case>
-                                <case value="4">中国中医科学院</case>
-                                <case value="5">北京中医药大学</case>
-                                <case value="6">北京大学附属医院</case>
-                                <case value="7">驻京部队医院</case>
-                                <case value="8">驻京武警医院</case>
-                                <case value="9">部属厂矿高校医院</case>
-                                <case value="10">北京区县属医院</case>
-                                <default/>其它
-                                </switch>
+                                <strong>分类：</strong>{$arr.fenlei}
                             </label>
                         </div>
                         <div class="h-m-body">
-                            <img src="__PUBLIC__/images/slider1.jpg"/>
+                            <img src="__PUBLIC__/images/{$arr.imgURL}"/>
                             <p>
                                 电话：<abbr>{$arr.phone}</abbr><br>
                                 地址：<abbr>{$arr.xiangxiAddress}</abbr><br>
