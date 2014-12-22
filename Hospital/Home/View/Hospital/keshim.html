@@ -4,23 +4,18 @@
         <div class="col-md-12">
             <div class="h-panel">
                 <div class="h-m-header">
-                    <p>北京大学第三医院——心血管科门诊-房颤门诊</span></p>
-                    <span id="keshiID" class="hide"><?php echo $_GET['keshiID'];?></span>
-                    <span id="yuyueDay" class="hide">0256</span>
+                    <p>{$data.hospitalName}——{$data.name}</span></p>
+                    <span id="keshiID" class="hide">{$keshiID}</span>
+                    <span id="yuyueDay" class="hide">{$data.weekdays}</span>
                     <label>
-                        <a href="">点击返回医院</a>
+                        <a href="__APP__/Home/Hospital/hospitalm?hospitalID={$data.hospitalID}">点击返回医院</a>
                     </label>
                 </div>
                 <div class="tishi">
                     <img src="__PUBLIC__/images/xuzhi.png"/>
                     <div class="tishi-c">
                         <strong>重要提示：</strong>
-                        <pre>
-    1.预约周期：91天　　2.放号时间：0:00
-    3.停挂时间：下午15:00停止次日预约挂号
-    4.退号时间：就诊前一日15:00前取消
-    5.特殊规则：无
-                        </pre>
+                        <pre>{$xuzhi.contents}</pre>
                     </div>
                 </div>
             </div>
