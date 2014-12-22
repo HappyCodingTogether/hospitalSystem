@@ -92,12 +92,11 @@ class UserController extends  Controller{
         $data['password'] = md5(I('post.pwd'));
         $data['name'] = I('post.user_name');
         $data['token']=md5($data['email'].$data['name']);
-        if(1){
-            $User = M("User"); // 实例化User对象
+        $User = M("User"); // 实例化User对象
             // 根据表单提交的POST数据创建数据对象
 
-                $result = $User->field('IDcard,email,,password,name,token')->data($data)->add(); // 写入数据到数据库
-               if($result){        // 如果主键是自动增长型 成功后返回值就是最新插入的值
+        $result = $User->field('IDcard,email,,password,name,token')->data($data)->add(); // 写入数据到数据库
+        if($result){        // 如果主键是自动增长型 成功后返回值就是最新插入的值
                    session("userName",$data['name']);
                    $url=__APP__;
                    $emailtext = "亲爱的".$data['name']."：<br/>感谢您在我站注册了新帐号。<br/>请点击链接激活您的帐号。<br/>
@@ -107,12 +106,7 @@ class UserController extends  Controller{
 
                    sendMail($data['email'],"邮箱激活验证",$emailtext);
                    $this->redirect('Hospital/Index',null, 0);
-               }
         }
-        else{
-           $this->error();
-        }
-
     }
     public function findpwd(){
         $username=I('post.username');
