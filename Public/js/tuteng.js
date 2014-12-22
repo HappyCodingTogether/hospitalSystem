@@ -5,7 +5,7 @@ $(document).ready(function() {
     $("#login_a").click(function() { //登录框
         $("#login-box").slideToggle(500);
     });
-    $(".box-header li,.person-menu li.smallt").click(function() { //框体tab
+    $(".box-header li,.person-menu li.smallt,#renzheng").click(function() { //框体tab
         $(this).addClass("active");
         $(this).siblings().removeClass("active");
         var body = "#"+this.id+"-body";
@@ -54,7 +54,7 @@ $(document).ready(function() {
     //搜索框传值
     $("button.submit").click(function() {
         var type = $("#search-type").text();
-        var neirong = $("#search-val").text();
+        var neirong = $("#search-val").val();
         location.href = "Hospital/sousuo?type="+type+"&neirong="+neirong;
     });
 });
