@@ -1,0 +1,47 @@
+<extend name="Public/base"/>
+<block name="main">
+    <div class="container">
+        <div id="h-content" class="h-panel">
+            <if condition="$type eq 1">
+                <foreach name="list" item="obj">
+                    <div class="hospital-item">
+                        <img src="__PUBLIC__/images/{$obj.imgURL}"/>
+                        <p>
+                            <strong><a href="__APP__/Home/Hospital/hospitalm?hospitalID={$obj.id}">{$obj.name}</a></strong><br>
+                            电话：<abbr>{$obj.phone}</abbr><br>
+                            地址：<abbr>{$obj.xiangxiAddress}</abbr>
+                            所属地区：<abbr>{$obj.quName}</abbr>
+                        </p>
+                        <button class="btn btn-warning"><a href="__APP__/Home/Hospital/hospitalm?hospitalID={$obj.id}">进入医院</a></button>
+                    </div>
+                </foreach>
+                <elseif condition="$type eq 2"/>
+                <foreach name="list" item="obj">
+                    <div class="hospital-item">
+                        <img src="__PUBLIC__/images/{$obj.imgURL}"/>
+                        <p>
+                            <strong><a href="__APP__/Home/Hospital/keshim?keshiID={$obj.id}">{$obj.hospitalName}&nbsp&nbsp&nbsp&nbsp&nbsp[{$obj.name}]</a></strong><br>
+                            电话：<abbr>{$obj.phone}</abbr><br>
+                            地址：<abbr>{$obj.xiangxiAddress}</abbr>
+                        </p>
+                        <button class="btn btn-warning"><a href="__APP__/Home/Hospital/keshim?keshiID={$obj.id}">进入科室</a></button>
+                    </div>
+                </foreach>
+                <else/>
+                错误
+            </if>
+            <p>{$page}</p>
+        </div>
+    </div>
+</block>
+<block name="js">
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#header_menu li").eq(1).addClass("active");
+            var t = $("#t-val").text().split("-");
+            $(".condition-item").eq(0).find("a").eq(t[0]).addClass("active");
+            $(".condition-item").eq(1).find("a").eq(t[1]).addClass("active");
+            $(".condition-item").eq(2).find("a").eq(t[2]).addClass("active");
+        });
+    </script>
+</block>
