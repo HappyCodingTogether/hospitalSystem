@@ -10,7 +10,8 @@ class KeshimController extends  Controller{
         if($mindate<date("Y-m-d")){
             $this->updateChuZhenTable();
         }
-        echo $this->getNummber();
+        //var_dump(json_encode($this->getNummber()));
+        echo json_encode($this->getNummber());
     }
     public function updateChuZhenTable(){
         $time=time();
@@ -35,9 +36,8 @@ class KeshimController extends  Controller{
         $KeshiID=I('post.keshiID');
         $year=I('post.year');
         $month=I('post.month');
-        $yuyueDay=I('post.day');
+        $yuyueDay=I('post.yuyueDay');
         $result=array();
-
         $datetime=getdate();
         $time=mktime(0,0,0,$month,1,$year);
         //$datenow=date($year."-".$month."-".$datetime['mday']);
@@ -46,8 +46,8 @@ class KeshimController extends  Controller{
         $jinqiChuzhen=M('Jinqichuzhen');
         if($month==$datetime['mon']){
             //$data=$jinqiChuzhen->where("keshiID=$KeshiID AND dates BETWEEN '$datenow' AND '$dateendmonth'")->group('keshiID')->sum('shengyuNumber');
-            for($i=0;$i<31;$i++){
-                if($i<$datetime['mday']){
+            for($i=1;$i<=31;$i++){
+                if($i<=$datetime['mday']){
                     $result[$i]=null;
                 }else{
 
@@ -55,45 +55,45 @@ class KeshimController extends  Controller{
                     $week=date('w',strtotime($date));
 
                     $num=$jinqiChuzhen->where("keshiID=$KeshiID AND dates='$date'")->sum('shengyuNumber');
-                    if(strstr($yuyueDay,$week)!=false){
-                        $result[$i]=0;
+                    if(strstr($yuyueDay,$week)==false){
+                        $result[$i]=null;
                     }else{
-                        if($num==0){
-                            $result[$i]=2;
+                        if($num!=null){
+                            if($num>=1){
+                                $result[$i]=1;
+                            }else{
+                                $result[$i]=2;
+                            }
                         }
-
-                        elseif($num>=1){
-                            $result[$i]=1;
-                        }else {
-                            $result=null;
+                        else {
+                            $result[$i]=null;
                         }
                     }
-
                 }
 
             }
         }
         elseif($month==($datetime['mon']+1)%12){
-            for($i=0;$i<31;$i++){
+            for($i=1;$i<=31;$i++){
                 $date=date($year."-".$month."-".$i);
                 $week=date('w',strtotime($date));
                 $num=$jinqiChuzhen->where("keshiID=$KeshiID AND dates='$date'")->sum('shengyuNumber');
-                if(strstr($yuyueDay,$week)!=false){
-                    $result[$i]=0;
+                if(strstr($yuyueDay,$week)==false){
+                    $result[$i]=null;
                 }else{
-                    if($num==0){
-                        $result[$i]=2;
+                    if($num!=null){
+                        if($num>=1){
+                            $result[$i]=1;
+                        }else{
+                            $result[$i]=2;
+                        }
                     }
-
-                    elseif($num>=1){
-                        $result[$i]=1;
-                    }else {
-                        $result=null;
+                    else {
+                        $result[$i]=null;
                     }
                 }
             }
         }
-
         return $result;
 
     }
@@ -112,10 +112,10 @@ class KeshimController extends  Controller{
             $shengyuHao=$doctors[$i]['shengyuNumber'];
             $data=$doctor->where("id=$doctorID")->find();
             $doctorName=$data['name'];
-            $doc=array("doctorName"=>"$doctorName","expense"=>"$data[guahaoMoney]","keguaHao"=>"$data[yuyueNum]","shengyuHao"=>"$shengyuHao");
-            $result[$i]=$doc;
+            $result[$i]=array("doctorName"=>"$doctorName","expense"=>"$data[guahaoMoney]","keguaHao"=>"$data[yuyueNum]","shengyuHao"=>"$shengyuHao");
         }
-       echo $result;
+
+       echo json_encode($result);
     }
 
 }
