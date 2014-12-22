@@ -459,7 +459,7 @@ a:hover {
 /*-- PersonCenter --*/
 
 .person-menu {
-    padding: 0px 100px;
+    padding: 0px 10px 0 100px;
     text-align: center;
 }
 
@@ -491,13 +491,12 @@ a:hover {
     color: #777777;
 }
 
-.person-menu li.smallt:hover {
+.person-menu li.smallt:hover,
+.person-menu li.smallt.active{
     font-size: 16px;
     font-weight: 600;
     color: #1472CF;
 }
-
-/**-**/
 
 .person-data {
     padding: 80px 20px 20px 20px;
@@ -565,7 +564,7 @@ a:hover {
 }
 
 .yuyue-body {
-    height: 500px;
+    height: 380px;
 }
 
 .yuyue-body table {
@@ -574,38 +573,35 @@ a:hover {
     margin-bottom: 10px;
 }
 
-.yuyue-body tr:first-child {
-    height: 25px;
-    font-weight: 700;
+.yuyue-body table tr {
+    line-height: 28px;
 }
 
-.yuyue-body tr {
-    height: 50px;
+.yuyue-body table tr:first-child {
+    background: #95D7F8;
+    border: 1px solid #93D3CC;
+    color: #0E4138;
+    font-family: 微软雅黑;
+    line-height: 35px;
 }
 
-.yuyue-body td {
-    border: 1px solid #514e53;
-    line-height: 20px;
+.yuyue-body table td {
+    border: 1px solid #93D3CC;
 }
 
-.yuyue-hospital {
-    width: 25%;
-}
-
-.yuyue-keshi {
-    width: 15%;
-}
-
-.yuyue-doctor {
-    width: 15%;
+.yuyue-body table tr:first-child td {
+    border: none;
 }
 
 .yuyue-body a {
-    color: #ff131d;
+    color: #F14433;
+}
+
+.renzheng-content {
+    height: 380px;
 }
 
 
-/**-**/
 
 /*-- End personcenter --*/
 
@@ -1062,8 +1058,5 @@ td.buke-yuyue {
 .yuyue-modal {
     margin-top: 150px;
 }
-
-
-
 
 /*-- End keshim --*/

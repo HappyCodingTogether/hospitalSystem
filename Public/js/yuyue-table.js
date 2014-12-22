@@ -79,10 +79,14 @@ function setDays() {
 }
 //上一月
 function prevMonth() {
+    $(this).addClass("hide");
+    $(".next-month").removeClass("hide");
     changeMonth(1);
 }
 //下一月
 function nextMonth() {
+    $(this).addClass("hide");
+    $(".prev-month").removeClass("hide");
     changeMonth(2);
 }
 //更改月份设置当月日期
