@@ -146,4 +146,18 @@ class UserController extends  Controller{
         $User=M('User');
         $User->where("token='$token'")->save($data);
     }
+    public function  quxiaoyuxyue(){
+        $yuyueID=I('get.yuyueID');
+        $jinqichuzhen=M('Jinqichuzhen');
+        $Yuyuedan=M('Yuyuedan');
+        $data=$Yuyuedan->where("'id'=$yuyueID")->find();
+        if($Yuyuedan->where("id=$yuyueID")->delete())
+        {
+            $jinqichuzhen->where("doctorID=$data[doctorID] AND dates='$data[yuyueDate]'")->setInc('shengyuNumber');
+            echo "true";
+        }else{
+            echo "false";
+        }
+
+    }
 }
