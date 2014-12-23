@@ -125,7 +125,7 @@ class AdminController extends Controller{
     public function UserNotVerify()
     {
         $User=M('User');
-        $renzheng=1;
+        $renzheng=2;
         $result=$User->where("isRenzheng='$renzheng'")->select();
         return $result;
     }
@@ -138,7 +138,7 @@ class AdminController extends Controller{
     }
     public function UserToVerify(){
         $id=I('post.user_id');
-        $data['isRenzheng']=2;
+        $data['isRenzheng']=1;
         $User=M('User');
         $User->where("id='$id'")->save($data);
     }
