@@ -30,29 +30,26 @@
                                     <td>医生</td>
                                     <td>就诊日期</td>
                                     <td>预约日期</td>
+                                    <td>状态</td>
                                 </tr>
-                                <tr>
-                                    <td>北京大医院</td>
-                                    <td>内科</td>
-                                    <td>陈医生</td>
-                                    <td>2014-2-21</td>
-                                    <td>2014-8-9</td>
-                                </tr>
-                                <tr>
-                                    <td>北京大医院</td>
-                                    <td>内科</td>
-                                    <td>陈医生</td>
-                                    <td>2014-2-21</td>
-                                    <td>2014-8-9</td>
-                                </tr>
-                                <tr>
-                                    <td>北京大医院</td>
-                                    <td>内科</td>
-                                    <td>陈医生</td>
-                                    <td>2014-2-21</td>
-                                    <td>2014-8-9</td>
-                                </tr>
+                                <foreach name="lishiyuyue" item="arr">
+                                    <tr>
+                                        <td>{$arr.hospitalName}</td>
+                                        <td>{$arr.keshiName}</td>
+                                        <td>{$arr.doctorName}</td>
+                                        <td>{$arr.yuyueDate}</td>
+                                        <td>{$arr.dateTimes}</td>
+                                        <if condition="$arr.isChuli eq 1">
+                                            <td>已处理</td>
+                                            <elseif condition="$arr.isChuli eq 2"/>
+                                            <td>违约</td>
+                                            <else/>
+                                            错误
+                                        </if>
+                                    </tr>
+                                </foreach>
                             </table>
+                            <p>{$page}</p>
                         </div>
                     </div>
                 </div>

@@ -32,30 +32,16 @@
                                     <td>预约日期</td>
                                     <td>取消预约</td>
                                 </tr>
-                                <tr>
-                                    <td>北京大医院</td>
-                                    <td>内科</td>
-                                    <td>陈医生</td>
-                                    <td>2014-2-21</td>
-                                    <td>2014-8-9</td>
-                                    <td><a href="" data-id="">取消</a></td>
-                                </tr>
-                                <tr>
-                                    <td>北京大医院</td>
-                                    <td>内科</td>
-                                    <td>陈医生</td>
-                                    <td>2014-2-21</td>
-                                    <td>2014-8-9</td>
-                                    <td><a href=""  data-id="">取消</a></td>
-                                </tr>
-                                <tr>
-                                    <td>北京大医院</td>
-                                    <td>内科</td>
-                                    <td>陈医生</td>
-                                    <td>2014-2-21</td>
-                                    <td>2014-8-9</td>
-                                    <td><a href=""  data-id="">取消</a></td>
-                                </tr>
+                                <volist name="dangqian" id="arr">
+                                    <tr>
+                                        <td>{$arr.hospitalName}</td>
+                                        <td>{$arr.keshiName}</td>
+                                        <td>{$arr.doctorName}</td>
+                                        <td>{$arr.yuyueDate}</td>
+                                        <td>{$arr.dateTimes}</td>
+                                        <td><a href="__APP__/Home/User/quxiaoyuyue?yuyueID={$arr.id}">取消</a></td>
+                                    </tr>
+                                </volist>
                             </table>
                         </div>
                     </div>
