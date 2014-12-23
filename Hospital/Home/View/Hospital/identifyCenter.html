@@ -1,0 +1,48 @@
+<extend name="Public/base"/>
+<block name="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="person-menu">
+                    <ul>
+                        <li class="bigt">个人资料</li>
+                        <li class="smallt" id="person"><a href="__APP__/Home/Hospital/personCenter">账户资料</a></li>
+                        <li class="smallt" id="pwd-xiugai"><a href="__APP__/Home/Hospital/changePwd">修改密码</a></li>
+                        <li class="bigt">我的预约</li>
+                        <li class="smallt" id="n-yuyue"><a href="__APP__/Home/Hospital/nowOrder">当前预约</a></li>
+                        <li class="smallt" id="p-yuyue"><a href="__APP__/Home/Hospital/prevOrder">历史预约</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div id="renzheng-body" class="box">
+                    <div class="box-header">
+                        <ul>
+                            <li class="active">认证中心</li>
+                        </ul>
+                    </div>
+                    <div class="box-body">
+                        <div class="renzheng-content">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <img src="" alt="上传你的照片" id="preview" class="preview"/>
+                                    <div class="file-group">
+                                        <input type="file" id="renzheng-upload" class="b-file"/>
+                                        <label for="renzheng-upload">选择图片</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <p class="identify-reminder">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;由于我们需要确认你的身份，所以请将身份证正面和自己的脸部放在一起拍张照片并上传.请放心，我们只是拿来认证，绝对保证你的隐私。</p>
+                                    <button class="btn btn-primary btn-submit">确认上传</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>
+<block name="js">
+    <load href="__PUBLIC__/js/person.js"/>
+</block>

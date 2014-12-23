@@ -1,0 +1,56 @@
+<extend name="Public/base"/>
+<block name="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="person-menu">
+                    <ul>
+                        <li class="bigt">个人资料</li>
+                        <li class="smallt" id="person"><a href="__APP__/Home/Hospital/personCenter">账户资料</a></li>
+                        <li class="smallt active" id="pwd-xiugai"><a href="__APP__/Home/Hospital/changePwd">修改密码</a></li>
+                        <li class="bigt">我的预约</li>
+                        <li class="smallt" id="n-yuyue"><a href="__APP__/Home/Hospital/nowOrder">当前预约</a></li>
+                        <li class="smallt" id="p-yuyue"><a href="__APP__/Home/Hospital/prevOrder">历史预约</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div id="pwd-xiugai-body" class="box">
+                    <div class="box-header">
+                        <ul>
+                            <li class="active">修改密码</li>
+                        </ul>
+                    </div>
+                    <div class="box-body">
+                        <div class="pwd-xiugai">
+                            <form class="form-pwd-xiugai">
+                                <div class="form-item">
+                                    <span>原密码：</span>
+                                    <div class="form-pwd">
+                                        <input type="password"/>
+                                    </div>
+                                </div>
+                                <div class="form-item">
+                                    <span>新密码：</span>
+                                    <div class="form-pwd">
+                                        <input type="password"/>
+                                    </div>
+                                </div>
+                                <div class="form-item">
+                                    <span>确认密码：</span>
+                                    <div class="form-pwd">
+                                        <input type="password"/>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary">确认修改</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>
+<block name="js">
+    <load href="__PUBLIC__/js/person.js"/>
+</block>

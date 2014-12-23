@@ -1,0 +1,65 @@
+<extend name="Public/base"/>
+<block name="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="person-menu">
+                    <ul>
+                        <li class="bigt">个人资料</li>
+                        <li class="smallt" id="person"><a href="__APP__/Home/Hospital/personCenter">账户资料</a></li>
+                        <li class="smallt" id="pwd-xiugai"><a href="__APP__/Home/Hospital/changePwd">修改密码</a></li>
+                        <li class="bigt">我的预约</li>
+                        <li class="smallt" id="n-yuyue"><a href="__APP__/Home/Hospital/nowOrder">当前预约</a></li>
+                        <li class="smallt active" id="p-yuyue"><a href="__APP__/Home/Hospital/prevOrder">历史预约</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div id="p-yuyue-body" class="box">
+                    <div class="box-header">
+                        <ul>
+                            <li class="active">历史预约</li>
+                        </ul>
+                    </div>
+                    <div class="box-body">
+                        <div class="yuyue-body">
+                            <table>
+                                <tr>
+                                    <td>医院</td>
+                                    <td>科室</td>
+                                    <td>医生</td>
+                                    <td>就诊日期</td>
+                                    <td>预约日期</td>
+                                </tr>
+                                <tr>
+                                    <td>北京大医院</td>
+                                    <td>内科</td>
+                                    <td>陈医生</td>
+                                    <td>2014-2-21</td>
+                                    <td>2014-8-9</td>
+                                </tr>
+                                <tr>
+                                    <td>北京大医院</td>
+                                    <td>内科</td>
+                                    <td>陈医生</td>
+                                    <td>2014-2-21</td>
+                                    <td>2014-8-9</td>
+                                </tr>
+                                <tr>
+                                    <td>北京大医院</td>
+                                    <td>内科</td>
+                                    <td>陈医生</td>
+                                    <td>2014-2-21</td>
+                                    <td>2014-8-9</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>
+<block name="js">
+    <load href="__PUBLIC__/js/person.js"/>
+</block>
