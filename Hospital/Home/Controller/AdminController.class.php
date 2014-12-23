@@ -173,10 +173,10 @@ class AdminController extends Controller{
     }
     public function ShowXuyaoYanzheng(){
         $User=M('User');
-        $is=0;
+        $is=2;
         $result=$User->where("isRenzheng='$is'")->select();
         for($i=0;$i<count($result);$i++){
-            $array[$i]=array("id"=>$result[$i]['id'],"name"=>$result[$i]['name'],"IDcard"=>$result[$i]['IDcard'],"ingURL"=>$result[$i]['ingURL']);
+            $array[$i]=array("id"=>$result[$i]['id'],"name"=>$result[$i]['name'],"IDcard"=>$result[$i]['IDcard'],"imgURL"=>$result[$i]['imgURL']);
         }
         echo json_encode($array);
     }
@@ -191,10 +191,10 @@ class AdminController extends Controller{
     }
     public function pass(){
         $id=I('post.id');
-        $data['isRenzheng']=2;
+        $data['isRenzheng']=1;
         $User=M('User');
         $result=$User->where("id='$id'")->save($data);
-
+        echo "true";
     }
     public function UserNotVerify()
     {
