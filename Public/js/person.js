@@ -5,6 +5,8 @@
 $(document).ready(function() {
     $("#header_menu li").eq(4).addClass("active");
     $("#renzheng-upload").change(setImagePreview);
+    $(".yuyue-body a").click(cancelOrder);
+    $(".pwd-xiugai button").click(changePwd);
 });
 
 function setImagePreview() {
@@ -32,4 +34,46 @@ function setImagePreview() {
         document.selection.empty();
     }
     return true;
+}
+
+function cancelOrder() {
+    var orderID = $(this).attr("data-id");
+    $.ajax({
+        url: APP+'',//目标地址
+        type: 'POST',
+        async:false,
+        dataType: 'json',
+        data: "type="+"cancelOrder"+"&orderID="+orderID,
+        success:function(data) {
+            if(data == true) {
+                location.href = APP+"/Home/Hospital/nowOrder";
+            }
+        }
+    });
+}
+
+function changePwd() {
+    var newPwd = $("#newPwd").val();
+    var newPwd2 = $("#newPwd2").val();
+    if(newPwd == newPwd2) {
+        $.ajax({
+            url: APP+'/Home/User/changepwd',//目标地址
+            type: 'POST',
+            async:false,
+            dataType: 'json',
+            data: "type="+"changePwd"+"&newpwd="+newpwd,
+            success:function(data) {
+                if(data == true) {
+                    alert(密码修改成功);
+                    location.href = APP+"/Home/Hospital/changePwd";
+                }
+                else {
+                    alert(修改失败);
+                }
+            }
+        });
+    }
+    else {
+        alert(两次输入不相同);
+    }
 }
