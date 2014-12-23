@@ -39,7 +39,7 @@ function setImagePreview() {
 function cancelOrder() {
     var orderID = $(this).attr("data-id");
     $.ajax({
-        url: APP+'',//目标地址
+        url: APP+'/Home/User/quxiaoyuyue',//目标地址
         type: 'POST',
         async:false,
         dataType: 'json',
@@ -53,6 +53,7 @@ function cancelOrder() {
 }
 
 function changePwd() {
+    var oldPwd = $("#oldPwd").val();
     var newPwd = $("#newPwd").val();
     var newPwd2 = $("#newPwd2").val();
     if(newPwd == newPwd2) {
@@ -61,19 +62,19 @@ function changePwd() {
             type: 'POST',
             async:false,
             dataType: 'json',
-            data: "type="+"changePwd"+"&newpwd="+newpwd,
+            data: "type="+"changePwd"+"&newpwd="+newpwd+"&oldpwd="+oldPwd,
             success:function(data) {
                 if(data == true) {
-                    alert(密码修改成功);
-                    location.href = APP+"/Home/Hospital/changePwd";
+                    alert("密码修改成功，请重新登录");
+                    location.href = APP+"/Home/User/logout";
                 }
                 else {
-                    alert(修改失败);
+                    alert("原密码错误");
                 }
             }
         });
     }
     else {
-        alert(两次输入不相同);
+        alert("两次输入不相同");
     }
 }
