@@ -295,7 +295,7 @@ class HospitalController extends Controller {
             $userID=session('userID');
             $user=M('User');
             $map['id']=$userID;
-            $data['imgURL']=$img;
+            $data['imgURL']=__ROOT__."/Public/images/Renzheng/".$img;
             $data['isRenzheng']=2;
             $user->where($map)->save($data);
             echo '文件上传成功';
