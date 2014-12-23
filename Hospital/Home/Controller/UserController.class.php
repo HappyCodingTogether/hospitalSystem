@@ -12,11 +12,22 @@ class UserController extends  Controller{
         $data = $User->where("email='$username' OR IDcard='$username'")->find();
         if($data!=null){
             if(md5($pwd)==$data['password']){
-                session("userName",$data['name']);
-                session("loginName",$username);
-                session("userID",$data['id']);
-                session("identify",$data['identify']);
-                redirect(session('urlRefer'));
+                if($data['identify']>0){
+                    session("identify",$data['identify']);
+                    $url=U('Admin/bianjiyiyuan');
+                    redirect($url);
+                }elseif($data['identify']==-1){
+                    session("identify",$data['identify']);
+                    $url=U('Admin/tianjiayiyuan');
+                    redirect($url);
+                }else{
+                    session("userName",$data['name']);
+                    session("loginName",$username);
+                    session("userID",$data['id']);
+                    session("identify",$data['identify']);
+                    redirect(session('urlRefer'));
+                }
+
             }else{
                 $this->error("密码错误！");
             }
@@ -104,6 +115,7 @@ class UserController extends  Controller{
                    session("loginName",$data['email']);
                    session("userID",$result);
                    session("identify",0);
+                   session("pingfen",12);
                    $url=__APP__;
                    $emailtext = "亲爱的".$data['name']."：<br/>感谢您在我站注册了新帐号。<br/>请点击链接激活您的帐号。<br/>
     <a href='$url/Home/User/emailactive?token=".$data['token']."' target=
@@ -115,7 +127,7 @@ class UserController extends  Controller{
         }
     }
     public function findpwd(){
-        $username=I('post.username');
+        $username=I('post.user_account');
         $newpwd=rand(100000,999999);
         $data['password']=md5($newpwd);
         $User=M('User');
@@ -124,6 +136,7 @@ class UserController extends  Controller{
         $emailtext="你的密码已经初始化为: ".$newpwd.",请及时登录并修改密码！";
         $User->where("email='$username' OR IDcard='$username'")->save($data);
         sendMail($email,"密码找回结果",$emailtext);
+        $this->success("密码找回成功，请查看注册邮箱的邮件");
     }
     public function changepwd(){
         $oldpwd=md5(I('post.oldpwd'));

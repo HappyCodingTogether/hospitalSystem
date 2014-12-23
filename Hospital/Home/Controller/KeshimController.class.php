@@ -100,55 +100,68 @@ class KeshimController extends  Controller{
 
     }
     public  function  getDoctorList(){
-        $KeshiID=I('post.keshiID');
-        $year=I('post.year');
-        $month=I('post.month');
-        $day=I('post.day');
-        $date=date($year."-".$month."-".$day);
-        $jinqiChuzhen=M('Jinqichuzhen');
-        $doctors=$jinqiChuzhen->where("keshiID=$KeshiID AND dates='$date'")->select();
-        $result=array();
-        for($i=0;$i<count($doctors);$i++){
-            $doctor=M('Doctor');
-            $doctorID=$doctors[$i]['doctorID'];
-            $shengyuHao=$doctors[$i]['shengyuNumber'];
-            $data=$doctor->where("id=$doctorID")->find();
-            $doctorName=$data['name'];
-            $result[$i]=array("doctorName"=>"$doctorName","doctorID"=>"$doctorID","expense"=>"$data[guahaoMoney]","keguaHao"=>"$data[yuyueNum]","shengyuHao"=>"$shengyuHao");
+        $userID=session("userID");
+        $pingfen=session("pingfen");
+        if($userID==null){
+            echo 3;//未登录
+        }elseif($pingfen<=0){
+            echo 4;//信用积分不足
+        }else{
+            $KeshiID=I('post.keshiID');
+            $year=I('post.year');
+            $month=I('post.month');
+            $day=I('post.day');
+            $date=date($year."-".$month."-".$day);
+            $jinqiChuzhen=M('Jinqichuzhen');
+            $doctors=$jinqiChuzhen->where("keshiID=$KeshiID AND dates='$date'")->select();
+            $result=array();
+            for($i=0;$i<count($doctors);$i++){
+                $doctor=M('Doctor');
+                $doctorID=$doctors[$i]['doctorID'];
+                $shengyuHao=$doctors[$i]['shengyuNumber'];
+                $data=$doctor->where("id=$doctorID")->find();
+                $doctorName=$data['name'];
+                $result[$i]=array("doctorName"=>"$doctorName","doctorID"=>"$doctorID","expense"=>"$data[guahaoMoney]","keguaHao"=>"$data[yuyueNum]","shengyuHao"=>"$shengyuHao");
+            }
+
+            echo json_encode($result);
         }
 
-       echo json_encode($result);
     }
     public function  confirmOrder(){
         $data['doctorID']=I('post.doctorID');
-        //var_dump($data['doctorID']);
         $data['userID']=session("userID");
-        //var_dump($data['userID']);
-        $data['yuyueDate']=I('post.date');//date($year."-".$month."-".$day);
-        $data['dateTimes']=date("Y-m-d");
-        $data['hospitalName']=I('post.hospitalName');
-        $data['keshiName']=I('post.keshiName');
-        $data['doctorName']=I('post.keshiName');
-        $User=M('User');
-        $result=$User->where("id=$data[userID]")->find();
-        $data['yuyueName']=$result['name'];
-        $data['phone']=$result['phone'];
-        $jinqichuzhen=M('Jinqichuzhen');
-        $shengyuNum=$jinqichuzhen->where("doctorID=$data[doctorID] AND dates='$data[yuyueDate]'")->getField('shengyuNumber');
-        if($shengyuNum>=1){
-            $jinqichuzhen->where("doctorID=$data[doctorID] AND dates='$data[yuyueDate]'")->setDec('shengyuNumber');
-            $YuYueDan=M('Yuyuedan');
-            $res=$YuYueDan->field(`doctorID`,`userID`,`yuyueDate`,`dateTimes`,`hospitalName`,`keshiName`,'doctorName',`yuyueName`,`phone`)->data($data)->add();
-            //var_dump($res);
-            if($res){
-               echo "true";
+            $data['yuyueDate']=I('post.date');//date($year."-".$month."-".$day);
+            $data['dateTimes']=date("Y-m-d");
+            $data['hospitalName']=I('post.hospitalName');
+            $data['keshiName']=I('post.keshiName');
+            $data['doctorName']=I('post.keshiName');
+            $doctor=M('Doctor');
+            $doc=$doctor->where("id=$data[doctorID]")->find();
+            $data['hospitalID']=$doc['hospitalID'];
+            $data['keshiID']=$doc['keshiID'];
+            $User=M('User');
+            $result=$User->where("id=$data[userID]")->find();
+            $data['yuyueName']=$result['name'];
+            $data['phone']=$result['phone'];
+            $jinqichuzhen=M('Jinqichuzhen');
+            $shengyuNum=$jinqichuzhen->where("doctorID=$data[doctorID] AND dates='$data[yuyueDate]'")->getField('shengyuNumber');
+            if($shengyuNum>=1){
+                $jinqichuzhen->where("doctorID=$data[doctorID] AND dates='$data[yuyueDate]'")->setDec('shengyuNumber');
+                $YuYueDan=M('Yuyuedan');
+                //var_dump($data);
+                $res=$YuYueDan->field(`hospitalID,keshiID,doctorID`,`userID`,`yuyueDate`,`dateTimes`,`hospitalName`,`keshiName`,'doctorName',`yuyueName`,`phone`)->data($data)->add();
+                if($res){
+                    echo "true";
+                }else{
+                    $jinqichuzhen->where("doctorID=$data[doctorID] AND dates='$data[yuyueDate]'")->setInc('shengyuNumber');
+                    echo "false";
+                }
             }else{
-                $jinqichuzhen->where("doctorID=$data[doctorID] AND dates='$data[yuyueDate]'")->setInc('shengyuNumber');
-                echo "false";
+                echo "null";
             }
-        }else{
-            echo "null";
-        }
+
+
     }
 
 }
