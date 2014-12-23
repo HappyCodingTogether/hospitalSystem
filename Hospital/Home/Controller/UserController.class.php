@@ -163,8 +163,8 @@ class UserController extends  Controller{
         $User=M('User');
         $User->where("token='$token'")->save($data);
     }
-    public function  quxiaoyuxyue(){
-        $yuyueID=I('get.yuyueID');
+    public function  quxiaoyuyue(){
+        $yuyueID=I('post.orderID');
         $jinqichuzhen=M('Jinqichuzhen');
         $Yuyuedan=M('Yuyuedan');
         $data=$Yuyuedan->where("'id'=$yuyueID")->find();
