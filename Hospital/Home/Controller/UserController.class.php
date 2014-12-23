@@ -14,6 +14,7 @@ class UserController extends  Controller{
             if(md5($pwd)==$data['password']){
                 session("userName",$data['name']);
                 session("loginName",$username);
+                session("userID",$data['id']);
                 session("identify",$data['identify']);
                 redirect(session('urlRefer'));
             }else{
@@ -97,8 +98,12 @@ class UserController extends  Controller{
             // 根据表单提交的POST数据创建数据对象
 
         $result = $User->field('IDcard,email,,password,name,token')->data($data)->add(); // 写入数据到数据库
+        //var_dump($result);
         if($result){        // 如果主键是自动增长型 成功后返回值就是最新插入的值
                    session("userName",$data['name']);
+                   session("loginName",$data['email']);
+                   session("userID",$result);
+                   session("identify",0);
                    $url=__APP__;
                    $emailtext = "亲爱的".$data['name']."：<br/>感谢您在我站注册了新帐号。<br/>请点击链接激活您的帐号。<br/>
     <a href='$url/Home/User/emailactive?token=".$data['token']."' target=
