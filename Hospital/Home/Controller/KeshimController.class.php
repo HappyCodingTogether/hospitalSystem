@@ -121,7 +121,9 @@ class KeshimController extends  Controller{
     }
     public function  confirmOrder(){
         $data['doctorID']=I('post.doctorID');
+        //var_dump($data['doctorID']);
         $data['userID']=session("userID");
+        //var_dump($data['userID']);
         $data['yuyueDate']=I('post.date');//date($year."-".$month."-".$day);
         $data['dateTimes']=date("Y-m-d");
         $data['hospitalName']="北京医院";//I('post.hospitalName');
