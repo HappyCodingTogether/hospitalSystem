@@ -5,7 +5,7 @@ $(document).ready(function() {
     $("#login_a").click(function() { //登录框
         $("#login-box").slideToggle(500);
     });
-    $(".box-header li,.person-menu li.smallt,#renzheng").click(function() { //框体tab
+    $(".box-header li").click(function() { //框体tab
         $(this).addClass("active");
         $(this).siblings().removeClass("active");
         var body = "#"+this.id+"-body";

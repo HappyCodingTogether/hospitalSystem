@@ -599,6 +599,53 @@ a:hover {
 
 .renzheng-content {
     height: 380px;
+    padding: 20px 70px;
+}
+
+.preview {
+    width: 240px !important;
+    height: 280px;
+    border: none;
+}
+
+.file-group {
+    position: relative;
+    left: 160px;
+    top: 10px;
+}
+
+.file-group label {
+    position: absolute;
+    width: 80px;
+    background: #0A8186;
+    color: #fffdfe;
+    text-align: center;
+    border-radius: 4px;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+.file-group label:hover {
+    background: #0a969b;
+}
+
+.b-file {
+    position: absolute;
+    width: 80px;
+    opacity: 0;
+}
+
+.identify-reminder {
+    margin-top: 60px;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 微软雅黑;
+    line-height: 25px;
+}
+
+.btn-submit {
+    margin-top: 50px;
+    float: right;
 }
 
 
@@ -679,6 +726,10 @@ a:hover {
     margin-top: 45px;
     margin-right: 25px;
     line-height: 10px;
+}
+
+.hospital-item button a {
+    color: #ffffff;
 }
 
 /*-- End hospitals --*/
@@ -927,6 +978,10 @@ a:hover {
 
 .tishi-c strong {
     color: #ff2215;
+}
+
+.tishi-c pre {
+    min-height: 100px;
 }
 
 .yuyue-table {
