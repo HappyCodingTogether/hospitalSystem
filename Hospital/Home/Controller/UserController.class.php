@@ -149,11 +149,11 @@ class UserController extends  Controller{
         $username=session('loginName');
         $data['password']=$newpwd;
         $pwd=$User->where("email='$username' OR IDcard='$username'")->getField('password');
-        if($oldpwd==$newpwd){
+        if($oldpwd==$pwd){
             $User->where("email='$username' OR IDcard='$username'")->save($data);
-            $this->success("密码修改成功");
+            echo "true";
         }else{
-            $this->error("密码不正确");
+            echo "false";
         }
 
     }
