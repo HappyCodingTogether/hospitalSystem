@@ -24,10 +24,7 @@ class HospitalController extends Controller {
 
         $this->display();
     }
-    public function personCenter() {
-	session('urlRefer',__ACTION__);
-        $this->display();
-    }
+    //显示所有医院列表
     public function hospitals() {
 	session('urlRefer',__ACTION__);
 
@@ -71,16 +68,19 @@ class HospitalController extends Controller {
 
         $this->display();
     }
+    //注销
     public function register() {
         session('urlRefer',__ACTION__);
         $this->display();
     }
+    //显示全部公告列表
     public function gonggao() {
 	session('urlRefer',__ACTION__);
         $gonggao=M('Gonggao');
         $this->assign('gonggao',$gonggao->field('id,title,dateTimes')->order('dateTimes DESC')->select());
         $this->display();
     }
+    //显示公告详细内容
     public function gonggaoc() {
 		session('urlRefer',__ACTION__);
         $gonggaoid=$_GET['gonggaoid'];
@@ -142,6 +142,7 @@ class HospitalController extends Controller {
         $this->display();
 
     }
+    //显示搜索结果页面
     public function sousuo(){
         session('urlRefer',__ACTION__);
 
@@ -185,6 +186,7 @@ class HospitalController extends Controller {
         }
         $this->display();
     }
+    //进入所有科室列表
     public function keshi() {
         session('urlRefer',__ACTION__);
         //echo $this->unicode_encode('内科');
@@ -213,6 +215,7 @@ class HospitalController extends Controller {
 
         $this->display();
     }
+    //进入科室界面
     public function keshim(){
         $keshiID=$_GET['keshiID'];
         $keshi=M('Keshi');
@@ -230,6 +233,49 @@ class HospitalController extends Controller {
         $this->assign('xuzhi',$xuzhi);
         $this->display();
     }
+    //个人中心的首页
+    public function personCenter() {
+        session('urlRefer',__ACTION__);
+
+        $userID=session('userID');
+        $user=M('User');
+        $map['id']=$userID;
+        $data=$user->field('name,IDcard,phone,email,isRenzheng')->where($map)->find();
+        $this->assign('user',$data);
+        $this->display();
+    }
+    //显示用户当前的预约
+    public function nowOrder(){
+        $userID=session('userID');
+        $yuyuedan=M('Yuyuedan');
+        $map['userID']=$userID;
+        $map['isChuli']=0;
+        $data=$yuyuedan->field('id,yuyueDate,dateTimes,hospitalName,keshiName,doctorName')
+            ->where($map)->select();
+        $this->assign('dangqian',$data);
+        $this->display();
+    }
+    //显示用户历史预约
+    public function prevOrder(){
+        $userID=session('userID');
+        $yuyuedan=M('Yuyuedan');
+        $map['userID']=$userID;
+        $map['isChuli']=array('in','1,2');
+        $count=$yuyuedan->field('id')->where($map)->count();
+        $page=new Page($count,10);
+        $page->setConfig('first' , ' 首页' );
+        $page->setConfig('prev' , ' 上一页' );
+        $page->setConfig('next' , ' 下一页' );
+        $page->setConfig('last' , ' 末页' );
+        $page->setConfig('theme' , ' 共%TOTAL_ROW%条记录   共%TOTAL_PAGE%页  %FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END%' );
+        $show=$page->show();
+        $list=$yuyuedan->field('id,yuyueDate,dateTimes,hospitalName,keshiName,doctorName,isChuli')
+            ->where($map)->order('dateTimes DESC')->limit($page->firstRow.','.$page->listRows)->select();
+        $this->assign('lishiyuyue',$list);
+        $this->assign('page',$show);
+        $this->display();
+    }
+
 
     private function unicode_encode($name){
         $name = iconv('UTF-8', 'UCS-2', $name);
@@ -277,4 +323,5 @@ class HospitalController extends Controller {
         }
         return $name;
     }
+
 }
