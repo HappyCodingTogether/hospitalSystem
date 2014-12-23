@@ -83,4 +83,129 @@ class AdminController extends Controller{
         $User=M('User');
         $User->where("id='$id'")->save($data);
     }
+
+    public function showyiyuan(){
+        $id=session('identify');
+       // $id=1;
+        $Hospital=M('Hospital');
+        $result=$Hospital->where("id='$id'")->find();
+        $quid=$result['quID'];
+        $Qu=M('Qu');
+        $result1=$Qu->where("id='$quid'")->find();
+        $array=array("id"=>$result['id'],"name"=>$result['name'],"dengji"=>$result['dengji'],"fenlei"=>$result['fenlei'],"qu"=>$result1['name'],"xiangxidizhi"=>$result['xiangxiAddress'],"youxiang"=>$result['email'],"dianhua"=>$result['phone']);
+       echo json_encode($array);
+    }
+    public function edityiyuan()
+    {
+        $qu_name=I('post.qu_name');
+        $Qu=M('Qu');
+        $result=$Qu->where("name='$qu_name'")->find();
+        $data['quID']=$result['id'];
+        $id=I('post.id');
+        $data['name']=I('post.name');
+        $data['dengji']=I('post.dengji');
+        $data['fenlei']=I('post.fenlei');
+        $data['xiangxiAddress']=I('post.xiangxiAddress');
+        $data['email']=I('post.youxiang');
+        $data['phone']=I('post.dianhua');
+        $Hospital=M('Hospital');
+        $Hospital->where("id='$id'")->save($data);
+
+    }
+    public function showkeshi(){
+       // $id=session('identify');
+        $id=1;
+        $Keshi=M('Keshi');
+        $result=$Keshi->where("hospitalID='$id'")->select();
+        for($i=0;$i<count($result);$i++){
+            $array[$i]=array("id"=>$result[$i]['id'],"name"=>$result[$i]['name'],"fenlei"=>$result[$i]['fenlei'],"weekdays"=>$result[$i]['weekdays']);
+        }
+        echo json_encode($array);
+    }
+    public function editkeshi()
+    {
+        $id = I('post.id');
+        $data['name'] = I('post.name');
+        $data['fenlei'] = I('post.fenlei');
+        $data['weekdays'] = I('post.weekdays');
+        $Keshi = M('Keshi');
+        $Keshi->where("id='$id'")->save($data);
+    }
+    public function Addkeshi(){
+        //$data['hospitalID']=session('identify');
+        $data['hospitalID']=1;
+        $data['name']=I('post.name');
+        $data['fenlei']=I('post.fenlei');
+        $data['weekdays']=I('post.weekdays');
+        $data['phone']=1234567890;
+        $Keshi=M('Keshi');
+        $result=$Keshi->field("hospitalID,name,fenlei,weekdays,phone")->data($data)->add();
+        if($result)$this->success();
+        else $this->error();
+    }
+    public function Deletekeshi(){
+        $id=I('post.id');
+        $Keshi=M('Keshi');
+       $result=$Keshi->where("id='$id'")->delete();
+        if($result)$this->success();
+        else $this->error();
+    }
+    public function showyisheng(){
+        // $id=session('identify');
+        $id=1;
+        $Yisheng=M('Doctor');
+        $result=$Yisheng->where("hospitalID='$id'")->select();
+        for($i=0;$i<count($result);$i++){
+            $keshiid=$result[$i]['keshiID'];
+            $Keshi=M('Keshi');
+            $result1=$Keshi->where("id='$keshiid'")->find();
+
+            $array[$i]=array("id"=>$result[$i]['id'],"keshi"=>$result1['name'],"name"=>$result[$i]['name'],"guahaoMoney"=>$result[$i]['guahaoMoney'],"yuyueNum"=>$result[$i]['yuyueNum'],"jianjie"=>$result[$i]['jianjie']);
+
+        }
+        echo json_encode($array);
+    }
+    public function edityisheng(){
+        $id=I('post.id');
+
+       // $hospitalid=session('identify');
+        $hospitalid=1;
+
+        $keshiname=I('post.keshi');
+        $Keshi=M('Keshi');
+        $result1=$Keshi->where("name='$keshiname'AND hospitalID='$hospitalid'")->find();
+        $data['keshiID']=$result1['id'];
+        $data['name']=I('post.name');
+        $data['yuyueNum']=I('post.yuyueNum');
+        $data['guahaoMoney']=I('post.guahaoMoney');
+        $data['jianjie']=I('post.jianjie');
+        $Doctor=M('Doctor');
+        $Doctor->where("id='$id'")->save($data);
+    }
+    public function Deleteyisheng(){
+        $id=I('post.id');
+        $Doctor=M('Doctor');
+        $result=$Doctor->where("id='$id'")->delete();
+        if($result)$this->success();
+        else $this->error();
+    }
+    public function Addyisheng(){
+        $keshiname=I('post.keshiname');
+
+        // $hospitalid=session('identify');
+        $hospitalid=1;
+
+        $Keshi=M('Keshi');
+        $result1=$Keshi->where("name='$keshiname' AND hospitalID='$hospitalid'")->find();
+        $data['hospitalID']=$hospitalid;
+        $data['keshiID']=$result1['id'];
+        $data['name']=I('post.name');
+        $data['guahaoMoney']=I('post.guahaoMoney');
+        $data['yuyueNum']=I('post.yuyueNum');
+        $data['jianjie']=I('post.jianjie');
+        $Doctor=M('Doctor');
+        $result=$Doctor->field("hospitalID,keshiID,name,yuyueNum,guahaoMoney,jianjie")->data($data)->add();
+        if($result)$this->success();
+        else $this->error();
+    }
 }
