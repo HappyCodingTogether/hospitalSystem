@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Bootstrap</title>
+    <title>图腾医院管理界面</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Bootstrap -->
 
     <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -16,8 +16,8 @@
             <li class="active" ><a href="bianjiyiyuan.html" >编辑医院信息</a></li>
             <li class="active" ><a href="bianjikeshi.html">编辑科室信息</a></li>
             <li class="active" ><a href="bianjiyisheng.html">编辑医生信息</a></li>
-            <li class="active" ><a href="yuyuechuli.html">编辑预约单信息</a></li>
-            <li class="active" ><a href="lishiyuyue.html">历史预约单信息</a></li>
+            <li class="active" ><a href="yuyuechuli.html">处理预约单</a></li>
+            <li class="active" ><a href="lishiyuyue.html">历史预约单</a></li>
         </ul>
     </div>
     <div class="box-body">
@@ -46,7 +46,7 @@
                     <td>{$arr.phone}</td>
                     <td>{$arr.yuyueDate}</td>
                     <td>{$arr.dateTimes}</td>
-                    <td>{$arr.isChuli}</td>
+                    <td><if condition="$arr.isChuli eq 1 "><span style="color:green">赴约</span><else /> <span style="color:red">违约</span></if></td>
                 </tr>
             </volist>
             </tbody>

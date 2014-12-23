@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Bootstrap</title>
+    <title>图腾医院管理界面</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Bootstrap -->
 
     <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -16,8 +16,8 @@
             <li class="active" ><a href="bianjiyiyuan.html" >编辑医院信息</a></li>
             <li class="active" ><a href="bianjikeshi.html">编辑科室信息</a></li>
             <li class="active" ><a href="bianjiyisheng.html">编辑医生信息</a></li>
-            <li class="active" ><a href="yuyuechuli.html">编辑预约单信息</a></li>
-            <li class="active" ><a href="lishiyuyue.html">历史预约单信息</a></li>
+            <li class="active" ><a href="yuyuechuli.html">处理预约单</a></li>
+            <li class="active" ><a href="lishiyuyue.html">历史预约单</a></li>
         </ul>
     </div>
     <div class="box-body">
@@ -49,8 +49,8 @@
 
                     <td>
                         <div>
-                            <button class="btn btn-primary btn-sm" data-id="预约单ID" onclick=fuyue({$arr.id})">赴约</button>
-                            <button class="btn btn-primary btn-sm" data-id="预约单ID" onclick="weiyue({$arr.id})">违约</button>
+                            <button class="btn btn-primary btn-sm" data-id="预约单ID" onclick="fuyue({$arr.id},this)">赴约</button>
+                            <button class="btn btn-primary btn-sm" data-id="预约单ID" onclick="weiyue({$arr.id},this)">违约</button>
                         </div>
                         <div class="hide">
                             赴约
@@ -69,32 +69,40 @@
     var PUBLIC= "__PUBLIC__";
     var APP = "__APP__";
     var ROOT = "__ROOT__";
-    $(document).ready(function() {
-        $("button").click(function() {
-            var deal = $(this).text();
-                var id = $(this).attr("data-id");
 
-
-    });
-    });
-
-function fuyue(id) {
+function fuyue(id,doc) {
     $.ajax({
        url:APP+"/Home/Admin/fuyuele",
         type:"POST",
         dataType:'json',
         async:true,
-        data:"&id="+id
+        data:"&id="+id,
+        success:function(data) {
+            if(data){
+                $(doc).parent().addClass("hide");
+                $(doc).parent().next().removeClass("hide");
+                $(doc).parent().next().css("color","green");
+                $(doc).parent().next().text("已赴约");
+            }
+        }
     });
 }
 
-    function weiyue(id) {
+    function weiyue(id,doc) {
         $.ajax({
             url:APP+"/Home/Admin/weiyuele",
             type:"POST",
             dataType:'json',
             async:true,
-            data:"&id="+id
+            data:"&id="+id,
+            success:function(data) {
+                if(data){
+                    $(doc).parent().addClass("hide");
+                    $(doc).parent().next().removeClass("hide");
+                    $(doc).parent().next().css("color","red");
+                    $(doc).parent().next().text("已违约");
+                }
+            }
         });
     }
 </script>
