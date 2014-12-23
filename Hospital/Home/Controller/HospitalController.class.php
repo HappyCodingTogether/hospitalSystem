@@ -275,6 +275,42 @@ class HospitalController extends Controller {
         $this->assign('page',$show);
         $this->display();
     }
+    //上传用户的图片
+    public function uploadpho(){
+        session('urlRefer',__ACTION__);
+
+        $upload = new \Think\Upload();// 实例化上传类
+        $upload->maxSize   =     10485760 ;// 设置附件上传大小
+        $upload->saveName = 'time';
+        $upload->autoSub=false;
+        $upload->exts      = array('img','jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
+        $upload->rootPath='./Public/images/Renzheng/';// 设置附件上传根目录
+        // 上传单个文件
+        $info   =   $upload->uploadOne($_FILES['photo']);
+        if(!$info){
+            $this->error($upload->getError());
+        }else{
+
+            $img=$info['savename'];
+            $userID=session('userID');
+            $user=M('User');
+            $map['id']=$userID;
+            $data['imgURL']=$img;
+            $data['isRenzheng']=2;
+            $user->where($map)->save($data);
+            echo '文件上传成功';
+            $this->redirect('personCenter');
+        }
+    }
+    //用户认证界面
+    public function identifyCenter(){
+        $userID=session('userID');
+        $user=M('User');
+        $map['id']=$userID;
+        $data=$user->field('isRenzheng')->where($map)->find();
+        $this->assign('renzheng',$data);
+        $this->display();
+    }
 
 
     private function unicode_encode($name){
