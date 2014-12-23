@@ -190,29 +190,37 @@ function yuyue() {
             dataType: 'json',
             data: "type="+"yuyue_message"+"&keshiID="+keshiID+"&year="+year+"&month="+month+"&day="+day,
             success:function(data) {
-                modal.html("");
-                var length = data.length;
-                for(i = 0; i < length; i++) {
-                    var html = '<tr>'+
-                        '<td>'+year+'-'+month+'-'+day+'</td>'+
-                        '<td>'+week+'</td>'+
-                        '<td>'+keshiName+'</td>'+//从前台获取
-                        '<td>'+data[i].doctorName+'</td>'+
-                        '<td>'+data[i].expense+'</td>'+
-                        '<td>'+data[i].keguaHao+'</td>'+
-                        '<td>'+data[i].shengyuHao+'</td>';
+                if(data== 3){
+                    alert("您尚未登录");
+                    $("#yuyue-modal").remove();
+                }else if(data== 4){
+                    alert("您的信用评分不足，不能预约！");
+                    $("#yuyue-modal").remove();
+                }else {
+                    modal.html("");
+                    var length = data.length;
+                    for(i = 0; i < length; i++) {
+                        var html = '<tr>'+
+                            '<td>'+year+'-'+month+'-'+day+'</td>'+
+                            '<td>'+week+'</td>'+
+                            '<td>'+keshiName+'</td>'+//从前台获取
+                            '<td>'+data[i].doctorName+'</td>'+
+                            '<td>'+data[i].expense+'</td>'+
+                            '<td>'+data[i].keguaHao+'</td>'+
+                            '<td>'+data[i].shengyuHao+'</td>';
 
-                    if(data[i].shengyuHao > 0) {
-                        var date = year+'-'+month+'-'+day;
-                        html += '<td><a href="javascript:void(0)" onclick="confirmOrder(this)" data-date="'+date+'" data-id="'+keshiID+'" data-doctorID="'+data[i].doctorID+'"  data-doctorName="'+data[i].doctorName+'">预约</a></td>';
+                        if(data[i].shengyuHao > 0) {
+                            var date = year+'-'+month+'-'+day;
+                            html += '<td><a href="javascript:void(0)" onclick="confirmOrder(this)" data-date="'+date+'" data-id="'+keshiID+'" data-doctorID="'+data[i].doctorID+'"  data-doctorName="'+data[i].doctorName+'">预约</a></td>';
+                        }
+                        else {
+                            html += '<td>约满</td>';
+                        }
+                        html += '</tr>';
+                        modal.html(modal.html()+html);
                     }
-                    else {
-                        html += '<td>约满</td>';
-                    }
-                    html += '</tr>';
-
-                    modal.html(modal.html()+html);
                 }
+
             }
         });
     }
@@ -235,14 +243,15 @@ function confirmOrder(doc) {
         success:function(data) {
             if(data == true) {
                 alert("预约成功");
-                location.href = APP+"/Home/Hospital/Keshim?keshiID="+keshiID;
+
             }
-            else if(data == false) {
-                alert("预约失败");
-            }
-            else {
+            else if(data == null) {
                 alert("预约量为空");
             }
+            else {
+                alert("预约失败");
+            }
+            location.href = APP+"/Home/Hospital/Keshim?keshiID="+keshiID;
         }
     });
 }
