@@ -56,13 +56,17 @@ function changePwd() {
     var oldPwd = $("#oldPwd").val();
     var newPwd = $("#newPwd").val();
     var newPwd2 = $("#newPwd2").val();
+    if(newPwd.length < 6 || newPwd.length > 16) {
+        alert("密码长度应在6位到16位之间");
+        return false;
+    }
     if(newPwd == newPwd2) {
         $.ajax({
             url: APP+'/Home/User/changepwd',//目标地址
             type: 'POST',
             async:false,
             dataType: 'json',
-            data: "type="+"changePwd"+"&newpwd="+newpwd+"&oldpwd="+oldPwd,
+            data: "type="+"changePwd"+"&newpwd="+newPwd+"&oldpwd="+oldPwd,
             success:function(data) {
                 if(data == true) {
                     alert("密码修改成功，请重新登录");
