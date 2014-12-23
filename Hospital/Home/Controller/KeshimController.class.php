@@ -126,9 +126,9 @@ class KeshimController extends  Controller{
         //var_dump($data['userID']);
         $data['yuyueDate']=I('post.date');//date($year."-".$month."-".$day);
         $data['dateTimes']=date("Y-m-d");
-        $data['hospitalName']="北京医院";//I('post.hospitalName');
-        $data['keshiName']="内科";//I('post.keshiName');
-        $data['doctorName']="王鹏程";//I('post.keshiName');
+        $data['hospitalName']=I('post.hospitalName');
+        $data['keshiName']=I('post.keshiName');
+        $data['doctorName']=I('post.keshiName');
         $User=M('User');
         $result=$User->where("id=$data[userID]")->find();
         $data['yuyueName']=$result['name'];
