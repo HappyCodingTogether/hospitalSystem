@@ -14,4 +14,13 @@ return array(
     // 显示页面Trace信息
     'SHOW_PAGE_TRACE' =>true,
     'DEFAULT_CHARSET' =>'utf-8', // 默认输出编码
+    // 配置邮件发送服务器
+    'MAIL_HOST' =>'smtp.exmail.qq.com',
+    'MAIL_SMTPAUTH' =>TRUE, //启用smtp认证
+    'MAIL_USERNAME' =>'609691039@qq.com',
+    'MAIL_FROM' =>'609691039@qq.com',
+    'MAIL_FROMNAME' =>'Orange',
+    'MAIL_PASSWORD' =>'orange1029',
+    'MAIL_CHARSET' =>'utf-8',
+    'MAIL_ISHTML' =>TRUE, // 是否HTML格式邮件
 );
