@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Bootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Bootstrap -->
+
+    <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="__PUBLIC__/css/xitong.css" rel="stylesheet" media="screen">
+    <link href="__PUBLIC__/css/kuangti.css" rel="stylesheet" media="screen">
+</head>
+<body>
+<div id="quick" class="box">
+    <div class="box-header">
+        <ul>
+            <li class="active" ><a href="bianjiyiyuan.html" >编辑医院信息</a></li>
+            <li class="active" ><a href="bianjikeshi.html">编辑科室信息</a></li>
+            <li class="active" ><a href="bianjiyisheng.html">编辑医生信息</a></li>
+            <li class="active" ><a href="yuyuechuli.html">编辑预约单信息</a></li>
+            <li class="active" ><a href="lishiyuyue.html">历史预约单信息</a></li>
+        </ul>
+    </div>
+    <div class="box-body">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>预约单ID</th>
+                <th>预约医院</th>
+                <th>预约科室</th>
+                <th>预约人姓名</th>
+                <th>预约医生</th>
+                <th>预约人联系方式</th>
+                <th>预约日期</th>
+                <th>预约单生成日期</th>
+                <th>是否赴约</th>
+            </tr>
+            </thead>
+            <tbody>
+            <volist name="data" id="arr">
+                <tr>
+                    <td>{$arr.id}</td>
+                    <td>{$arr.hospitalName}</td>
+                    <td>{$arr.keshiName}</td>
+                    <td>{$arr.yuyueName}</td>
+                    <td>{$arr.doctorName}</td>
+                    <td>{$arr.phone}</td>
+                    <td>{$arr.yuyueDate}</td>
+                    <td>{$arr.dateTimes}</td>
+                    <td>{$arr.isChuli}</td>
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
