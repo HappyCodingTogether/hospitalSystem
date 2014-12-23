@@ -132,10 +132,10 @@ class KeshimController extends  Controller{
         $data['doctorID']=I('post.doctorID');
         $data['userID']=session("userID");
             $data['yuyueDate']=I('post.date');//date($year."-".$month."-".$day);
-            $data['dateTimes']=date("Y-m-d");
+            $data['dateTimes']=date("Y-m-d h:m:s");
             $data['hospitalName']=I('post.hospitalName');
             $data['keshiName']=I('post.keshiName');
-            $data['doctorName']=I('post.keshiName');
+            $data['doctorName']=I('post.doctorName');
             $doctor=M('Doctor');
             $doc=$doctor->where("id=$data[doctorID]")->find();
             $data['hospitalID']=$doc['hospitalID'];

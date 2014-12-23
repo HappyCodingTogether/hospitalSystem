@@ -32,7 +32,7 @@ class AdminController extends Controller{
         if(session('identify')==-1||session('identify')>0){
             $Yuyuedan=M('Yuyuedan');
             $hospitalID=session('identify');
-            $data=$Yuyuedan->where("hospitalID=$hospitalID")->select();
+            $data=$Yuyuedan->where("hospitalID=$hospitalID AND isChuli <>0")->select();
             $this->assign('data',$data);
             $this->display();
         }else{
@@ -347,12 +347,17 @@ class AdminController extends Controller{
         $Yuyuedan=M('Yuyuedan');
         $data['isChuli']=1;
         $result=$Yuyuedan->where("id='$id'")->save($data);
+        echo "true";
     }
     public function weiyuele(){
         $id=I('post.id');
         $Yuyuedan=M('Yuyuedan');
+        $userID=$Yuyuedan->where("id=$id")->getField("userID");
+        $User=M('User');
+        $User->where("id=$userID")->setDec('pingfen');
         $data['isChuli']=2;
         $result=$Yuyuedan->where("id='$id'")->save($data);
+        echo "true";
     }
 
 }

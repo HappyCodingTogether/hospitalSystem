@@ -5,6 +5,9 @@ class UserController extends  Controller{
     public function index(){
         $this->redirect('Hospital/Index',null, 0);
     }
+    public function test(){
+        echo session('pingfen');
+    }
     public  function login(){
         $username=I('post.userName');
         $pwd=I('post.pwd');
@@ -25,6 +28,7 @@ class UserController extends  Controller{
                     session("loginName",$username);
                     session("userID",$data['id']);
                     session("identify",$data['identify']);
+                    session("pingfen",$data['pingfen']);
                     redirect(session('urlRefer'));
                 }
 
