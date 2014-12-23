@@ -7,6 +7,80 @@ class AdminController extends Controller{
     {
         $this->redirect('Hospital/Index', null, 0);
     }
+    public function bianjikeshi(){
+        if(session('identify')==-1||session('identify')>0){
+            $this->display();
+        }else{
+            $this->redirect('Hospital/Index', null, 0);
+        }
+    }
+    public function bianjiyisheng(){
+        if(session('identify')==-1||session('identify')>0){
+            $this->display();
+        }else{
+            $this->redirect('Hospital/Index', null, 0);
+        }
+    }
+    public function bianjiyiyuan(){
+        if(session('identify')==-1||session('identify')>0){
+            $this->display();
+        }else{
+            $this->redirect('Hospital/Index', null, 0);
+        }
+    }
+    public function lishiyuyue(){
+        if(session('identify')==-1||session('identify')>0){
+            $Yuyuedan=M('Yuyuedan');
+            $hospitalID=session('identify');
+            $data=$Yuyuedan->where("hospitalID=$hospitalID")->select();
+            $this->assign('data',$data);
+            $this->display();
+        }else{
+            $this->redirect('Hospital/Index', null, 0);
+        }
+    }
+    public function rezheng(){
+        if(session('identify')==-1||session('identify')>0){
+            $this->display();
+        }else{
+            $this->redirect('Hospital/Index', null, 0);
+        }
+    }
+    public function shanchuyiyuan(){
+        if(session('identify')==-1||session('identify')>0){
+            $this->display();
+        }else{
+            $this->redirect('Hospital/Index', null, 0);
+        }
+    }
+    public function tianjiayiyuan(){
+        if(session('identify')==-1||session('identify')>0){
+            $this->display();
+        }else{
+            $this->redirect('Hospital/Index', null, 0);
+        }
+    }
+    public function xiegonggao(){
+        if(session('identify')==-1||session('identify')>0){
+            $this->display();
+        }else{
+            $this->redirect('Hospital/Index', null, 0);
+        }
+    }
+    public function yuyuechuli(){
+        if(session('identify')==-1||session('identify')>0){
+            $Yuyuedan=M('Yuyuedan');
+            $zhi=0;
+            $hospitalID=session('identify');
+            $data=$Yuyuedan->where("isChuli='$zhi' AND hospitalID=$hospitalID")->select();
+            $this->assign('data',$data);
+            $this->display();
+        }else{
+            $this->redirect('Hospital/Index', null, 0);
+        }
+
+    }
+
     public function CreateAnnouncement(){
         $data['dateTimes']=date('Y-m-d H:i:s',time());
         $data['title']=I('post.gonggao_title');
@@ -267,14 +341,7 @@ class AdminController extends Controller{
         if($result)$this->success();
         else $this->error();
     }
-    public function yuyuechuli(){
-        $Yuyuedan=M('Yuyuedan');
-        $zhi=0;
-        $data=$Yuyuedan->where("isChuli='$zhi'")->select();
 
-        $this->assign('data',$data);
-        $this->display();
-    }
     public function fuyuele(){
         $id=I('post.id');
         $Yuyuedan=M('Yuyuedan');
