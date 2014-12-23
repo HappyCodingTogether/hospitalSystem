@@ -20,11 +20,25 @@ class AdminController extends Controller{
             $this->error();
         }
     }
-    public function HospitalInfo(){
-        $name=I("post.hospitalname");
+    public  function  DeleteHospital(){
+        $id=I('post.id');
         $Hospital=M('Hospital');
-        $result=$Hospital->where("'name' like '%$name%'")->select();
-        return $result;
+        $result=$Hospital->where("id='$id'")->delete();
+
+        if($result)$this->success();
+        else $this->error();
+    }
+    public function HospitalInfo(){
+         $Hospital=M('Hospital');
+        $result=$Hospital->select();
+        for($i=0;$i<count($result);$i++){
+            $id=$result[$i]['id'];
+            $User=M('User');
+            $result1=$User->where("identify='$id'")->find();
+
+            $array[$i]=array("id"=>$result[$i]['id'],"name"=>$result[$i]['name'],"IDcard"=>$result1['IDcard']);
+        }
+        echo json_encode($array);
     }
     public function EditHospitalInfo(){
         $id=I("post.hospital_id");
@@ -41,11 +55,21 @@ class AdminController extends Controller{
         $Hospital=M('Hospital');
         $Hospital->where("id='$id'")->save($data);
     }
-    public function UserInfo(){
-        $info=I('post.user_info');
+    public function DeleteUser(){
+        $id=I('post.id');
         $User=M('User');
-        $result=$User->where("IDcard='$info' OR email='$info'").find();
-        return $result;
+        $result=$User->where("id='$id'")->delete();
+        if($result)$this->success();
+        else $this->error();
+    }
+    public function UserInfo(){
+
+        $User=M('User');
+        $result=$User->select();
+       for($i=0;$i<count($result);$i++){
+           $array[$i]=array("id"=>$result[$i]['id'],"IDcard"=>$result[$i]['IDcard'],"name"=>$result[$i]['name'],"email"=>$result[$i]['email'],"pingfen"=>$result[$i]['pingfen']);
+       }
+        echo json_encode($array);
     }
     public function EditUserInfo(){
         $id=I('post.user_id');
@@ -55,13 +79,16 @@ class AdminController extends Controller{
     }
     public function CreateHospital(){
         $hospitalname=I('post.hospital_name');
+        $hos['name']=$hospitalname;
         $Hospital=M('Hospital');
-        $Hospital->field('name')->data($hospitalname)->add();
+        $Hospital->field('name')->data($hos)->add();
         if($Hospital){
-            $data['identify']=$Hospital->where("name='$hospitalname'")->getfield('id');
+            $result1=$Hospital->where("name='$hospitalname'")->find();
+            $data['identify']=$result1['id'];
             $data['name']=$hospitalname;
             $data['IDcard']=I('post.user_IDcard');
-            $data['password']=md5($data['IDcard']);
+            $pwd1=I('post.user_pwd');
+            $data['password']=md5($pwd1);
             $User=M('User');
             $User->field('IDcard,password,name,identify')->data($data)->add();
             if($User)$this->success();
@@ -70,12 +97,44 @@ class AdminController extends Controller{
             $this->error();
         }
     }
+    public function ShowXuyaoYanzheng(){
+        $User=M('User');
+        $is=0;
+        $result=$User->where("isRenzheng='$is'")->select();
+        for($i=0;$i<count($result);$i++){
+            $array[$i]=array("id"=>$result[$i]['id'],"name"=>$result[$i]['name'],"IDcard"=>$result[$i]['IDcard'],"ingURL"=>$result[$i]['ingURL']);
+        }
+        echo json_encode($array);
+    }
+    public function WriteGonggao(){
+       $data['title']=I('post.title');
+        $data['contents']=I('post.contents');
+        $data['dateTimes']=date('Y-m-d H:i:s');
+        $Gonggao=M('Gonggao');
+        $result=$Gonggao->field("dateTimes,title,contents")->data($data)->add();
+        if($result)$this->success();
+        else $this->error();
+    }
+    public function pass(){
+        $id=I('post.id');
+        $data['isRenzheng']=2;
+        $User=M('User');
+        $result=$User->where("id='$id'")->save($data);
+
+    }
     public function UserNotVerify()
     {
         $User=M('User');
         $renzheng=1;
         $result=$User->where("isRenzheng='$renzheng'")->select();
         return $result;
+    }
+    public function EditUserPingfen(){
+        $id=I('post.id');
+        $data['pingfen']=I('post.pingfen');
+        $User=M('User');
+        $result=$User->where("id='$id'")->save($data);
+        if($result)$this->success();
     }
     public function UserToVerify(){
         $id=I('post.user_id');
@@ -113,8 +172,8 @@ class AdminController extends Controller{
 
     }
     public function showkeshi(){
-       // $id=session('identify');
-        $id=1;
+        $id=session('identify');
+       // $id=1;
         $Keshi=M('Keshi');
         $result=$Keshi->where("hospitalID='$id'")->select();
         for($i=0;$i<count($result);$i++){
@@ -132,8 +191,8 @@ class AdminController extends Controller{
         $Keshi->where("id='$id'")->save($data);
     }
     public function Addkeshi(){
-        //$data['hospitalID']=session('identify');
-        $data['hospitalID']=1;
+        $data['hospitalID']=session('identify');
+      //  $data['hospitalID']=1;
         $data['name']=I('post.name');
         $data['fenlei']=I('post.fenlei');
         $data['weekdays']=I('post.weekdays');
@@ -151,8 +210,8 @@ class AdminController extends Controller{
         else $this->error();
     }
     public function showyisheng(){
-        // $id=session('identify');
-        $id=1;
+         $id=session('identify');
+        //$id=1;
         $Yisheng=M('Doctor');
         $result=$Yisheng->where("hospitalID='$id'")->select();
         for($i=0;$i<count($result);$i++){
@@ -168,8 +227,8 @@ class AdminController extends Controller{
     public function edityisheng(){
         $id=I('post.id');
 
-       // $hospitalid=session('identify');
-        $hospitalid=1;
+        $hospitalid=session('identify');
+       // $hospitalid=1;
 
         $keshiname=I('post.keshi');
         $Keshi=M('Keshi');
@@ -192,8 +251,8 @@ class AdminController extends Controller{
     public function Addyisheng(){
         $keshiname=I('post.keshiname');
 
-        // $hospitalid=session('identify');
-        $hospitalid=1;
+         $hospitalid=session('identify');
+     //   $hospitalid=1;
 
         $Keshi=M('Keshi');
         $result1=$Keshi->where("name='$keshiname' AND hospitalID='$hospitalid'")->find();
@@ -208,4 +267,25 @@ class AdminController extends Controller{
         if($result)$this->success();
         else $this->error();
     }
+    public function yuyuechuli(){
+        $Yuyuedan=M('Yuyuedan');
+        $zhi=0;
+        $data=$Yuyuedan->where("isChuli='$zhi'")->select();
+
+        $this->assign('data',$data);
+        $this->display();
+    }
+    public function fuyuele(){
+        $id=I('post.id');
+        $Yuyuedan=M('Yuyuedan');
+        $data['isChuli']=1;
+        $result=$Yuyuedan->where("id='$id'")->save($data);
+    }
+    public function weiyuele(){
+        $id=I('post.id');
+        $Yuyuedan=M('Yuyuedan');
+        $data['isChuli']=2;
+        $result=$Yuyuedan->where("id='$id'")->save($data);
+    }
+
 }
