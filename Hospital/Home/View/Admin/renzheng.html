@@ -8,8 +8,70 @@
    <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet" media="screen">
    <link href="__PUBLIC__/css/renzheng.css" rel="stylesheet" media="screen">
    <link href="__PUBLIC__/css/kuangti.css" rel="stylesheet" media="screen">
+      <script>
+          function tianjia(id,name,IDcard,ingURL){
+              var tbody = document.createElement("tbody");
+              var oTab = document.getElementById('tb1');
+              var oTr = document.createElement('tr');
+
+              var oTd = document.createElement('td');
+              var ad = document.createElement('span');
+
+              ad.id="name_"+id;
+              ad.innerText=name;
+
+              oTd.appendChild(ad);
+              oTr.appendChild(oTd);
+
+              var od = document.createElement('td');
+              var ad = document.createElement('span');
+
+              ad.id="IDcard_"+id;
+              ad.innerText=IDcard;
+
+              od.appendChild(ad);
+              oTr.appendChild(od);
+
+              var od = document.createElement('td');
+              var ad = document.createElement('img');
+
+              ad.id="ingURL_"+id;
+              ad.src=ingURL;
+
+              od.appendChild(ad);
+              oTr.appendChild(od);
+
+              var od = document.createElement('td');
+              var add = document.createElement('input');
+              add.type = "button";
+              add.name = "kkk";
+              add.id="button1_"+id;
+              add.value = "通过";
+              add.onclick=function(){
+                  $.ajax({
+                      url:APP+"/Home/Admin/pass",
+                      type:"POST",
+                      dataType:'json',
+                      async:true,
+                      data:"&id="+id,
+                      success:function(){
+                          window.location.reload();
+                      }
+                  });
+              };
+
+
+              od.appendChild(add)
+              oTr.appendChild(od);
+
+
+              tbody.appendChild(oTr);
+              oTab.appendChild(tbody);
+
+          }
+      </script>
     </head> 
-   <body>
+   <body onload="showasd()">
      <div id="quick" class="box">
        <div class="box-header">
         <ul>
@@ -22,19 +84,15 @@
        </div>
     <div class="box-body">
             待审核用户：
-            <table >
+            <table id="tb1" >
+                <tbody>
                <tr>
                   <th>用户名称</th>
                   <th>身份证号</th>
                   <th>身份证照片</th>
                   <th>管理员动作</th>
                </tr>
-               <tr>
-                 <td>逗比</td>
-                 <td>27381782272187281</td>
-                 <td><img src="picture/2.jpg" width="300" height="200"></td>
-                 <td> <button type="button">通过</button>/<button type="button">未通过</button></td>
-               </tr>
+</tbody>
            </table>
     </div>
     </div></div>
@@ -42,3 +100,25 @@
  
      </body> 
      </html>
+
+<js href="__PUBLIC__/js/jquery-2.1.1.min.js"/>
+<js href="__PUBLIC__/js/bootstrap.min.js"/>
+<script type="text/javascript">
+    var PUBLIC= "__PUBLIC__";
+    var APP = "__APP__";
+    var ROOT = "__ROOT__";
+
+    function showasd(){
+        $.ajax({
+           url:APP+"/Home/Admin/ShowXuyaoYanzheng",
+            type:"POST",
+            dataType:'json',
+            async:true,
+            success:function(data){
+                for(var i =0;i<data.length;i++){
+                    tianjia(data[i]['id'],data[i]['name'],data[i]['IDcard'],data[i]['ingURL']);
+                }
+            }
+        });
+    }
+</script>

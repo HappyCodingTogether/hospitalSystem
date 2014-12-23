@@ -18,20 +18,21 @@
             <li class="active" ><a href="bianjiyonghu.html">编辑用户信息</a></li>
             <li class="active" ><a href="renzheng.html">用户审核认证</a></li>
             <li class="active" ><a href="xiegonggao.html">编辑公告</a></li>
+
         </ul>
        </div>
     <div class="box-body">
            <form>
                 <div class="input-group">
                 <span class="input-group-addon">公告标题</span>
-                <input type="text" class="form-control" placeholder="公告标题">
+                <input type="text" class="form-control" placeholder="公告标题" id="title">
               </div><br>
               <div class="input-group">
                 <span class="input-group-addon">公告内容</span>
-                <input type="textarea" rows="5" class="form-control" placeholder="公告内容">
+               <textarea class="form-control" rows="6" style="width:100%" id="contents"></textarea>
               </div><br>
-                   <input type="submit" value="编辑" id="submit"/>
- 
+
+               <input value="确认" class="btn btn-primary"  onclick="writeg()"/>
  
            </form>
     </div>
@@ -40,3 +41,24 @@
  
      </body> 
      </html>
+
+<js href="__PUBLIC__/js/jquery-2.1.1.min.js"/>
+<js href="__PUBLIC__/js/bootstrap.min.js"/>
+<script type="text/javascript">
+    var PUBLIC= "__PUBLIC__";
+    var APP = "__APP__";
+    var ROOT = "__ROOT__";
+
+    function writeg(){
+        $.ajax({
+           url:APP+"/Home/Admin/WriteGonggao",
+            type:"POST",
+            dataType:'json',
+            async:true,
+            data:"&title="+document.getElementById("title").value+"&contents="+document.getElementById("contents").value,
+            success:function(){
+            window.location.reload();
+            }
+        });
+    }
+</script>

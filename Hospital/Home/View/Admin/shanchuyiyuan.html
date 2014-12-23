@@ -9,43 +9,72 @@
    <link href="__PUBLIC__/css/xitong.css" rel="stylesheet" media="screen">
    <link href="__PUBLIC__/css/kuangti.css" rel="stylesheet" media="screen">
    <script>
-   function bianji(button){
-     
-    var ab=0;
-    for(var i=0;i<fr.aaa.length;i++)
-    {
-       if(fr.kkk[i]==button)
-      {
-       ab=i;
-       break;
-      }
-    }
-    
-    fr.aaa[ab].removeAttribute("disabled");
-    fr.bbb[ab].removeAttribute("disabled");
-    
-    fr.eee[ab].removeAttribute("disabled");
-    
-    fr.kkk[ab].removeAttribute("disabled");
-    }
-    function shanchu(button){
-         var ad=0;
-        for(var i=0;i<5;i++)
-        {
-          if(fr.fff[i]==button)
-         {
-          ab=i;
-          break;
-         }
-        }
-        var abc=fr.fff[ab].parentNode.parentNode.parentNode;
-        var abb=fr.fff[ab].parentNode.parentNode;
-        abc.removeChild(abb);
-      
-    }
+function tianjia(id,name,zhanghao){
+    var tbody = document.createElement("tbody");
+    var oTab = document.getElementById('tb1');
+    var oTr = document.createElement('tr');
+
+    var oTd = document.createElement('td');
+    var ad = document.createElement('input');
+    ad.type = "text";
+    ad.name = "aaa";
+    ad.id="id_"+id;
+    ad.value=id;
+    ad.disabled=true;
+    oTd.appendChild(ad);
+    oTr.appendChild(oTd);
+
+    var od = document.createElement('td');
+    var ad = document.createElement('input');
+    ad.type = "text";
+    ad.name = "bbb";
+    ad.id="name_"+id;
+    ad.value=name;
+    ad.disabled=true;
+    od.appendChild(ad);
+    oTr.appendChild(od);
+
+    var od = document.createElement('td');
+    var ad = document.createElement('input');
+    ad.type = "text";
+    ad.name = "bbb";
+    ad.id="zhanghao_"+id;
+    ad.value=zhanghao;
+    ad.disabled=true;
+    od.appendChild(ad);
+    oTr.appendChild(od);
+
+    var od = document.createElement('td');
+    var add = document.createElement('input');
+    add.type = "button";
+    add.name = "kkk";
+    add.id="button_"+id;
+    add.value = "删除医院";
+    add.onclick=function(){
+        $.ajax({
+           url:APP+"/Home/Admin/DeleteHospital",
+            type:"POST",
+            dataType:'json',
+            async:true,
+            data:"&id="+id,
+            success:function(){
+                window.location.reload();
+            }
+        });
+    };
+
+
+    od.appendChild(add)
+    oTr.appendChild(od);
+
+
+    tbody.appendChild(oTr);
+    oTab.appendChild(tbody);
+
+}
    </script>
     </head> 
-   <body>
+   <body onload="showhos()">
      <div id="quick" class="box">
        <div class="box-header">
         <ul>
@@ -62,48 +91,19 @@
              <table name="tab" class="table table-bordered" id="tb1">
               <tbody >
               <tr name="uuu">
+                <th rowspan="2">医院序号</th>
                 <th rowspan="2">医院名称</th>
                 <th rowspan="2">医院账号</th>
-                <th rowspan="2">医院密码</th>
               
-                <th colspan="2">管理员动作</th>
+                <th colspan="2">删除医院</th>
 
 
               </tr>
-              <tr name="uuu">
-                <td>编辑医院</td>
-                <td>删除医院</td>
-              </tr>
-              
-              <tr name="uuu">
-                <td><input name="aaa" type="text" disabled="false" value="北京协和医院"></td>
-                <td><input name="eee" type="text"  disabled="false" value="dfsfasd"></td>
-                <td><input name="bbb" type="text" size="20" disabled="false" value="dsafsdfa"/></td>
-                
-                <td> <input  name="kkk" type="button" style="height:25px" onclick="bianji(this)" value="编辑医院"></input> </td>
-                <td> <input  name="fff" type="button" style="height:25px" onclick="shanchu(this)" value="删除医院"></input> </td>
-
-                
-              </tr >
-               <tr name="uuu">
-                <td><input name="aaa" type="text" disabled="false" value="北京博爱医院"></td>
-                <td><input name="eee" type="text"  disabled="false" value="sffasd"></td>
-                <td><input name="bbb" type="text" size="20" disabled="false" value="5213113213"/></td>
-                
-               
-                <td> <input  name="kkk" type="button" style="height:25px" onclick="bianji(this)" value="编辑医院"></input> </td>
-                <td> <input  name="fff" type="button" style="height:25px" onclick="shanchu(this)" value="删除医院"></input> </td>
-
-                
-              </tr>
-              
-            </tdody>
+            </tbody>
 
             </table>
 
 
-              <br></br><br></br>
-              <input type="submit" value="确认" id="submit"/>
              </form>
            
     </div>
@@ -112,3 +112,26 @@
  
      </body> 
      </html>
+<js href="__PUBLIC__/js/jquery-2.1.1.min.js"/>
+<js href="__PUBLIC__/js/bootstrap.min.js"/>
+<script type="text/javascript">
+    var PUBLIC= "__PUBLIC__";
+    var APP = "__APP__";
+    var ROOT = "__ROOT__";
+
+    function showhos(){
+        $.ajax({
+           url:APP+"/Home/Admin/HospitalInfo",
+            type:"POST",
+            dataType:'json',
+            success:function(data){
+                for(var i=0;i<data.length;i++){
+                    tianjia(data[i]['id'],data[i]['name'],data[i]['IDcard']);
+                }
+            }
+
+        });
+    }
+
+
+</script>

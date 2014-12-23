@@ -25,26 +25,26 @@
             <form>
               <div class="input-group">
                 <span class="input-group-addon">医院名称</span>
-                <input type="text" class="form-control" placeholder="医院名称">
-              </div><br></br>
+                <input type="text" class="form-control" placeholder="医院名称" id="hospital_name">
+              </div><br>
                
               <div class="input-group">
                 <span class="input-group-addon">医院账号</span>
-                <input type="text" class="form-control" placeholder="医院账号">
-              </div><br></br>
+                <input type="text" class="form-control" placeholder="医院账号" id="user_IDcard">
+              </div><br>
               <div class="input-group">
                 <span class="input-group-addon">账号密码</span>
-                <input type="text" class="form-control" placeholder="账号密码">
-              </div><br></br>
+                <input type="text" class="form-control" placeholder="账号密码" id="user_pwd">
+              </div>
+                <br>
+              
+
               
               
 
-              
-              
 
 
-
-              <input type="submit" value="确认" id="submit"/>
+              <input value="确认" class="btn btn-primary" id="submit" onclick="createyiyuan()"/>
              </form>
     </div>
     </div></div>
@@ -52,3 +52,30 @@
  
      </body> 
      </html>
+
+<js href="__PUBLIC__/js/jquery-2.1.1.min.js"/>
+<js href="__PUBLIC__/js/bootstrap.min.js"/>
+<script type="text/javascript">
+    var PUBLIC= "__PUBLIC__";
+    var APP = "__APP__";
+    var ROOT = "__ROOT__";
+
+    function createyiyuan(){
+
+        var name=document.getElementById("hospital_name").value;
+        var IDcard=document.getElementById("user_IDcard").value;
+        var pwd=document.getElementById("user_pwd").value;
+        $.ajax({
+            url: APP+'/Home/Admin/CreateHospital',
+            type:"POST",
+            dataType:'json',
+            async:true,
+            data:"type=" + "y_vercode" +"&hospital_name="+name+"&user_IDcard="+IDcard+"&user_pwd="+pwd,
+            success:function(){
+               // window.location.reload();
+            }
+        });
+    }
+
+
+</script>

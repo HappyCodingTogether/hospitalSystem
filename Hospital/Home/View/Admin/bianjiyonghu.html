@@ -9,43 +9,103 @@
    <link href="__PUBLIC__/css/xitong.css" rel="stylesheet" media="screen">
    <link href="__PUBLIC__/css/kuangti.css" rel="stylesheet" media="screen">
    <script>
-   function bianji(button){
-     
-    var ab=0;
-    for(var i=0;i<fr.aaa.length;i++)
-    {
-       if(fr.kkk[i]==button)
-      {
-       ab=i;
-       break;
-      }
-    }
-    
-    fr.aaa[ab].removeAttribute("disabled");
-    fr.bbb[ab].removeAttribute("disabled");
-    fr.ccc[ab].removeAttribute("disabled");
-    fr.eee[ab].removeAttribute("disabled");
-    
-    fr.kkk[ab].removeAttribute("disabled");
-    }
-    function shanchu(button){
-         var ad=0;
-        for(var i=0;i<5;i++)
-        {
-          if(fr.fff[i]==button)
-         {
-          ab=i;
-          break;
-         }
-        }
-        var abc=fr.fff[ab].parentNode.parentNode.parentNode;
-        var abb=fr.fff[ab].parentNode.parentNode;
-        abc.removeChild(abb);
-      
-    }
+       function tianjia(id,IDcard,name,email,pingfen){
+           var tbody = document.createElement("tbody");
+           var oTab = document.getElementById('tb1');
+           var oTr = document.createElement('tr');
+
+           var oTd = document.createElement('td');
+           var ad = document.createElement('input');
+           ad.type = "text";
+           ad.name = "aaa";
+           ad.id="IDcard_"+id;
+           ad.value=IDcard;
+           ad.disabled=true;
+           oTd.appendChild(ad);
+           oTr.appendChild(oTd);
+
+           var od = document.createElement('td');
+           var ad = document.createElement('input');
+           ad.type = "text";
+           ad.name = "bbb";
+           ad.id="name_"+id;
+           ad.value=name;
+           ad.disabled=true;
+           od.appendChild(ad);
+           oTr.appendChild(od);
+
+           var od = document.createElement('td');
+           var ad = document.createElement('input');
+           ad.type = "text";
+           ad.name = "bbb";
+           ad.id="email_"+id;
+           ad.value=email;
+           ad.disabled=true;
+           od.appendChild(ad);
+           oTr.appendChild(od);
+           var od = document.createElement('td');
+           var ad = document.createElement('input');
+           ad.type = "text";
+           ad.name = "ccc";
+           ad.id="pingfen_"+id;
+           ad.value=pingfen;
+           ad.disabled=false;
+           od.appendChild(ad);
+           oTr.appendChild(od);
+
+           var od = document.createElement('td');
+           var add = document.createElement('input');
+           add.type = "button";
+           add.name = "kkk";
+           add.id="button1_"+id;
+           add.value = "删除用户";
+           add.onclick=function(){
+               $.ajax({
+                   url:APP+"/Home/Admin/DeleteUser",
+                   type:"POST",
+                   dataType:'json',
+                   async:true,
+                   data:"&id="+id,
+                   success:function(){
+                       window.location.reload();
+                   }
+               });
+           };
+
+           od.appendChild(add);
+           oTr.appendChild(od);
+
+           var odd = document.createElement('td');
+           var addd = document.createElement('input');
+           addd.type = "button";
+           addd.name = "uuuuu";
+           addd.id="button2_"+id;
+           addd.value = "编辑用户评分";
+           addd.onclick=function(){
+               $.ajax({
+                   url:APP+"/Home/Admin/EditUserPingfen",
+                   type:"POST",
+                   dataType:'json',
+                   async:true,
+                   data:"&id="+id+"&pingfen="+document.getElementById("pingfen_"+id).value,
+                   success:function(){
+                       window.location.reload();
+                   }
+               });
+           };
+
+
+           odd.appendChild(addd);
+           oTr.appendChild(odd);
+
+
+           tbody.appendChild(oTr);
+           oTab.appendChild(tbody);
+
+       }
    </script>
     </head> 
-   <body>
+   <body onload="showyonghu()">
      <div id="quick" class="box">
        <div class="box-header">
         <ul>
@@ -62,48 +122,20 @@
              <table name="tab" class="table table-bordered" id="tb1">
               <tbody >
               <tr name="uuu">
-                <th rowspan="2">用户名称</th>
-                <th rowspan="2">用户真实姓名</th>
-                <th rowspan="2">身份证号码</th>
-                <th rowspan="2" > 用户评分</th>
-                <th colspan="2">管理员动作</th>
+                <th rowspan="2">用户身份证</th>
+                <th rowspan="2">用户姓名</th>
+                <th rowspan="2">用户邮箱</th>
+                <th rowspan="2" >用户评分</th>
+                <th colspan="2">操作</th>
 
 
-              </tr>
-              <tr name="uuu">
-                <td>编辑用户</td>
-                <td>删除用户</td>
-              </tr>
-              
-              <tr name="uuu">
-                <td><input name="aaa" type="text" disabled="false" value="逗比"></td>
-                <td><input name="eee" type="text"  disabled="false" value="王女士"></td>
-                <td><input name="bbb" type="text" size="20" disabled="false" value="1231321321"/></td>
-                <td><input name="ccc" type="text" size="20" disabled="false" value="5"/></td>
-                <td> <input  name="kkk" type="button" style="height:25px" onclick="bianji(this)" value="编辑用户"></input> </td>
-                <td> <input  name="fff" type="button" style="height:25px" onclick="shanchu(this)" value="删除用户"></input> </td>
-
-                
-              </tr >
-               <tr name="uuu">
-                <td><input name="aaa" type="text" disabled="false" value="肾内科"></td>
-                <td><input name="eee" type="text"  disabled="false" value="王鹏程"></td>
-                <td><input name="bbb" type="text" size="20" disabled="false" value="5213113213"/></td>
-                <td><input name="ccc" type="text" size="20" disabled="false" value="11"/></td>
-               
-                <td> <input  name="kkk" type="button" style="height:25px" onclick="bianji(this)" value="编辑用户"></input> </td>
-                <td> <input  name="fff" type="button" style="height:25px" onclick="shanchu(this)" value="删除用户"></input> </td>
-
-                
-              </tr>
-              
-            </tdody>
+</tr>
+            </tbody>
 
             </table>
 
 
-              <br></br><br></br>
-              <input type="submit" value="确认" id="submit"/>
+
              </form>
            
     </div>
@@ -112,3 +144,26 @@
  
      </body> 
      </html>
+<js href="__PUBLIC__/js/jquery-2.1.1.min.js"/>
+<js href="__PUBLIC__/js/bootstrap.min.js"/>
+<script type="text/javascript">
+    var PUBLIC= "__PUBLIC__";
+    var APP = "__APP__";
+    var ROOT = "__ROOT__";
+
+    function showyonghu(){
+        $.ajax({
+            url:APP+"/Home/Admin/UserInfo",
+            type:"POST",
+            dataType:'json',
+            success:function(data){
+                for(var i=0;i<data.length;i++){
+                    tianjia(data[i]['id'],data[i]['IDcard'],data[i]['name'],data[i]['email'],data[i]['pingfen']);
+                }
+            }
+
+        });
+    }
+
+
+</script>
