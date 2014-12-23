@@ -126,11 +126,19 @@ class UserController extends  Controller{
         sendMail($email,"密码找回结果",$emailtext);
     }
     public function changepwd(){
-        $newpwd=I('post.newpwd');
+        $oldpwd=md5(I('post.oldpwd'));
+        $newpwd=md5(I('post.newpwd'));
+        $User=M('User');
         $username=session('loginName');
         $data['password']=$newpwd;
-        $User=M('User');
-        $User->where("email='$username' OR IDcard='$username'")->save($data);
+        $pwd=$User->where("email='$username' OR IDcard='$username'")->getField('password');
+        if($oldpwd==$newpwd){
+            $User->where("email='$username' OR IDcard='$username'")->save($data);
+            $this->success("密码修改成功");
+        }else{
+            $this->error("密码不正确");
+        }
+
     }
     public function emailactive(){
         $token=I('get.token');
