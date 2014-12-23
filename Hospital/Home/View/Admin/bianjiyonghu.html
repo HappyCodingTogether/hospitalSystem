@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+ <html>
+  <head>
+   <meta charset="utf-8">
+   <title>图腾医院管理界面</title> 
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Bootstrap --> 
+   
+   <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet" media="screen">
+   <link href="__PUBLIC__/css/xitong.css" rel="stylesheet" media="screen">
+   <link href="__PUBLIC__/css/kuangti.css" rel="stylesheet" media="screen">
+   <script>
+   function bianji(button){
+     
+    var ab=0;
+    for(var i=0;i<fr.aaa.length;i++)
+    {
+       if(fr.kkk[i]==button)
+      {
+       ab=i;
+       break;
+      }
+    }
+    
+    fr.aaa[ab].removeAttribute("disabled");
+    fr.bbb[ab].removeAttribute("disabled");
+    fr.ccc[ab].removeAttribute("disabled");
+    fr.eee[ab].removeAttribute("disabled");
+    
+    fr.kkk[ab].removeAttribute("disabled");
+    }
+    function shanchu(button){
+         var ad=0;
+        for(var i=0;i<5;i++)
+        {
+          if(fr.fff[i]==button)
+         {
+          ab=i;
+          break;
+         }
+        }
+        var abc=fr.fff[ab].parentNode.parentNode.parentNode;
+        var abb=fr.fff[ab].parentNode.parentNode;
+        abc.removeChild(abb);
+      
+    }
+   </script>
+    </head> 
+   <body>
+     <div id="quick" class="box">
+       <div class="box-header">
+        <ul>
+            <li class="active" ><a href="tianjiayiyuan.html">添加医院</a></li>
+            <li class="active" ><a href="shanchuyiyuan.html" >删除医院</a></li>
+            <li class="active" ><a href="bianjiyonghu.html">编辑用户信息</a></li>
+            <li class="active" ><a href="renzheng.html">用户审核认证</a></li>
+            <li class="active" ><a href="xiegonggao.html">编辑公告</a></li>
+           
+        </ul>
+       </div>
+    
+         <form name="fr">
+             <table name="tab" class="table table-bordered" id="tb1">
+              <tbody >
+              <tr name="uuu">
+                <th rowspan="2">用户名称</th>
+                <th rowspan="2">用户真实姓名</th>
+                <th rowspan="2">身份证号码</th>
+                <th rowspan="2" > 用户评分</th>
+                <th colspan="2">管理员动作</th>
+
+
+              </tr>
+              <tr name="uuu">
+                <td>编辑用户</td>
+                <td>删除用户</td>
+              </tr>
+              
+              <tr name="uuu">
+                <td><input name="aaa" type="text" disabled="false" value="逗比"></td>
+                <td><input name="eee" type="text"  disabled="false" value="王女士"></td>
+                <td><input name="bbb" type="text" size="20" disabled="false" value="1231321321"/></td>
+                <td><input name="ccc" type="text" size="20" disabled="false" value="5"/></td>
+                <td> <input  name="kkk" type="button" style="height:25px" onclick="bianji(this)" value="编辑用户"></input> </td>
+                <td> <input  name="fff" type="button" style="height:25px" onclick="shanchu(this)" value="删除用户"></input> </td>
+
+                
+              </tr >
+               <tr name="uuu">
+                <td><input name="aaa" type="text" disabled="false" value="肾内科"></td>
+                <td><input name="eee" type="text"  disabled="false" value="王鹏程"></td>
+                <td><input name="bbb" type="text" size="20" disabled="false" value="5213113213"/></td>
+                <td><input name="ccc" type="text" size="20" disabled="false" value="11"/></td>
+               
+                <td> <input  name="kkk" type="button" style="height:25px" onclick="bianji(this)" value="编辑用户"></input> </td>
+                <td> <input  name="fff" type="button" style="height:25px" onclick="shanchu(this)" value="删除用户"></input> </td>
+
+                
+              </tr>
+              
+            </tdody>
+
+            </table>
+
+
+              <br></br><br></br>
+              <input type="submit" value="确认" id="submit"/>
+             </form>
+           
+    </div>
+    </div></div>
+    
+ 
+     </body> 
+     </html>

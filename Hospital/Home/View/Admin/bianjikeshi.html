@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+ <html>
+  <head>
+   <meta charset="utf-8">
+   <title>图腾医院管理界面</title> 
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Bootstrap --> 
+   
+   <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet" media="screen">
+   <link href="__PUBLIC__/css/inchuzhen.css" rel="stylesheet" media="screen">
+   <link href="__PUBLIC__/css/kuangti.css" rel="stylesheet" media="screen">
+   <script>
+       var PUBLIC= "__PUBLIC__";
+       var APP = "__APP__";
+       var ROOT = "__ROOT__";
+
+       var max_num=10000;
+
+       function tianjia2(id,name,fenlei,weekdays){
+           max_num++;
+           var tbody = document.createElement("tbody");
+           var oTab=document.getElementById('tb1');
+           var oTr=document.createElement('tr');
+
+           var oTd=document.createElement('td');
+
+           var ad=document.createElement('input');
+           ad.type="text";
+           ad.name="aaa";
+           ad.id="name_"+id;
+           ad.value=name;
+           ad.disabled=false;
+           oTd.appendChild(ad);
+
+           oTr.appendChild(oTd);
+
+
+
+           var od=document.createElement('td');
+           var ad=document.createElement('input');
+           ad.type="text";
+           ad.name="bbb";
+           ad.value=fenlei;
+           ad.disabled=false;
+           ad.id="fenlei_"+id;
+           od.appendChild(ad);
+           oTr.appendChild(od);
+
+           var od=document.createElement('td');
+           var add=document.createElement('input');
+           add.type="checkbox";
+           add.name="ccc";
+           add.id="1_"+id;
+
+           add.disabled=false;
+           od.appendChild(add)
+           oTr.appendChild(od);
+           var od=document.createElement('td');
+           var add=document.createElement('input');
+           add.type="checkbox";
+           add.name="ddd";
+           add.id="2_"+id;
+
+           add.disabled=false;
+           od.appendChild(add);
+           oTr.appendChild(od);
+
+           oTr.appendChild(od);var od=document.createElement('td');
+           var add=document.createElement('input');
+           add.type="checkbox";
+           add.name="eee";
+           add.id="3_"+id;
+
+           add.disabled=false;
+           od.appendChild(add)
+           oTr.appendChild(od);
+           oTr.appendChild(od);var od=document.createElement('td');
+           var add=document.createElement('input');
+           add.type="checkbox";
+           add.name="fff";
+           add.id="4_"+id;
+
+           add.disabled=false;
+           od.appendChild(add)
+           oTr.appendChild(od);
+           oTr.appendChild(od);var od=document.createElement('td');
+           var add=document.createElement('input');
+           add.type="checkbox";
+           add.name="ggg";
+           add.id="5_"+id;
+
+           add.disabled=false;
+           od.appendChild(add)
+           oTr.appendChild(od);
+           oTr.appendChild(od);var od=document.createElement('td');
+           var add=document.createElement('input');
+           add.type="checkbox";
+           add.name="hhh";
+           add.id="6_"+id;
+
+           add.disabled=false;
+           od.appendChild(add)
+           oTr.appendChild(od);
+           oTr.appendChild(od);var od=document.createElement('td');
+           var add=document.createElement('input');
+           add.type="checkbox";
+           add.name="iii";
+           add.id="0_"+id;
+
+           add.disabled=false;
+           od.appendChild(add)
+           oTr.appendChild(od);
+
+           var od=document.createElement('td');
+           var add=document.createElement('input');
+           add.type="button";
+           add.name="kkk";
+           add.id="button_"+id;
+           add.value="确定添加";
+           add.onclick=function(){
+               var name=document.getElementById("name_"+id).value;
+               var fenlei=document.getElementById("fenlei_"+id).value;
+               var weekdays="";
+               if(document.getElementById("1_"+id).checked==true)weekdays=(weekdays+"1").toString();
+               if(document.getElementById("2_"+id).checked==true)weekdays=(weekdays+"2").toString();
+               if(document.getElementById("3_"+id).checked==true)weekdays=(weekdays+"3").toString();
+               if(document.getElementById("4_"+id).checked==true)weekdays=(weekdays+"4").toString();
+               if(document.getElementById("5_"+id).checked==true)weekdays=(weekdays+"5").toString();
+               if(document.getElementById("6_"+id).checked==true)weekdays=(weekdays+"6").toString();
+               if(document.getElementById("0_"+id).checked==true)weekdays=(weekdays+"0").toString();
+if(name!=""&&fenlei!=""&&weekdays!="") {
+    $.ajax({
+        url: APP + "/Home/Admin/Addkeshi",
+        type: "POST",
+        async: true,
+        dataType: 'json',
+        data: "type=" + "y_vercode" + "&name=" + name + "&fenlei=" + fenlei + "&weekdays=" + weekdays,
+        success: function () {
+            window.location.reload();
+        }
+    });
+}
+           };
+
+           od.appendChild(add)
+           oTr.appendChild(od);
+
+           tbody.appendChild(oTr);
+           oTab.appendChild(tbody);
+       }
+
+   function tianjia(id,name,fenlei,weekdays) {
+
+       var tbody = document.createElement("tbody");
+       var oTab=document.getElementById('tb1');
+       var oTr=document.createElement('tr');
+
+       var oTd=document.createElement('td');
+
+       var ad=document.createElement('input');
+       ad.type="text";
+       ad.name="aaa";
+       ad.id="name_"+id;
+       ad.value=name;
+       ad.disabled=true;
+       oTd.appendChild(ad);
+
+       oTr.appendChild(oTd);
+
+
+
+       var od=document.createElement('td');
+       var ad=document.createElement('input');
+       ad.type="text";
+       ad.name="bbb";
+       ad.value=fenlei;
+       ad.disabled=true;
+       ad.id="fenlei_"+id;
+       od.appendChild(ad);
+       oTr.appendChild(od);
+       var od=document.createElement('td');
+       var add=document.createElement('input');
+       add.type="checkbox";
+       add.name="ccc";
+       add.id="1_"+id;
+       if(weekdays.indexOf("1")>=0)add.checked=true;
+       add.disabled=true;
+       od.appendChild(add)
+       oTr.appendChild(od);
+       var od=document.createElement('td');
+       var add=document.createElement('input');
+       add.type="checkbox";
+       add.name="ddd";
+       add.id="2_"+id;
+       if(weekdays.indexOf('2')>=0)add.checked=true;
+       add.disabled=true;
+       od.appendChild(add);
+       oTr.appendChild(od);
+
+       oTr.appendChild(od);var od=document.createElement('td');
+       var add=document.createElement('input');
+       add.type="checkbox";
+       add.name="eee";
+       add.id="3_"+id;
+       if(weekdays.indexOf('3')>=0)add.checked=true;
+       add.disabled=true;
+       od.appendChild(add)
+       oTr.appendChild(od);
+       oTr.appendChild(od);var od=document.createElement('td');
+       var add=document.createElement('input');
+       add.type="checkbox";
+       add.name="fff";
+       add.id="4_"+id;
+       if(weekdays.indexOf('4')>=0)add.checked=true;
+       add.disabled=true;
+       od.appendChild(add)
+       oTr.appendChild(od);
+       oTr.appendChild(od);var od=document.createElement('td');
+       var add=document.createElement('input');
+       add.type="checkbox";
+       add.name="ggg";
+       add.id="5_"+id;
+       if(weekdays.indexOf('5')>=0)add.checked=true;
+       add.disabled=true;
+       od.appendChild(add)
+       oTr.appendChild(od);
+       oTr.appendChild(od);var od=document.createElement('td');
+       var add=document.createElement('input');
+       add.type="checkbox";
+       add.name="hhh";
+       add.id="6_"+id;
+       if(weekdays.indexOf('6')>=0)add.checked=true;
+       add.disabled=true;
+       od.appendChild(add)
+       oTr.appendChild(od);
+       oTr.appendChild(od);var od=document.createElement('td');
+       var add=document.createElement('input');
+       add.type="checkbox";
+       add.name="iii";
+       add.id="0_"+id;
+       if(weekdays.indexOf('0')>=0)add.checked=true;
+       add.disabled=true;
+       od.appendChild(add)
+       oTr.appendChild(od);
+
+       var od=document.createElement('td');
+       var add=document.createElement('input');
+       add.type="button";
+       add.name="kkk";
+       add.id="button_"+id;
+       add.value="编辑科室";
+       add.onclick=function() {
+           if( document.getElementById("name_" + id).disabled==true)
+           {
+           document.getElementById("name_" + id).disabled = false;
+           document.getElementById("fenlei_" + id).disabled = false;
+           document.getElementById("1_" + id).disabled = false;
+           document.getElementById("2_" + id).disabled = false;
+           document.getElementById("3_" + id).disabled = false;
+           document.getElementById("4_" + id).disabled = false;
+           document.getElementById("5_" + id).disabled = false;
+           document.getElementById("6_" + id).disabled = false;
+           document.getElementById("0_" + id).disabled = false;
+               document.getElementById("button_"+id).value="保存修改";
+           }
+           else
+           {
+               document.getElementById("name_" + id).disabled = true;
+               document.getElementById("fenlei_" + id).disabled = true;
+               document.getElementById("1_" + id).disabled = true;
+               document.getElementById("2_" + id).disabled = true;
+               document.getElementById("3_" + id).disabled = true;
+               document.getElementById("4_" + id).disabled = true;
+               document.getElementById("5_" + id).disabled = true;
+               document.getElementById("6_" + id).disabled = true;
+               document.getElementById("0_" + id).disabled = true;
+               savechangekeshi(id);
+               document.getElementById("button_"+id).value="编辑科室";
+           }
+          // document.getElementById("button_" + id).style.display = "none";
+       };
+
+       od.appendChild(add)
+       oTr.appendChild(od);
+
+       tbody.appendChild(oTr);
+       oTab.appendChild(tbody);
+   }
+
+
+   </script>
+    </head> 
+   <body onload="xianshikeshi()">
+     <div id="quick" class="box">
+       <div class="box-header">
+        <ul>
+            <li class="active" ><a href="bianjiyiyuan.html" >编辑医院信息</a></li>
+            <li class="active" ><a href="bianjikeshi.html">编辑科室信息</a></li>
+            <li class="active" ><a href="bianjiyisheng.html">编辑医生信息</a></li>
+        </ul>
+        
+       </div>
+          <form name="fr">
+             <table name="tab" class="table table-bordered" id="tb1">
+              <tbody >
+              <tr>
+                <th rowspan="2">科室
+               <button type="button" style="height:25px" onclick='tianjia2(max_num,"","","")'>添加科室</button>
+               
+             </th>
+                <th rowspan="2">所属分类</th>
+                <th colspan="7"> 每周可预约时间</th>
+                <th rowspan="2">管理员动作</th>
+
+              </tr>
+              <tr>
+                <th>周一</th>
+                <th>周二</th>
+                <th>周三</th>
+                <th>周四</th>
+                <th>周五</th>
+                <th>周六</th>
+                <th>周日</th>
+                
+              </tr>
+
+            </tbody>
+
+            </table>
+
+
+
+
+             </form>
+           
+    </div>
+    </div></div>
+    
+ 
+     </body> 
+     </html>
+
+
+<js href="__PUBLIC__/js/jquery-2.1.1.min.js"/>
+<js href="__PUBLIC__/js/bootstrap.min.js"/>
+<script type="text/javascript">
+
+    function xianshikeshi(){
+        $.ajax({
+           url:APP+"/Home/Admin/showkeshi",
+            type:"POST",
+            dataType:'json',
+            data:null,
+            success:function (data){
+               for(var i=0;i<data.length;i++){
+                    tianjia(data[i]['id'],data[i]['name'],data[i]['fenlei'],data[i]['weekdays']);
+                }
+            }
+        });
+    }
+function savechangekeshi(id){
+    var name=document.getElementById("name_"+id).value;
+    var fenlei=document.getElementById("fenlei_"+id).value;
+    var weekdays="";
+
+    if(document.getElementById("1_"+id).checked==true)weekdays=(weekdays+"1").toString();
+    if(document.getElementById("2_"+id).checked==true)weekdays=(weekdays+"2").toString();
+    if(document.getElementById("3_"+id).checked==true)weekdays=(weekdays+"3").toString();
+    if(document.getElementById("4_"+id).checked==true)weekdays=(weekdays+"4").toString();
+    if(document.getElementById("5_"+id).checked==true)weekdays=(weekdays+"5").toString();
+    if(document.getElementById("6_"+id).checked==true)weekdays=(weekdays+"6").toString();
+    if(document.getElementById("0_"+id).checked==true)weekdays=(weekdays+"0").toString();
+
+    if(name==""){
+        $.ajax({
+           url:APP+"/Home/Admin/Deletekeshi",
+            type:"POST",
+            async:true,
+            dataType:'json',
+            data:"type="+"y_vercode"+"&id="+id,
+            success:function(){
+                window.location.reload();
+            }
+        });
+    }
+    else {
+        $.ajax({
+            url: APP + "/Home/Admin/editkeshi",
+            type: "POST",
+            async: true,
+            dataType: 'json',
+            data: "type=" + "y_vercode" + "&id=" + id + "&name=" + name + "&fenlei=" + fenlei + "&weekdays=" + weekdays
+        });
+    }
+
+
+}
+</script>
+     

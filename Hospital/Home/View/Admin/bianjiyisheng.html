@@ -1,0 +1,293 @@
+
+ <html>
+  <head>
+   <meta charset="utf-8">
+   <title>图腾医院管理界面</title> 
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Bootstrap --> 
+   
+   <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet" media="screen">
+   <link href="__PUBLIC__/css/inkeshi.css" rel="stylesheet" media="screen">
+   <link href="__PUBLIC__/css/kuangti.css" rel="stylesheet" media="screen">
+   <script>
+       var PUBLIC= "__PUBLIC__";
+       var APP = "__APP__";
+       var ROOT = "__ROOT__";
+
+       var maxnumber=10000;
+
+       function tianjia2(id,keshi,name,guahaoMoney,yuyueNum,jianjie) {
+           var tbody = document.createElement("tbody");
+           var oTab = document.getElementById('tb1');
+           var oTr = document.createElement('tr');
+
+           var oTd = document.createElement('td');
+
+           var ad = document.createElement('input');
+           ad.type = "text";
+           ad.name = "aaa";
+           ad.id="keshi_"+id;
+
+           oTd.appendChild(ad);
+
+           oTr.appendChild(oTd);
+
+
+           var od = document.createElement('td');
+           var ad = document.createElement('input');
+           ad.type = "text";
+           ad.name = "bbb";
+           ad.id="name_"+id;
+
+           od.appendChild(ad);
+           oTr.appendChild(od);
+
+           var od = document.createElement('td');
+           var ad = document.createElement('input');
+           ad.type = "text";
+           ad.name = "ccc";
+           ad.id="guahaoMoney_"+id;
+
+           od.appendChild(ad);
+           oTr.appendChild(od);
+
+           var od = document.createElement('td');
+           var ad = document.createElement('input');
+           ad.type = "text";
+           ad.name = "ddd";
+           ad.id="yuyueNum_"+id;
+
+           od.appendChild(ad);
+           oTr.appendChild(od);
+
+           var od = document.createElement('td');
+           var ad = document.createElement('input');
+           ad.type = "text";
+           ad.name = "eee";
+           ad.id="jianjie_"+id;
+
+
+           od.appendChild(ad);
+           oTr.appendChild(od);
+
+
+           var od = document.createElement('td');
+           var add = document.createElement('input');
+           add.type = "button";
+           add.name = "kkk";
+           add.id="button_"+id;
+           add.value = "确定添加";
+           add.onclick = function () {
+              var keshiname=document.getElementById("keshi_"+id).value;
+               var name=document.getElementById("name_"+id).value;
+               var guahaoMoney=document.getElementById("guahaoMoney_"+id).value;
+               var yuyueNum=document.getElementById("yuyueNum_"+id).value;
+               var jianjie=document.getElementById("jianjie_"+id).value;
+               if(keshiname!=""&&name!=""&&guahaoMoney!=""&&yuyueNum!=""&&jianjie!=""){
+                   $.ajax({
+                      url:APP+"/Home/Admin/Addyisheng",
+                       type:"POST",
+                       dataType:'json',
+                       async:true,
+                       data: "type=" + "y_vercode" +"&keshiname="+keshiname+"&name="+name+"&guahaoMoney="+guahaoMoney+"&yuyueNum="+yuyueNum+"&jianjie="+jianjie,
+                       success:function(){
+                           window.location.reload();
+                       }
+                   });
+               }
+           };
+
+           od.appendChild(add)
+           oTr.appendChild(od);
+
+
+           tbody.appendChild(oTr);
+           oTab.appendChild(tbody);
+
+       }
+
+
+       function tianjia(id,keshi,name,guahaoMoney,yuyueNum,jianjie) {
+       var tbody = document.createElement("tbody");
+       var oTab = document.getElementById('tb1');
+       var oTr = document.createElement('tr');
+
+       var oTd = document.createElement('td');
+
+       var ad = document.createElement('input');
+       ad.type = "text";
+       ad.name = "aaa";
+           ad.id="keshi_"+id;
+           ad.value=keshi;
+           ad.disabled=true;
+       oTd.appendChild(ad);
+
+       oTr.appendChild(oTd);
+
+
+       var od = document.createElement('td');
+       var ad = document.createElement('input');
+       ad.type = "text";
+       ad.name = "bbb";
+           ad.id="name_"+id;
+           ad.value=name;
+           ad.disabled=true;
+       od.appendChild(ad);
+       oTr.appendChild(od);
+
+       var od = document.createElement('td');
+       var ad = document.createElement('input');
+       ad.type = "text";
+       ad.name = "ccc";
+           ad.id="guahaoMoney_"+id;
+           ad.value=guahaoMoney;
+           ad.disabled=true;
+           ad.style.width="99px";
+       od.appendChild(ad);
+       oTr.appendChild(od);
+
+       var od = document.createElement('td');
+       var ad = document.createElement('input');
+       ad.type = "text";
+       ad.name = "ddd";
+           ad.id="yuyueNum_"+id;
+           ad.value=yuyueNum;
+           ad.disabled=true;
+           ad.style.width="99px";
+       od.appendChild(ad);
+       oTr.appendChild(od);
+
+       var od = document.createElement('td');
+       var ad = document.createElement('input');
+       ad.type = "text";
+       ad.name = "eee";
+           ad.id="jianjie_"+id;
+           ad.value=jianjie;
+           ad.disabled=true;
+       od.appendChild(ad);
+       oTr.appendChild(od);
+
+
+       var od = document.createElement('td');
+       var add = document.createElement('input');
+       add.type = "button";
+       add.name = "kkk";
+           add.id="button_"+id;
+       add.value = "编辑医生";
+       add.onclick = function () {
+           if(document.getElementById("keshi_"+id).disabled==true){
+               document.getElementById("keshi_"+id).disabled=false;
+               document.getElementById("name_"+id).disabled=false;
+               document.getElementById("guahaoMoney_"+id).disabled=false;
+               document.getElementById("yuyueNum_"+id).disabled=false;
+               document.getElementById("jianjie_"+id).disabled=false;
+               document.getElementById("button_"+id).value="保存修改";
+           }else{
+               document.getElementById("keshi_"+id).disabled=true;
+               document.getElementById("name_"+id).disabled=true;
+               document.getElementById("guahaoMoney_"+id).disabled=true;
+               document.getElementById("yuyueNum_"+id).disabled=true;
+               document.getElementById("jianjie_"+id).disabled=true;
+               savechangeyisheng(id);
+               document.getElementById("button_"+id).value="编辑医生";
+           }
+       };
+
+       od.appendChild(add)
+       oTr.appendChild(od);
+
+
+       tbody.appendChild(oTr);
+       oTab.appendChild(tbody);
+
+   }
+
+
+   </script>
+    </head> 
+   <body onload="xianshiyisheng()">
+     <div id="quick" class="box">
+       <div class="box-header">
+        <ul>
+            <li class="active" ><a href="bianjiyiyuan.html" >编辑医院信息</a></li>
+            <li class="active" ><a href="bianjikeshi.html">编辑科室信息</a></li>
+            <li class="active" ><a href="bianjiyisheng.html">编辑医生信息</a></li>
+        </ul>
+        
+       </div>
+          <form name="fr">
+             <table name="tab" class="table table-bordered" id="tb1">
+              <tbody >
+              <tr>
+                <th >所属科室
+               <button type="button" style="height:25px" onclick='tianjia2(maxnumber,"","","","","")'>添加医生</button>
+               
+             </th>
+                <th >医生姓名</th>
+                <th >挂号费</th>
+                <th > 每日预约量上限</th>
+                <th > 医生简介</th>
+                <th >管理员动作</th>
+
+              </tr>
+              
+
+              
+            </tbody>
+
+            </table>
+
+             </form>
+           
+    </div>
+    </div></div>
+    
+ 
+     </body> 
+     </html>
+
+ <js href="__PUBLIC__/js/jquery-2.1.1.min.js"/>
+ <js href="__PUBLIC__/js/bootstrap.min.js"/>
+ <script type="text/javascript">
+function xianshiyisheng(){
+    $.ajax({
+        url:APP+"/Home/Admin/showyisheng",
+        type:"POST",
+        dataType:'json',
+        data:null,
+        success:function(data){
+            for(var i=0;i<data.length;i++){
+                tianjia(data[i]['id'],data[i]['keshi'],data[i]['name'],data[i]['guahaoMoney'],data[i]['yuyueNum'],data[i]['jianjie']);
+            }
+        }
+    });
+}
+     function savechangeyisheng(id){
+         var keshi=document.getElementById("keshi_"+id).value;
+         var name=document.getElementById("name_"+id).value;
+         var guahaoMoney=document.getElementById("guahaoMoney_"+id).value;
+         var yuyueNum=document.getElementById("yuyueNum_"+id).value;
+         var jianjie=document.getElementById("jianjie_"+id).value;
+         if(name==""){
+             $.ajax({
+                url:APP+"/Home/Admin/Deleteyisheng",
+                 type:"POST",
+                 dataType:'json',
+                 async:true,
+                 data:"type="+"y_vercode"+"&id="+id,
+                 success:function(){
+                     window.location.reload();
+                 }
+             });
+         }
+         else{
+             $.ajax({
+                url:APP+"/Home/Admin/edityisheng",
+                 type:"POST",
+                 dataType:'json',
+                 async:true,
+                 data: "type=" + "y_vercode" +"&id="+id+"&keshi="+keshi+"&name="+name+"&guahaoMoney="+guahaoMoney+"&yuyueNum="+yuyueNum+"&jianjie="+jianjie
+             });
+         }
+
+     }
+     </script>
