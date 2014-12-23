@@ -180,6 +180,8 @@ function yuyue() {
         var month = $("#yuyue-month").text();
         var day = $(this).children("span").eq(0).text();
         var keshiID = $("#keshiID").text();
+        var Name = $(".h-m-header p").text().split("——");
+        var keshiName = Name[1];
         var week = new Date(year,month-1,day).getDay();
         $.ajax({
             url: APP+'/Home/Keshim/getDoctorList',//目标地址
@@ -190,13 +192,11 @@ function yuyue() {
             success:function(data) {
                 modal.html("");
                 var length = data.length;
-
                 for(i = 0; i < length; i++) {
-
                     var html = '<tr>'+
                         '<td>'+year+'-'+month+'-'+day+'</td>'+
                         '<td>'+week+'</td>'+
-                        '<td>'+"烧伤科"+'</td>'+//从前台获取
+                        '<td>'+keshiName+'</td>'+//从前台获取
                         '<td>'+data[i].doctorName+'</td>'+
                         '<td>'+data[i].expense+'</td>'+
                         '<td>'+data[i].keguaHao+'</td>'+
@@ -204,7 +204,7 @@ function yuyue() {
 
                     if(data[i].shengyuHao > 0) {
                         var date = year+'-'+month+'-'+day;
-                        html += '<td><a href="javascript:void(0)" onclick="confirmOrder(this)" data-date="'+date+'" data-id="'+keshiID+'" data-doctorID="'+data[i].doctorID+'">预约</a></td>';
+                        html += '<td><a href="javascript:void(0)" onclick="confirmOrder(this)" data-date="'+date+'" data-id="'+keshiID+'" data-doctorID="'+data[i].doctorID+'"  data-doctorName="'+data[i].doctorName+'">预约</a></td>';
                     }
                     else {
                         html += '<td>约满</td>';
@@ -222,12 +222,16 @@ function confirmOrder(doc) {
     var date = $(doc).attr("data-date");
     var keshiID = $(doc).attr("data-id");
     var doctorID = $(doc).attr("data-doctorID");
+    var doctorName = $(doc).attr("data-doctorName");
+    var Name = $(".h-m-header p").text().split("——");
+    var keshiName = Name[1];
+    var hospitalName = Name[0];
     $.ajax({
         url: APP+'/Home/Keshim/confirmOrder',//目标地址
         type: 'POST',
         async:false,
         dataType: 'json',
-        data: "type="+"confirmOrder"+"&keshiID="+keshiID+"&date="+date+"&doctorID="+doctorID,
+        data: "type="+"confirmOrder"+"&keshiID="+keshiID+"&date="+date+"&doctorID="+doctorID+"&doctorName="+doctorName+"&keshiName="+keshiName+"&hospitalName="+hospitalName,
         success:function(data) {
             if(data == true) {
                 alert("预约成功");
