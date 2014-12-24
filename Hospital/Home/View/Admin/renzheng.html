@@ -9,6 +9,9 @@
    <link href="__PUBLIC__/css/renzheng.css" rel="stylesheet" media="screen">
    <link href="__PUBLIC__/css/kuangti.css" rel="stylesheet" media="screen">
       <script>
+          var PUBLIC= "__PUBLIC__";
+          var APP = "__APP__";
+          var ROOT = "__ROOT__";
           function tianjia(id,name,IDcard,imgURL){
               var tbody = document.createElement("tbody");
               var oTab = document.getElementById('tb1');
@@ -36,7 +39,7 @@
               var ad = document.createElement('img');
 
               ad.id="imgURL_"+id;
-              ad.src=imgURL;
+              ad.src=PUBLIC+"/images/RenZheng/"+imgURL;
               ad.width="200";
               ad.height="300";
 
