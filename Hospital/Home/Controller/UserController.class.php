@@ -42,10 +42,9 @@ class UserController extends  Controller{
 
     }
     public function logout(){
-        $urlRefer=session('urlRefer');
         session(null);
         session('[destroy]'); // 销毁session
-        redirect($urlRefer);
+        $this->redirect('Hospital/Index',null, 0);
     }
     public function checkregister(){
         $type=I('post.type');

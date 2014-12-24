@@ -150,7 +150,7 @@ class KeshimController extends  Controller{
             $User=M('User');
             $result=$User->where("id=$data[userID]")->find();
             $data['yuyueName']=$result['name'];
-            $data['phone']=$result['phone'];
+            $data['phone']="null";
             $jinqichuzhen=M('Jinqichuzhen');
             $shengyuNum=$jinqichuzhen->where("doctorID=$data[doctorID] AND dates='$data[yuyueDate]'")->getField('shengyuNumber');
             if($shengyuNum>=1){

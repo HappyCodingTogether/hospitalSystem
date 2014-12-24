@@ -3,8 +3,14 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>图腾医院统一挂号平台</title>
-		<link rel="stylesheet" type="text/css" href="/hospital/Public/css/bootstrap.css" />
-		<link rel="stylesheet" type="text/css" href="/hospital/Public/css/tuteng.css" />
+		<link rel="stylesheet" type="text/css" href="/hospitalSystem-master/Public/css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="/hospitalSystem-master/Public/css/bootstrap-theme.css" />
+		<link rel="stylesheet" type="text/css" href="/hospitalSystem-master/Public/css/tuteng.css" />
+        <script type="text/javascript">
+            var PUBLIC= "/hospitalSystem-master/Public";
+            var APP = "/hospitalSystem-master/index.php";
+            var ROOT = "/hospitalSystem-master";
+        </script>
 	</head>
 	<body>
 		<header>
@@ -13,7 +19,7 @@
 					<div class="header_main">
 						<div class="col-md-6">
 							<div class="logo">
-								<img src="/hospital/Public/images/logo.png">
+								<img src="/hospitalSystem-master/Public/images/logo.png">
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -29,51 +35,67 @@
 								            <li>科室</li>
 								        </ul>
 							        </div>
-		                            <input type="text" class="form-control"/>
-		                            <input type="submit"/>
+		                            <input type="text" class="form-control" id="search-val"/>
+		                            <button class="submit"></button>
 								</div>
 							</div>
 						</div>
+                        <?php
+ if(!isset($_SESSION['userName'])){ ?>
 						<div id="r_l">
 							<div class="r_l-box">
 								<ul>
 									<li><a href="javascript:void(0)" id="login_a">登录</a></li>
-									<li><a href="#">注册</a></li>
+									<li><a href="/hospitalSystem-master/index.php/Home/Hospital/register">注册</a></li>
 								</ul>	
 							</div>
 						</div>
+                        <?php
+ } else{ ?>
+                            <div id="r_l2">
+                                <div class="r_l-box">
+                                <ul>
+                                    <li><label ><?php echo $_SESSION['userName']?></label></li>
+                                    <li><a href="/hospitalSystem-master/index.php/Home/User/logout">注销</a></li>
+                                </ul>
+                                </div>
+                            </div>
+                        <?php
+ } ?>
 					</div>
 				</div>
 				<div id="header_menu">
 					<div class="menu-list">
 						<div class="col-md-offset-1">
 							<ul>
-                                <li><a href="/hospital/index.php/Home/Hospital/index">首页</a></li>
-                                <li><a href="/hospital/index.php/Home/Hospital/hospitals">按医院预约</a></li>
-								<li><a href="/hospital/index.php/Home/Hospital/keshi">按科室预约</a></li>
-								<li><a href="/hospital/index.php/Home/Hospital/gonggao">最新公告</a></li>
-								<li><a href="/hospital/index.php/Home/Hospital/personCenter">个人中心</a></li>
+                                <li><a href="/hospitalSystem-master/index.php/Home/Hospital">首页</a></li>
+                                <li><a href="/hospitalSystem-master/index.php/Home/Hospital/hospitals">按医院预约</a></li>
+								<li><a href="/hospitalSystem-master/index.php/Home/Hospital/keshi">按科室预约</a></li>
+								<li><a href="/hospitalSystem-master/index.php/Home/Hospital/gonggao">最新公告</a></li>
+								<li><a href="/hospitalSystem-master/index.php/Home/Hospital/personCenter">个人中心</a></li>
 							</ul>
 						</div>
 					</div>
 				</div>
+
 				<div id="login-box" class="login-box">
-					<form>
+                    <div class="h-triangle"></div>
+					<form method="post" action="/hospitalSystem-master/index.php/Home/User/login">
 						<div class="form-group">
-							<input type="text" id="userName" class="form-control" placeholder="用户名"/> 
+							<input type="text" id="userName" name="userName" class="form-control" placeholder="邮箱/身份证号"/>
 						</div>
 						<div class="form-group">
-							<input type="password" id="pwd" class="form-control" placeholder="密码"/> 
+							<input type="password" id="pwd" name="pwd" class="form-control" placeholder="密码"/>
 						</div>
 						<div class="checkbox">
 							<label>
 						        <input type="checkbox">记住密码
 						    </label>
 						    <span class="forget-pwd">
-						    	<a href="">忘记密码</a>
+						    	<a href="/hospitalSystem-master/index.php/Home/Hospital/findPwd">忘记密码</a>
 						    </span>
 					  	</div>
-					  	<a href="" class="btn btn-primary pull-right">登录</a>
+					  	<input type="submit" class="btn btn-primary pull-right" value="登录">
 					</form>
 				</div>
 			</div>
@@ -83,14 +105,10 @@
     <div class="container">
         <div class="h-panel">
             <div class="gonggao-content">
-                <h1>北京丰台医院新增专家号源</h1>
-                <h4>2014-12-12</h4>
-                <pre>
-    丰台医院聘请北大医院胸外科主任李简教授，副主任林刚博士，北京肿瘤医院胸外科主任张力建教授3位专家到我院出专家门诊。周一下午：林刚；周三下午：李简；周四上午：张力建。
+                <?php if(is_array($gonggao)): $i = 0; $__LIST__ = $gonggao;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$arr): $mod = ($i % 2 );++$i;?><h1><?php echo ($arr["title"]); ?></h1>
+                    <h4><?php echo ($arr["dateTimes"]); ?></h4>
+                    <pre><?php echo ($arr["contents"]); ?></pre><?php endforeach; endif; else: echo "" ;endif; ?>
 
-　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　北京丰台医院
-　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　2014-12-12
-                </pre>
             </div>
         </div>
     </div>
@@ -99,7 +117,7 @@
 <footer>
 			<div id="footer" class="footer">
 				<div class="col-md-offset-5 col-md-2">
-					<img src="/hospital/Public/images/guahao.png"/>
+					<img src="/hospitalSystem-master/Public/images/guahao.png"/>
 				</div>
 				<div class="col-md-12">
 					<ul>
@@ -109,8 +127,13 @@
 				</div>
 			</div>
 		</footer>
-		<script type="text/javascript" src="/hospital/Public/js/jquery-2.1.1.min.js"></script>
-		<script type="text/javascript" src="/hospital/Public/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="/hospital/Public/js/tuteng.js"></script>
+		<script type="text/javascript" src="/hospitalSystem-master/Public/js/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="/hospitalSystem-master/Public/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/hospitalSystem-master/Public/js/tuteng.js"></script>
+        
+    <script type="text/javascript">
+        $("#header_menu li").eq(3).addClass("active");
+    </script>
+
 	</body>
 </html>

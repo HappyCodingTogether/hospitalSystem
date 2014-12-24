@@ -24,6 +24,13 @@ class HospitalController extends Controller {
         $keshi=M('Keshi');
         $this->assign('rekeshi',$keshi->field('hospital_hospital.name AS hospitalname,hospital_hospital.xiangxiAddress,hospital_keshi.id,hospital_keshi.name,hospital_keshi.phone,hospital_hospital.imgURL,hospital_rekeshi.yuyueCount')->join('__REKESHI__ ON __KESHI__.id=__REKESHI__.keshiID','RIGHT')->join('__HOSPITAL__ ON __KESHI__.hospitalID=__HOSPITAL__.id')->order('hospital_rekeshi.yuyueCount DESC')->select());
 
+        //显示医院数量
+        $jinqichuzhen=M('Jinqichuzhen');
+        $yuyuecount=$jinqichuzhen->where('1')->count();
+        $count3=$hospital->where('dengji=3')->count();
+        $count2=$hospital->where('dengji=2')->count();
+        $websiteinfo=array("count3"=>$count3,"count2"=>$count2,"yuyuecount"=>$yuyuecount);
+        $this->assign('websiteinfo',$websiteinfo);
         $this->display();
     }
     //显示所有医院列表
@@ -67,7 +74,7 @@ class HospitalController extends Controller {
             ->where($map)->join('__QU__ ON __HOSPITAL__.quID=__QU__.id','LEFT')->limit($page->firstRow.','.$page->listRows)->select();
         $this->assign('list',$list);
         $this->assign('page',$show);
-
+        $this->buildHtml('hospital'.$type, '','');
         $this->display();
     }
     //注销
@@ -89,6 +96,7 @@ class HospitalController extends Controller {
         $gonggao=M('Gonggao');
         $map['id']=$gonggaoid;
         $this->assign('gonggao',$gonggao->field('title,contents,dateTimes')->where($map)->select());
+        $this->buildHtml('gonggao'.$gonggaoid, '','');
         $this->display();
     }
     //进入医院页面
@@ -152,7 +160,7 @@ class HospitalController extends Controller {
             $temp++;
         }
         $this->assign('keshim',$keshim);
-
+        $this->buildHtml('hospitalm'.$_GET['hospitalID'], '','');
         $this->display();
 
     }
@@ -226,8 +234,7 @@ class HospitalController extends Controller {
         $this->assign('page',$show);
         $this->assign('i1',$i1);
         $this->assign('i2',$i2);
-
-
+        $this->buildHtml('keshi'.$k, '','');
         $this->display();
     }
     //进入科室界面

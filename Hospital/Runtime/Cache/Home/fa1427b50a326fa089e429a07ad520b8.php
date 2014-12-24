@@ -3,8 +3,14 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>图腾医院统一挂号平台</title>
-		<link rel="stylesheet" type="text/css" href="/hospitalSystem/trunk/Public/css/bootstrap.css" />
-		<link rel="stylesheet" type="text/css" href="/hospitalSystem/trunk/Public/css/tuteng.css" />
+		<link rel="stylesheet" type="text/css" href="/hospitalSystem-master/Public/css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="/hospitalSystem-master/Public/css/bootstrap-theme.css" />
+		<link rel="stylesheet" type="text/css" href="/hospitalSystem-master/Public/css/tuteng.css" />
+        <script type="text/javascript">
+            var PUBLIC= "/hospitalSystem-master/Public";
+            var APP = "/hospitalSystem-master/index.php";
+            var ROOT = "/hospitalSystem-master";
+        </script>
 	</head>
 	<body>
 		<header>
@@ -13,7 +19,7 @@
 					<div class="header_main">
 						<div class="col-md-6">
 							<div class="logo">
-								<img src="/hospitalSystem/trunk/Public/images/logo.png">
+								<img src="/hospitalSystem-master/Public/images/logo.png">
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -29,8 +35,8 @@
 								            <li>科室</li>
 								        </ul>
 							        </div>
-		                            <input type="text" class="form-control"/>
-		                            <input type="submit"/>
+		                            <input type="text" class="form-control" id="search-val"/>
+		                            <button class="submit"></button>
 								</div>
 							</div>
 						</div>
@@ -40,7 +46,7 @@
 							<div class="r_l-box">
 								<ul>
 									<li><a href="javascript:void(0)" id="login_a">登录</a></li>
-									<li><a href="/hospitalSystem/trunk/index.php/Home/Hospital/register">注册</a></li>
+									<li><a href="/hospitalSystem-master/index.php/Home/Hospital/register">注册</a></li>
 								</ul>	
 							</div>
 						</div>
@@ -50,7 +56,7 @@
                                 <div class="r_l-box">
                                 <ul>
                                     <li><label ><?php echo $_SESSION['userName']?></label></li>
-                                    <li><a href="/hospitalSystem/trunk/index.php/Home/User/logout">注销</a></li>
+                                    <li><a href="/hospitalSystem-master/index.php/Home/User/logout">注销</a></li>
                                 </ul>
                                 </div>
                             </div>
@@ -62,20 +68,21 @@
 					<div class="menu-list">
 						<div class="col-md-offset-1">
 							<ul>
-                                <li><a href="/hospitalSystem/trunk/index.php/Home/Hospital">首页</a></li>
-                                <li><a href="/hospitalSystem/trunk/index.php/Home/Hospital/hospitals">按医院预约</a></li>
-								<li><a href="/hospitalSystem/trunk/index.php/Home/Hospital/keshi">按科室预约</a></li>
-								<li><a href="/hospitalSystem/trunk/index.php/Home/Hospital/gonggao">最新公告</a></li>
-								<li><a href="/hospitalSystem/trunk/index.php/Home/Hospital/personCenter">个人中心</a></li>
+                                <li><a href="/hospitalSystem-master/index.php/Home/Hospital">首页</a></li>
+                                <li><a href="/hospitalSystem-master/index.php/Home/Hospital/hospitals">按医院预约</a></li>
+								<li><a href="/hospitalSystem-master/index.php/Home/Hospital/keshi">按科室预约</a></li>
+								<li><a href="/hospitalSystem-master/index.php/Home/Hospital/gonggao">最新公告</a></li>
+								<li><a href="/hospitalSystem-master/index.php/Home/Hospital/personCenter">个人中心</a></li>
 							</ul>
 						</div>
 					</div>
 				</div>
 
 				<div id="login-box" class="login-box">
-					<form method="post" action="/hospitalSystem/trunk/index.php/Home/User/login">
+                    <div class="h-triangle"></div>
+					<form method="post" action="/hospitalSystem-master/index.php/Home/User/login">
 						<div class="form-group">
-							<input type="text" id="userName" name="userName" class="form-control" placeholder="用户名"/>
+							<input type="text" id="userName" name="userName" class="form-control" placeholder="邮箱/身份证号"/>
 						</div>
 						<div class="form-group">
 							<input type="password" id="pwd" name="pwd" class="form-control" placeholder="密码"/>
@@ -85,154 +92,61 @@
 						        <input type="checkbox">记住密码
 						    </label>
 						    <span class="forget-pwd">
-						    	<a href="">忘记密码</a>
+						    	<a href="/hospitalSystem-master/index.php/Home/Hospital/findPwd">忘记密码</a>
 						    </span>
 					  	</div>
 					  	<input type="submit" class="btn btn-primary pull-right" value="登录">
 					</form>
 				</div>
-
 			</div>
 		</header>
 <div class="main-body">
     
     <div class="container">
-        <div id="person-data">
-            <div class="col-md-4">
-                <div class="box">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="person-menu">
+                    <ul>
+                        <li class="bigt">个人资料</li>
+                        <li class="smallt active" id="person"><a href="/hospitalSystem-master/index.php/Home/Hospital/personCenter">账户资料</a></li>
+                        <li class="smallt" id="pwd-xiugai"><a href="/hospitalSystem-master/index.php/Home/Hospital/changePwd">修改密码</a></li>
+                        <li class="bigt">我的预约</li>
+                        <li class="smallt" id="n-yuyue"><a href="/hospitalSystem-master/index.php/Home/Hospital/nowOrder">当前预约</a></li>
+                        <li class="smallt" id="p-yuyue"><a href="/hospitalSystem-master/index.php/Home/Hospital/prevOrder">历史预约</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div id="person-body" class="box">
                     <div class="box-header">
                         <ul>
-                            <li id="person" class="active">个人资料</li>
-                            <li id="pwd-xiugai">修改密码</li>
+                            <li class="active">账户资料</li>
                         </ul>
                     </div>
                     <div class="box-body">
-                        <div id="person-body">
+                        <div class="person-data">
                             <table class="data-table">
                                 <tr>
                                     <td>姓名：</td>
-                                    <td>陈汉川</td>
+                                    <td><?php echo ($user["name"]); ?></td>
                                 </tr>
                                 <tr>
                                     <td>证件：</td>
-                                    <td>350322199309264318</td>
+                                    <td><?php echo ($user["IDcard"]); ?></td>
                                 </tr>
                                 <tr>
                                     <td>邮箱：</td>
-                                    <td>1320396800@qq.com</td>
-                                </tr>
-                                <tr>
-                                    <td>联系方式：</td>
-                                    <td>13141492304</td>
+                                    <td><?php echo ($user["email"]); ?></td>
                                 </tr>
                                 <tr>
                                     <td>是否认证：</td>
-                                    <td>
-                                        <a href="">点击进入认证</a>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div id="pwd-xiugai-body" class="hide">
-                            <form class="form-pwd-xiugai">
-                                <div class="form-item">
-                                    <span>原密码：</span>
-                                    <div class="form-pwd">
-                                        <input type="password"/>
-                                    </div>
-                                </div>
-                                <div class="form-item">
-                                    <span>新密码：</span>
-                                    <div class="form-pwd">
-                                        <input type="password"/>
-                                    </div>
-                                </div>
-                                <div class="form-item">
-                                    <span>确认密码：</span>
-                                    <div class="form-pwd">
-                                        <input type="password"/>
-                                    </div>
-                                </div>
-                                <button class="btn btn-primary">确认修改</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-8">
-                <div class="box">
-                    <div class="box-header">
-                        <ul>
-                            <li id="now-yuyue" class="active">当前预约</li>
-                            <li id="prev-yuyue">历史预约</li>
-                        </ul>
-                    </div>
-                    <div class="box-body yuyue-body">
-                        <div id="now-yuyue-body">
-                            <table>
-                                <tr>
-                                    <td>医院</td>
-                                    <td>科室</td>
-                                    <td>医生</td>
-                                    <td>就诊日期</td>
-                                    <td>预约日期</td>
-                                    <td>取消预约</td>
-                                </tr>
-                                <tr>
-                                    <td class="yuyue-hospital">北京大医院</td>
-                                    <td class="yuyue-keshi">内科</td>
-                                    <td class="yuyue-doctor">陈医生</td>
-                                    <td>2014-2-21</td>
-                                    <td>2014-8-9</td>
-                                    <td><a href="">取消</a></td>
-                                </tr>
-                                <tr>
-                                    <td class="yuyue-hospital">北京大医院sddddddddsdssssfdddddd</td>
-                                    <td class="yuyue-keshi">内科</td>
-                                    <td class="yuyue-doctor">陈医生</td>
-                                    <td>2014-2-21</td>
-                                    <td>2014-8-9</td>
-                                    <td><a href="">取消</a></td>
-                                </tr>
-                                <tr>
-                                    <td class="yuyue-hospital">北京大医院</td>
-                                    <td class="yuyue-keshi">内科</td>
-                                    <td class="yuyue-doctor">陈医生</td>
-                                    <td>2014-2-21</td>
-                                    <td>2014-8-9</td>
-                                    <td><a href="">取消</a></td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div id="prev-yuyue-body" class="hide">
-                            <table>
-                                <tr>
-                                    <td>医院</td>
-                                    <td>科室</td>
-                                    <td>医生</td>
-                                    <td>就诊日期</td>
-                                    <td>预约日期</td>
-                                </tr>
-                                <tr>
-                                    <td class="yuyue-hospital">北京大医院</td>
-                                    <td class="yuyue-keshi">内科</td>
-                                    <td class="yuyue-doctor">陈医生</td>
-                                    <td>2014-2-21</td>
-                                    <td>2014-8-9</td>
-                                </tr>
-                                <tr>
-                                    <td class="yuyue-hospital">北京大医院sddddddddsdssssfdddddd</td>
-                                    <td class="yuyue-keshi">内科</td>
-                                    <td class="yuyue-doctor">陈医生</td>
-                                    <td>2014-2-21</td>
-                                    <td>2014-8-9</td>
-                                </tr>
-                                <tr>
-                                    <td class="yuyue-hospital">北京大医院</td>
-                                    <td class="yuyue-keshi">内科</td>
-                                    <td class="yuyue-doctor">陈医生</td>
-                                    <td>2014-2-21</td>
-                                    <td>2014-8-9</td>
+                                    <?php if($user["isRenzheng"] == 0): ?><td>
+                                            <a href="/hospitalSystem-master/index.php/Home/Hospital/identifyCenter" id="renzheng">点击进入认证</a>
+                                        </td>
+                                        <?php elseif($user["isRenzheng"] == 1): ?>
+                                        <td>已认证</td>
+                                        <?php else: ?>
+                                        <td>等待管理员审核</td><?php endif; ?>
                                 </tr>
                             </table>
                         </div>
@@ -246,7 +160,7 @@
 <footer>
 			<div id="footer" class="footer">
 				<div class="col-md-offset-5 col-md-2">
-					<img src="/hospitalSystem/trunk/Public/images/guahao.png"/>
+					<img src="/hospitalSystem-master/Public/images/guahao.png"/>
 				</div>
 				<div class="col-md-12">
 					<ul>
@@ -256,8 +170,11 @@
 				</div>
 			</div>
 		</footer>
-		<script type="text/javascript" src="/hospitalSystem/trunk/Public/js/jquery-2.1.1.min.js"></script>
-		<script type="text/javascript" src="/hospitalSystem/trunk/Public/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="/hospitalSystem/trunk/Public/js/tuteng.js"></script>
+		<script type="text/javascript" src="/hospitalSystem-master/Public/js/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="/hospitalSystem-master/Public/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/hospitalSystem-master/Public/js/tuteng.js"></script>
+        
+    <script type="text/javascript" src="/hospitalSystem-master/Public/js/person.js"></script>
+
 	</body>
 </html>

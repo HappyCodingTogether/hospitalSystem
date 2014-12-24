@@ -57,7 +57,7 @@
             dataType:'json',
             async:true,
             data:"&title="+document.getElementById("title").value+"&contents="+document.getElementById("contents").value,
-            success:function(){
+            success:function(data){
                 window.location.reload();
             }
         });

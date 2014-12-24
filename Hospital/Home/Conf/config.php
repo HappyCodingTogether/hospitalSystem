@@ -6,7 +6,7 @@ return array(
     'DB_HOST'   => 'localhost', // 服务器地址
     'DB_NAME'   => 'hospital', // 数据库名
     'DB_USER'   => 'root', // 用户名
-    'DB_PWD'    => 'root', // 密码
+    'DB_PWD'    => '', // 密码
     'DB_PORT'   => 3306, // 端口
     'DB_PREFIX' => 'hospital_', // 数据库表前缀
     'DB_CHARSET'=> 'utf8', // 字符集
@@ -29,11 +29,11 @@ return array(
     'DB_SQL_BUILD_QUEUE' => 'xcache',
     'DB_SQL_BUILD_LENGTH' => 50, // SQL缓存的队列长度
 
-    'HTML_CACHE_ON'     =>    true, // 开启静态缓存
+   /* 'HTML_CACHE_ON'     =>    true, // 开启静态缓存
     'HTML_CACHE_TIME'   =>    60,   // 全局静态缓存有效期（秒）
     'HTML_FILE_SUFFIX'  =>    '.shtml', // 设置静态缓存文件后缀
     'HTML_CACHE_RULES'  =>     array(  // 定义静态缓存规则
-    // 定义格式1 数组方式
+     //定义格式1 数组方式
         'Hospital:'=>array('Hospital/{:action}_{id}','600'),
-    )
+    )*/
 );

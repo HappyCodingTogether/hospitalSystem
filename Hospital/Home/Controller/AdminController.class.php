@@ -8,28 +8,28 @@ class AdminController extends Controller{
         $this->redirect('Hospital/Index', null, 0);
     }
     public function bianjikeshi(){
-        if(session('identify')==-1||session('identify')>0){
+        if(session('identify')>0){
             $this->display();
         }else{
             $this->redirect('Hospital/Index', null, 0);
         }
     }
     public function bianjiyisheng(){
-        if(session('identify')==-1||session('identify')>0){
+        if(session('identify')>0){
             $this->display();
         }else{
             $this->redirect('Hospital/Index', null, 0);
         }
     }
     public function bianjiyiyuan(){
-        if(session('identify')==-1||session('identify')>0){
+        if(session('identify')>0){
             $this->display();
         }else{
             $this->redirect('Hospital/Index', null, 0);
         }
     }
     public function lishiyuyue(){
-        if(session('identify')==-1||session('identify')>0){
+        if(session('identify')>0){
             $Yuyuedan=M('Yuyuedan');
             $hospitalID=session('identify');
             $data=$Yuyuedan->where("hospitalID=$hospitalID AND isChuli <>0")->select();
@@ -39,36 +39,37 @@ class AdminController extends Controller{
             $this->redirect('Hospital/Index', null, 0);
         }
     }
-    public function rezheng(){
-        if(session('identify')==-1||session('identify')>0){
+    public function renzheng(){
+        //var_dump("aa");
+        if(session('identify')==-1){
             $this->display();
         }else{
             $this->redirect('Hospital/Index', null, 0);
         }
     }
     public function shanchuyiyuan(){
-        if(session('identify')==-1||session('identify')>0){
+        if(session('identify')==-1){
             $this->display();
         }else{
             $this->redirect('Hospital/Index', null, 0);
         }
     }
     public function tianjiayiyuan(){
-        if(session('identify')==-1||session('identify')>0){
+        if(session('identify')==-1){
             $this->display();
         }else{
             $this->redirect('Hospital/Index', null, 0);
         }
     }
     public function xiegonggao(){
-        if(session('identify')==-1||session('identify')>0){
+        if(session('identify')==-1){
             $this->display();
         }else{
             $this->redirect('Hospital/Index', null, 0);
         }
     }
     public function yuyuechuli(){
-        if(session('identify')==-1||session('identify')>0){
+        if(session('identify')>0){
             $Yuyuedan=M('Yuyuedan');
             $zhi=0;
             $hospitalID=session('identify');
@@ -194,7 +195,9 @@ class AdminController extends Controller{
         }
         $Gonggao=M('Gonggao');
         $result=$Gonggao->field("dateTimes,title,contents,hospitalID")->data($data)->add();
-        if($result)$this->success();
+        if($result){
+            echo "true";
+        }
         else $this->error();
     }
     public function pass(){
