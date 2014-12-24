@@ -9,6 +9,8 @@ class HospitalController extends Controller {
 
     public function index() {
 	session('urlRefer',__SELF__);
+        //检查是否更新热门科室和医院
+        $this->updateRemenTable();
         //显示系统公告
         $gonggao=M('Gonggao');
         $map['hospitalID']=0;
@@ -20,7 +22,7 @@ class HospitalController extends Controller {
 
         //查询热门科室
         $keshi=M('Keshi');
-        $this->assign('rekeshi',$keshi->field('hospital_hospital.name AS hospitalname,hospital_hospital.xiangxiAddress,hospital_keshi.id,hospital_keshi.name,hospital_keshi.phone,hospital_hospital.imgURL,hospital_rekeshi.yuyueCount')->join('__REKESHI__ ON __KESHI__.id=__REKESHI__.keshiID','RIGHT')->join('__HOSPITAL__ ON __KESHI__.hospitalID=__HOSPITAL__.id')->order('hospital_rekeshi.yuyueCount')->select());
+        $this->assign('rekeshi',$keshi->field('hospital_hospital.name AS hospitalname,hospital_hospital.xiangxiAddress,hospital_keshi.id,hospital_keshi.name,hospital_keshi.phone,hospital_hospital.imgURL,hospital_rekeshi.yuyueCount')->join('__REKESHI__ ON __KESHI__.id=__REKESHI__.keshiID','RIGHT')->join('__HOSPITAL__ ON __KESHI__.hospitalID=__HOSPITAL__.id')->order('hospital_rekeshi.yuyueCount DESC')->select());
 
         $this->display();
     }
@@ -248,13 +250,16 @@ class HospitalController extends Controller {
     //个人中心的首页
     public function personCenter() {
         session('urlRefer',__SELF__);
-
         $userID=session('userID');
-        $user=M('User');
-        $map['id']=$userID;
-        $data=$user->field('name,IDcard,phone,email,isRenzheng')->where($map)->find();
-        $this->assign('user',$data);
-        $this->display();
+        if($userID==null){
+            $this->error('您尚未登录');
+        }else{
+            $user=M('User');
+            $map['id']=$userID;
+            $data=$user->field('name,IDcard,phone,email,isRenzheng')->where($map)->find();
+            $this->assign('user',$data);
+            $this->display();
+        }
     }
     //显示用户当前的预约
     public function nowOrder(){
@@ -307,7 +312,7 @@ class HospitalController extends Controller {
             $userID=session('userID');
             $user=M('User');
             $map['id']=$userID;
-            $data['imgURL']=__ROOT__."/Public/images/Renzheng/".$img;
+            $data['imgURL']=$img;
             $data['isRenzheng']=2;
             $user->where($map)->save($data);
             echo '文件上传成功';
@@ -383,14 +388,39 @@ class HospitalController extends Controller {
         $Days1=round(($d1-$d2)/3600/24);
         $Days2=round(($d1-$d3)/3600/24);
         if($Days1>7){
-            $rehospital->where("1")->delete();
             $yuyuedan=M('Yuyuedan');
-            $num=$yuyuedan->where("1")->count('hospitalID');
-
+            $map=null;
+            $map['yuyueDate']=array('egt',$datenow-7);
+            $remen=$yuyuedan->field('hospitalID,count(hospitalID) AS counts')->group('hospitalID')
+                ->where($map)->order('counts DESC')->limit(6)->select();
+            for($i=0;$i<6;$i++){
+                $map=null;
+                $map['id']=$i+1;
+                $data['hospitalID']=$remen[$i]['hospitalID'];
+                $data['yuyueCount']=$remen[$i]['counts'];
+                $data['dates']=$datenow;
+                $rehospital->where($map)->save($data);
+            }
         }
         if($Days2>7) {
-
-            $rekeshi->where("1")->delete();
+            $yuyuedan=M('Yuyuedan');
+            $map['yuyueDate']=array('egt',$datenow-7);
+            $renmen=$yuyuedan->field('keshiID,count(keshiID) AS counts')->group('keshiID')
+                ->where($map)->order('counts DESC')->limit(6)->select();
+            for($i=0;$i<6;$i++){
+                $keshi=M('keshi');
+                $map=null;
+                $map['id']=$renmen[$i]['keshiID'];
+                $keshir=$keshi->field('hospitalID')->where($map)->find();
+                $hospitalID=$keshir['hospitalID'];
+                $map=null;
+                $map['id']=$i+1;
+                $data['keshiID']=$renmen[$i]['keshiID'];
+                $data['hospitalID']=$hospitalID;
+                $data['yuyueCount']=$renmen[$i]['counts'];
+                $data['dates']=$datenow;
+                $rekeshi->where($map)->save($data);
+            }
         }
 
     }
