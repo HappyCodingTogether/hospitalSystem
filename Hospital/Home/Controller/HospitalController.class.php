@@ -8,7 +8,7 @@ class HospitalController extends Controller {
 
 
     public function index() {
-	session('urlRefer',__ACTION__);
+	session('urlRefer',__SELF__);
         //显示系统公告
         $gonggao=M('Gonggao');
         $map['hospitalID']=0;
@@ -26,7 +26,7 @@ class HospitalController extends Controller {
     }
     //显示所有医院列表
     public function hospitals() {
-	session('urlRefer',__ACTION__);
+	session('urlRefer',__SELF__);
 
         $leixing=array('不限','卫生部直属医院','北京市卫生局直属医院','中国医科院所属医院','中国中医科学院','北京中医药大学','北京大学附属医院','驻京部队医院','驻京武警医院','部属厂矿高校医院','北京区县属医院','其它');
         $diqu=array('不限','海淀区','朝阳区','西城区','东城区','丰台区','石景山区','通州区','顺义区','房山区','大兴区','昌平区','怀柔区','平谷区','门头沟区','密云县','延庆县');
@@ -70,19 +70,19 @@ class HospitalController extends Controller {
     }
     //注销
     public function register() {
-        session('urlRefer',__ACTION__);
+        session('urlRefer',__SELF__);
         $this->display();
     }
     //显示全部公告列表
     public function gonggao() {
-	session('urlRefer',__ACTION__);
+	session('urlRefer',__SELF__);
         $gonggao=M('Gonggao');
         $this->assign('gonggao',$gonggao->field('id,title,dateTimes')->order('dateTimes DESC')->select());
         $this->display();
     }
     //显示公告详细内容
     public function gonggaoc() {
-		session('urlRefer',__ACTION__);
+		session('urlRefer',__SELF__);
         $gonggaoid=$_GET['gonggaoid'];
         $gonggao=M('Gonggao');
         $map['id']=$gonggaoid;
@@ -91,7 +91,7 @@ class HospitalController extends Controller {
     }
     //进入医院页面
     public function hospitalm(){
-        session('urlRefer',__ACTION__);
+        session('urlRefer',__SELF__);
 
         //显示医院基本信息
         $hospital=M('Hospital');
@@ -156,7 +156,7 @@ class HospitalController extends Controller {
     }
     //显示搜索结果页面
     public function sousuo(){
-        session('urlRefer',__ACTION__);
+        session('urlRefer',__SELF__);
 
         $type=$_GET['type'];
         $neirong=$_GET['neirong'];
@@ -200,7 +200,7 @@ class HospitalController extends Controller {
     }
     //进入所有科室列表
     public function keshi() {
-        session('urlRefer',__ACTION__);
+        session('urlRefer',__SELF__);
         //echo $this->unicode_encode('内科');
 
         $k=I('get.k','0-0-u5185u79D1');
@@ -247,7 +247,7 @@ class HospitalController extends Controller {
     }
     //个人中心的首页
     public function personCenter() {
-        session('urlRefer',__ACTION__);
+        session('urlRefer',__SELF__);
 
         $userID=session('userID');
         $user=M('User');
@@ -289,7 +289,7 @@ class HospitalController extends Controller {
     }
     //上传用户的图片
     public function uploadpho(){
-        session('urlRefer',__ACTION__);
+        session('urlRefer',__SELF__);
 
         $upload = new \Think\Upload();// 实例化上传类
         $upload->maxSize   =     10485760 ;// 设置附件上传大小
@@ -370,6 +370,29 @@ class HospitalController extends Controller {
             }
         }
         return $name;
+    }
+    public function updateRemenTable(){
+        $datenow=date("Y-m-d");
+        $rehospital=M('Rehospital');
+        $rekeshi=M('Rekeshi');
+        $maxdate1=$rehospital->where('1')->max('dates');
+        $maxdate2=$rekeshi->where('1')->max('dates');
+        $d1=strtotime($datenow);
+        $d2=strtotime($maxdate1);
+        $d3=strtotime($maxdate2);
+        $Days1=round(($d1-$d2)/3600/24);
+        $Days2=round(($d1-$d3)/3600/24);
+        if($Days1>7){
+            $rehospital->where("1")->delete();
+            $yuyuedan=M('Yuyuedan');
+            $num=$yuyuedan->where("1")->count('hospitalID');
+
+        }
+        if($Days2>7) {
+
+            $rekeshi->where("1")->delete();
+        }
+
     }
 
 }
