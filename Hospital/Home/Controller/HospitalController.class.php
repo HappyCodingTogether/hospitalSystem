@@ -208,9 +208,10 @@ class HospitalController extends Controller {
         $k=I('get.k','0-0-u5185u79D1');
         list($i1,$i2,$i3)=split('-',$k);
         $leixing=str_replace('u','\u',$i3);
+        $name=str_replace('\u79D1','',$leixing);
         $keshi=M('Keshi');
-        $fenlei=$this->unicode_decode($leixing);
-        $map['hospital_keshi.fenlei']=$fenlei;
+        $name1=$this->unicode_decode($name);
+        $map['hospital_keshi.name']=array('like','%'.$name1.'%');
         $count=$keshi->field('id')->where($map)->count();
         $page=new Page($count,10);
         $page->setConfig('first' , ' 首页' );
