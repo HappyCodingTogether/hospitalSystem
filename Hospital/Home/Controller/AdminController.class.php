@@ -181,11 +181,16 @@ class AdminController extends Controller{
         echo json_encode($array);
     }
     public function WriteGonggao(){
-       $data['title']=I('post.title');
+        $data['title']=I('post.title');
         $data['contents']=I('post.contents');
         $data['dateTimes']=date('Y-m-d H:i:s');
+        if(session('identify')==-1){
+            $data['hospitalID']=0;
+        }else{
+            $data['hospitalID']=session('identify');
+        }
         $Gonggao=M('Gonggao');
-        $result=$Gonggao->field("dateTimes,title,contents")->data($data)->add();
+        $result=$Gonggao->field("dateTimes,title,contents,hospitalID")->data($data)->add();
         if($result)$this->success();
         else $this->error();
     }
@@ -324,10 +329,8 @@ class AdminController extends Controller{
     }
     public function Addyisheng(){
         $keshiname=I('post.keshiname');
-
          $hospitalid=session('identify');
      //   $hospitalid=1;
-
         $Keshi=M('Keshi');
         $result1=$Keshi->where("name='$keshiname' AND hospitalID='$hospitalid'")->find();
         $data['hospitalID']=$hospitalid;
@@ -338,7 +341,17 @@ class AdminController extends Controller{
         $data['jianjie']=I('post.jianjie');
         $Doctor=M('Doctor');
         $result=$Doctor->field("hospitalID,keshiID,name,yuyueNum,guahaoMoney,jianjie")->data($data)->add();
-        if($result)$this->success();
+        if($result){
+            $jinqiChuzhen=M('Jinqichuzhen');
+                $time=time();
+                $data2['doctorID']=$result;
+                $data2['shengyuNumber']= $data['yuyueNum'];
+                $data2['keshiID']=$result1['id'];
+                for($i=1;$i<=30;$i++){
+                    $data2['dates']=date("Y-m-d",strtotime("+$i day",$time));
+                    $jinqiChuzhen->field('dates,keshiID,doctorID,shengyuNumber')->data($data2)->add();
+                }
+        }
         else $this->error();
     }
 
