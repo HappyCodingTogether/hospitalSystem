@@ -196,6 +196,10 @@ function yuyue() {
                 }else if(data== 4){
                     alert("您的信用评分不足，不能预约！");
                     $("#yuyue-modal").remove();
+                }
+                else if(data== 5){
+                    alert("您尚未实名认证，不能预约！");
+                    $("#yuyue-modal").remove();
                 }else {
                     modal.html("");
                     var length = data.length;
