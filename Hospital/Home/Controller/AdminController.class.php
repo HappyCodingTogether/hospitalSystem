@@ -165,7 +165,10 @@ class AdminController extends Controller{
             $data['password']=md5($pwd1);
             $User=M('User');
             $User->field('IDcard,password,name,identify')->data($data)->add();
-            if($User)$this->success();
+            if($User)
+            {
+                echo "true";
+            }
             else $this->error();
         }else{
             $this->error();
@@ -248,6 +251,7 @@ class AdminController extends Controller{
         $data['phone']=I('post.dianhua');
         $Hospital=M('Hospital');
         $Hospital->where("id='$id'")->save($data);
+        echo "true";
 
     }
     public function showkeshi(){
@@ -268,6 +272,7 @@ class AdminController extends Controller{
         $data['weekdays'] = I('post.weekdays');
         $Keshi = M('Keshi');
         $Keshi->where("id='$id'")->save($data);
+        echo "true";
     }
     public function Addkeshi(){
         $data['hospitalID']=session('identify');
@@ -278,8 +283,9 @@ class AdminController extends Controller{
         $data['phone']=1234567890;
         $Keshi=M('Keshi');
         $result=$Keshi->field("hospitalID,name,fenlei,weekdays,phone")->data($data)->add();
-        if($result)$this->success();
-        else $this->error();
+        if($result){
+            echo "true";
+        }
     }
     public function Deletekeshi(){
         $id=I('post.id');
@@ -319,6 +325,7 @@ class AdminController extends Controller{
         $data['jianjie']=I('post.jianjie');
         $Doctor=M('Doctor');
         $Doctor->where("id='$id'")->save($data);
+        echo "true";
     }
     public function Deleteyisheng(){
         $id=I('post.id');
@@ -351,8 +358,9 @@ class AdminController extends Controller{
                     $data2['dates']=date("Y-m-d",strtotime("+$i day",$time));
                     $jinqiChuzhen->field('dates,keshiID,doctorID,shengyuNumber')->data($data2)->add();
                 }
+            echo "true";
         }
-        else $this->error();
+
     }
 
     public function fuyuele(){
