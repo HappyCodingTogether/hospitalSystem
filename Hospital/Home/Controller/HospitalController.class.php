@@ -100,11 +100,23 @@ class HospitalController extends Controller {
             ->where($map)->join('__QU__ ON __HOSPITAL__.quID=__QU__.id','LEFT')->select());
 
 
+        //显示医院预约须知
+        $gonggao1=M('Gonggao');
+        $map=null;
+        $map['hospitalID']=$_GET['hospitalID'];
+        $map['title']='预约须知';
+        $this->assign('yuyuexuzhi',$gonggao1->field('id,title,contents')->where($map)->find());
+        //显示医院重要须知
+        $gonggao2=M('Gonggao');
+        $map=null;
+        $map['hospitalID']=$_GET['hospitalID'];
+        $map['title']='重要须知';
+        $this->assign('zhongyaoxuzhi',$gonggao2->field('id,title,contents')->where($map)->find());
         //显示医院公告
-        $gonggao=M('Gonggao');
+        $gonggao3=M('Gonggao');
         $map=array();
         $map['hospitalID']=$_GET['hospitalID'];
-        $this->assign('gonggao',$gonggao->field('id,title,dateTimes')->where($map)->order('datetimes DESC')->limit(10)->select());
+        $this->assign('gonggao',$gonggao3->field('id,title,dateTimes')->where($map)->order('datetimes DESC')->limit(10)->select());
 
         //显示科室列表
         $keshi=M('Keshi');
