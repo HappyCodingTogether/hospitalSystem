@@ -104,11 +104,16 @@ class KeshimController extends  Controller{
     public  function  getDoctorList(){
         $userID=session("userID");
         $pingfen=session("pingfen");
+        $user=M('User');
+        $isRenzheng=$user->where("id=$userID")->getField('isRenzheng');
         if($userID==null){
             echo 3;//未登录
         }elseif($pingfen<=0){
             echo 4;//信用积分不足
-        }else{
+        }elseif($isRenzheng!=1){
+            echo 5;//尚未认证
+        }
+        else{
             $KeshiID=I('post.keshiID');
             $year=I('post.year');
             $month=I('post.month');
