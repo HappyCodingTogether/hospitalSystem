@@ -9,7 +9,7 @@ class KeshimController extends  Controller{
         $KeshiID=I('post.keshiID');
         $mindate=$jinqiChuzhen->where("keshiID=$KeshiID")->min('dates');
         //var_dump($mindate);
-        if($mindate<date("Y-m-d")){
+        if($mindate<=date("Y-m-d")){
             $this->updateChuZhenTable();
         }
         //var_dump(json_encode($this->getNummber()));
@@ -17,20 +17,22 @@ class KeshimController extends  Controller{
     }
     public function updateChuZhenTable(){
         $time=time();
+        $date=getdate();
+        $day=$date['mday'];
+        //var_dump($day);
+        $datepre=date("Y-m-"."$day");
+        //var_dump($datepre);
         $KeshiID=I('post.keshiID');
         $Doctor=M('Doctor');
         $doctors=$Doctor->where("keshiID=$KeshiID")->select();
         $jinqiChuzhen=M('Jinqichuzhen');
-        $jinqiChuzhen->where("keshiID=$KeshiID")->delete();
        foreach($doctors as $value){
-            for($i=1;$i<=30;$i++){
-                $data['dates']=date("Y-m-d",strtotime("+$i day",$time));
+                $jinqiChuzhen->where("dates<='$datepre' AND doctorID=$value[id]")->delete();
+                $data['dates']=date("Y-m-d",strtotime("+30 day",$time));
                 $data['keshiID']=$KeshiID;
                 $data['doctorID']=$value['id'];
                 $data['shengyuNumber']=$value['yuyueNum'];
-
                 $jinqiChuzhen->field('dates,keshiID,doctorID,shengyuNumber')->data($data)->add();
-            }
        }
 
     }
