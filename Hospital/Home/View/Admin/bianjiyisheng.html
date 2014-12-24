@@ -16,7 +16,7 @@
        var maxnumber=10000;
 
        function tianjia2(id,keshi,name,guahaoMoney,yuyueNum,jianjie) {
-           maxnumber
+           //maxnumber
            var tbody = document.createElement("tbody");
            var oTab = document.getElementById('tb1');
            var oTr = document.createElement('tr');
@@ -38,6 +38,7 @@
            ad.type = "text";
            ad.name = "bbb";
            ad.id="name_"+id;
+           ad.style.width="99px";
 
            od.appendChild(ad);
            oTr.appendChild(od);
@@ -47,6 +48,7 @@
            ad.type = "text";
            ad.name = "ccc";
            ad.id="guahaoMoney_"+id;
+           ad.style.width="99px";
 
            od.appendChild(ad);
            oTr.appendChild(od);
@@ -56,7 +58,7 @@
            ad.type = "text";
            ad.name = "ddd";
            ad.id="yuyueNum_"+id;
-
+           ad.style.width="99px";
            od.appendChild(ad);
            oTr.appendChild(od);
 
@@ -132,6 +134,7 @@
            ad.id="name_"+id;
            ad.value=name;
            ad.disabled=true;
+           ad.style.width="99px";
        od.appendChild(ad);
        oTr.appendChild(od);
 
@@ -214,6 +217,7 @@
             <li class="active" ><a href="bianjiyisheng.html">编辑医生信息</a></li>
             <li class="active" ><a href="yuyuechuli.html">处理预约单</a></li>
             <li class="active" ><a href="lishiyuyue.html">历史预约单</a></li>
+            <li class="active" ><a href="xiegonggaoHospital.html">编写公告</a></li>
         </ul>
         
        </div>

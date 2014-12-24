@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>图腾医院管理界面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Bootstrap -->
+
+    <link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="__PUBLIC__/css/renzheng.css" rel="stylesheet" media="screen">
+    <link href="__PUBLIC__/css/kuangti.css" rel="stylesheet" media="screen">
+</head>
+<body>
+<div id="quick" class="box">
+    <div class="box-header">
+        <ul>
+            <li class="active" ><a href="bianjiyiyuan.html" >编辑医院信息</a></li>
+            <li class="active" ><a href="bianjikeshi.html">编辑科室信息</a></li>
+            <li class="active" ><a href="bianjiyisheng.html">编辑医生信息</a></li>
+            <li class="active" ><a href="yuyuechuli.html">处理预约单</a></li>
+            <li class="active" ><a href="lishiyuyue.html">历史预约单</a></li>
+            <li class="active" ><a href="xiegonggaoHospital.html">编写公告</a></li>
+
+        </ul>
+    </div>
+    <div class="box-body">
+        <form style="text-align: center">
+            <div class="input-group">
+                <span class="input-group-addon">公告标题</span>
+                <input type="text" class="form-control" placeholder="公告标题" id="title">
+            </div><br>
+            <div class="input-group">
+                <span class="input-group-addon">公告内容</span>
+                <textarea class="form-control" rows="6" style="width:100%" id="contents"></textarea>
+            </div><br>
+
+            <input type="button" value="确认"  class="btn btn-primary"  onclick="writeg()"/>
+
+        </form>
+    </div>
+</div>
+
+
+</body>
+</html>
+
+<js href="__PUBLIC__/js/jquery-2.1.1.min.js"/>
+<js href="__PUBLIC__/js/bootstrap.min.js"/>
+<script type="text/javascript">
+    var PUBLIC= "__PUBLIC__";
+    var APP = "__APP__";
+    var ROOT = "__ROOT__";
+
+    function writeg(){
+        $.ajax({
+            url:APP+"/Home/Admin/WriteGonggao",
+            type:"POST",
+            dataType:'json',
+            async:true,
+            data:"&title="+document.getElementById("title").value+"&contents="+document.getElementById("contents").value,
+            success:function(){
+                window.location.reload();
+            }
+        });
+    }
+</script>
